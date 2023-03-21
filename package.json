@@ -1,0 +1,25 @@
+{
+  "name": "plumliil-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:serve": "vuepress serve docs"
+  },
+  "dependencies": {
+    "lii-ui": "^0.0.6",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.0",
+    "@vuepress/bundler-vite": "^2.0.0-beta.49",
+    "@vuepress/plugin-container": "^2.0.0-beta.49",
+    "@vuepress/plugin-search": "^2.0.0-beta.49",
+    "@vuepress/plugin-toc": "^2.0.0-beta.61",
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-plugin-demo-container": "^0.2.0",
+    "vuepress-plugin-demo-container-v2": "^2.3.4"
+  }
+}
