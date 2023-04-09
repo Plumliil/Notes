@@ -1,3 +1,7 @@
+<!-- ---
+prev: ../
+next: ../TypeScript
+--- -->
 # 基础篇
 
 ## 面向对象
@@ -321,7 +325,7 @@ console.log(HOST);
 
 11.标量与引用特性的传值与传址
 
-​ ![image-20210619100945637](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210619100945637.png)
+<!-- ​ ![image-20210619100945637](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210619100945637.png) -->
 
 ```javascript
 // 地址也改变，创建新的内存地址，针对小数据(两个内存空间)
@@ -622,7 +626,7 @@ console.log([1, 2, 3, 4].fill("l", 1, 3));
 
 ### splice 和 slice 
 
-![image-20210714113458879](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210714113458879.png)
+<!-- ![image-20210714113458879](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210714113458879.png) -->
 
 ```javascript
 let arr = [1, 2, 3, 4, 5];

@@ -1,2 +1,2 @@
-<template><div><!-- footer: MIT Licensed | Copyright © 2018-present Evan You -->
+<template><div><Valine />
 </div></template>

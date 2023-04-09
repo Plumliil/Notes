@@ -1,3 +1,7 @@
+<!-- ---
+prev: ../
+next: ../TypeScript
+--- -->
 # 进阶篇
 
 ### 什么是Promise

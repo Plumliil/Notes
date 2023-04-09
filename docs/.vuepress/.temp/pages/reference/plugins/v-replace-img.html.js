@@ -1,4 +1,4 @@
-export const data = JSON.parse("{\"key\":\"v-c26d761c\",\"path\":\"/reference/plugins/v-replace-img.html\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{\"updatedTime\":null},\"filePathRelative\":\"reference/plugins/v-replace-img.md\"}")
+export const data = JSON.parse("{\"key\":\"v-c26d761c\",\"path\":\"/reference/plugins/v-replace-img.html\",\"title\":\"\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[],\"git\":{\"updatedTime\":1679416165000},\"filePathRelative\":\"reference/plugins/v-replace-img.md\"}")
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()

@@ -1,4 +1,4 @@
-export const data = JSON.parse("{\"key\":\"v-a90445dc\",\"path\":\"/notes/JavaScript/advance.html\",\"title\":\"进阶篇\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":3,\"title\":\"什么是Promise\",\"slug\":\"什么是promise\",\"children\":[]},{\"level\":3,\"title\":\"为什么要使用Promise\",\"slug\":\"为什么要使用promise\",\"children\":[]}],\"git\":{\"updatedTime\":null},\"filePathRelative\":\"notes/JavaScript/advance.md\"}")
+export const data = JSON.parse("{\"key\":\"v-a90445dc\",\"path\":\"/notes/JavaScript/advance.html\",\"title\":\"进阶篇\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"excerpt\":\"\",\"headers\":[{\"level\":3,\"title\":\"什么是Promise\",\"slug\":\"什么是promise\",\"children\":[]},{\"level\":3,\"title\":\"为什么要使用Promise\",\"slug\":\"为什么要使用promise\",\"children\":[]}],\"git\":{\"updatedTime\":1679416165000},\"filePathRelative\":\"notes/JavaScript/advance.md\"}")
 
 if (import.meta.webpackHot) {
   import.meta.webpackHot.accept()
