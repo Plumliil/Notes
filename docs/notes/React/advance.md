@@ -152,7 +152,8 @@ const Index = () => {
 
 Context Hook 是可以让子组件给后代组件共享数据
 
-接受一个上下文对象(从' React.createContext '返回的值)并返回当前* context值，该值由最近的给定上下文提供程序提供。
+接受一个上下文对象(从' React.createContext '返回的值)并返回当前\* context 值，该值由最近的给定上下文提供程序提供。
+
 ```tsx
 /**
  * Accepts a context object (the value returned from `React.createContext`) and returns the current
@@ -166,7 +167,7 @@ function useContext<T>(
 ): T;
 ```
 
-父组件
+子孙组件
 
 ```tsx
 import { useContext } from "react";
@@ -188,7 +189,7 @@ export const MyComp = () => {
 };
 ```
 
-子孙组件
+父组件
 
 ```tsx
 import { createContext } from "react";
@@ -219,6 +220,69 @@ const Index = () => {
   );
 };
 ```
+
+### useReducer
+
+在某些场景下,如果 state 处理的逻辑较为复杂,可以使用 useReducer 来对其进行拆分,或者这次修改的 state 需要依赖之前的 state 时也可以使用
+看看官方怎么说:
+
+```tsx
+/**
+ * An alternative to `useState`.
+ *
+ * `useReducer` is usually preferable to `useState` when you have complex state logic that involves
+ * multiple sub-values. It also lets you optimize performance for components that trigger deep
+ * updates because you can pass `dispatch` down instead of callbacks.
+ *
+ * @version 16.8.0
+ * @see https://reactjs.org/docs/hooks-reference.html#usereducer
+ */
+// overload where dispatch could accept 0 arguments.
+function useReducer<R extends ReducerWithoutAction<any>, I>(
+  reducer: R,
+  initializerArg: I,
+  initializer: (arg: I) => ReducerStateWithoutAction<R>
+): [ReducerStateWithoutAction<R>, DispatchWithoutAction];
+```
+
+从上述代码可以看出,useReducer 是 useState 的另一种选择,当我们要实现的状态逻辑较为复杂时,useReducer 优先级更高,还可以优化触发深度更新组件的性能,因为 useReduce 可以向下出传递 dispatch 而不是回调
+
+useReducer 支持我们传递三个参数,
+第一个参数是 reducer 纯函数
+第二个参数是我们要使用的初始化值
+第三个参数是一个函数,它支持我们对 useReducer 进行初始化操作
+
+```tsx
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    // return { ...state, count:count+1 };
+    case "decrement":
+      return state - 1;
+    // return { ...state, count: count - 1 };
+    default:
+      return state;
+  }
+};
+
+const Index = () => {
+  // const [count, setCount] = useState(0);
+  const [state, dispatch] = useReducer(reducer, 1);
+  // const [state, dispatch] = useReducer(reducer, { count: 1 });
+  return (
+    <>
+      <h1>useReducer</h1>
+      <h2>当前计数:{state}</h2>
+      {/* <h2>当前计数:{state.count}</h2> */}
+      <button onClick={() => dispatch({ type: "increment" })}>+1</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-1</button>
+    </>
+  );
+};
+```
+
+从上面代码可以看出我们可以传递两种不同形式的参数,数字和对象,对应的使用方法也需要改变,同时我们可以对 reducer 进行抽离来复用,改变的数据不会共享
 
 ### useRef
 
