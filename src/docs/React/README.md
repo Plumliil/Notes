@@ -8,7 +8,7 @@ React（也称为 React.js 或 ReactJS）是一个自由及开放源代码的前
 
 > [React 介绍(wikipedia)](https://zh.wikipedia.org/wiki/React)
 
-::: react-demo 基础 Demo
+<!-- ::: react-demo 基础 Demo
 
 ```js
 const { useState } = React;
@@ -35,4 +35,4 @@ export default () => {
   );
 };
 
-```
+``` -->
