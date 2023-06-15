@@ -6,8 +6,9 @@
     >
     <!-- <img src="https://gitee.com/Plumliil/images/raw/master/MdPicture/20220104173804.png"  > -->
     <!--<img src="https://raw.githubusercontent.com/Plumliil/images/main/img/logo.png" style="border-radius:50%"/>-->
-    <img src="https://s2.loli.net/2022/04/05/qa4sCStuDX5gyBb.png" style="border-radius:50%" />
+    <img src="https://s2.loli.net/2023/04/16/BtCLxqW85ujKkGP.png" style="border-radius:50%;width:300px" />
 </div>
+
 <div align=center>
     <a href="https://github.com/Plumliil/liilib" style="font-size:30px;font-weight:700;text-decoration: none;" title="Plumliil">liilib</a>
 </div>
