@@ -2,11 +2,36 @@
 prev: ../JavaScript
 next: ../React
 --- -->
+
 # 基础篇
 
 ### 原始数据类性和 any
 
 undefined 和 null 是所有类型的子类型
+
+### number 类型
+
+不区分浮点和整数
+支持二进制，八进制，十六进制
+
+```typescript
+let num1: number = 100; // 十进制 100
+let num2: number = 0b100; // 二进制 4
+let num3: number = 0o100; // 八进制 64
+let num4: number = 0x100; // 十六进制 256
+```
+
+### boolean 类型
+
+`let flag: boolean = true`
+`let flag: boolean = 20 > 30;`
+
+### string 类型
+
+默认情况下可以推导出类型可以不加
+支持模板字符串
+`let msg:string='hello world'`
+`msg=`num1:${num1}--flag:${flag}--msg${msg}``
 
 ### 数组和元组
 
@@ -229,8 +254,10 @@ let person: IPerson = { name: "zs", age: 19 };
 TypeScript 作为 JavaScript 的超集，在开发过程中不可避免要引用其他第三方的 JavaScript 的库。虽然通过直接引用可以调用库的类和方法，但是却无法使用 TypeScript 诸如类型检查等特性功能。为了解决这个问题，需要将这些库里的函数和方法体去掉后只保留导出类型声明，而产生了一个描述 JavaScript 库和模块信息的声明文件。通过引用这个声明文件，就可以借用 TypeScript 的各种特性来使用库文件了。
 
 ### 内置类型
-类似Date,RegExp...
-~~~ts
+
+类似 Date,RegExp...
+
+```ts
 const a: Array<number> = [1, 2, 3];
 const date = new Date();
 
@@ -245,19 +272,17 @@ let allLis = body.querySelectorAll("li");
 allLis.length;
 body.addEventListener("click", (e) => {
   console.log(e);
-  e.preventDefault()
+  e.preventDefault();
 });
-
-~~~
+```
 
 - Omit 去除类型中某些项
   - `type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;`
-  - Omit会构造一个除类型K外具有T性质的类型
+  - Omit 会构造一个除类型 K 外具有 T 性质的类型
 - Pick 选取类型中指定类型
   - `type Pick<T, K extends keyof T> = { [P in K] : T[P]; };`
-  - 从T中选择一组属性，将它们在K中联合
+  - 从 T 中选择一组属性，将它们在 K 中联合
 - Partial 将类型中所有选项变为可选，即加上？
   - `type Partial<T> = {[P in keyof T]?: T[P];};`
 - Required 将类型中所有选项变为必选，去除所有？
   - `type Required<T> = {[P in keyof T]-?: T[P];};`
-

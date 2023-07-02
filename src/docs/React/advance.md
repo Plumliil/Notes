@@ -7,10 +7,6 @@ next: ../Vue
 
 ## Hook
 
-### 什么是 Hook
-
-### 为什么要使用 Hook
-
 ### useState
 
 先放上 React 官方类型定义
@@ -284,9 +280,204 @@ const Index = () => {
 
 从上面代码可以看出我们可以传递两种不同形式的参数,数字和对象,对应的使用方法也需要改变,同时我们可以对 reducer 进行抽离来复用,改变的数据不会共享
 
-### useCallback
-useCallback的实际目的是进行性能优化,useCallback会返回一个函数的memoized(记忆值);在依赖不变的情况下,多次定义的时候,返回的值是相同的
-useCallback接收两个参数,第一个参数是要完成的回调,第二个参数是回调依赖值
 ### useRef
 
+useRef 在 react 中有两个作用
+
+- 用来存储数据
+- 使用 Ref 访问 DOM 元素
+
+在第一个作用中 useRef 创建一个对象来存储数据,和 useState 不同的是,改变 useRef 创造出来的对象的值组件不会重新渲染,需要等到下次渲染才会显示到页面上
+
+在函数组件中进行获取 Dom 元素时,有时会结合`forwardRef`来使用,`forwardRef`可以用来转发 `ref`,使用`forwardRef`包裹的组件接收第二个参数`ref`,这个`ref`为父组件传入的`ref`,从而可以对子组件中的 Dom 进行操作.
+
+```tsx
+import React, { forwardRef, useRef } from "react";
+
+const Foo = forwardRef((props, iptRef: any) => {
+  const clickHandler = () => {
+    console.log("iptRef", iptRef);
+    iptRef.current.focus();
+  };
+  return (
+    <div>
+      <input type="text" ref={iptRef} />
+      <button onClick={clickHandler}>聚焦</button>
+    </div>
+  );
+});
+
+const Demo = () => {
+  const fooRef = useRef<any>();
+  const clickHandler = () => {
+    console.log("fooRef", fooRef);
+    fooRef.current.focus();
+  };
+  return (
+    <div>
+      <Foo ref={fooRef} />
+      <button onClick={clickHandler}>FOO REF</button>
+    </div>
+  );
+};
+
+export default Demo;
+```
+
+上述代码两个按钮均可实现输入框聚焦功能,当点击按钮时控制带打印如下
+
+```shell
+index.tsx:5 iptRef {current: input}
+index.tsx:19 fooRef {current: input}
+```
+
+这两个 `ref` 操作的是同一个 `Dom` 节点
+
+### useCallback
+
+useCallback 的实际目的是进行性能优化,useCallback 会返回一个函数的 memoized(记忆值);在依赖不变的情况下,多次定义的时候,返回的值是相同的
+useCallback 接收两个参数,第一个参数是要完成的回调,第二个参数是回调依赖值
+
+```tsx
+// @flow
+import * as React from "react";
+const Foo = React.memo((props: any) => {
+  console.log("Foo render");
+  return (
+    <div>
+      <ul>{props.render()}</ul>
+    </div>
+  );
+});
+export default (props: Props) => {
+  const [range, setRange] = React.useState({ min: 0, max: 10 });
+  const [count, setCount] = React.useState(0);
+  console.log("APP render");
+  const render = () => {
+    let list = [];
+    console.log("Render Function Action");
+    for (let i = 0; i < range.max; i++) {
+      list.push(<li key={i}>{i}</li>);
+    }
+    return list;
+  };
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        <h1>+1</h1>
+      </button>
+      <button
+        onClick={() =>
+          setRange({
+            min: range.min,
+            max: range.max + 10,
+          })
+        }
+      >
+        <h1>range max +10</h1>
+      </button>
+      <Foo render={render}></Foo>
+    </div>
+  );
+};
+```
+
+以上述代码为例`render`函数渲染了一个数字列表,当我们点击`+1` 按钮时`count +1`组件重新渲染,控制台会打印以下
+
+```shell
+index.tsx:17 APP render
+index.tsx:7 Foo render
+index.tsx:20 Render Function Action
+```
+
+但是此时 `render` 函数还是原来的那个 `render`,同一引用,本质上没有发生变化,但是它任然会再渲染一边,这不是我们想要的,此时就可以使用 `useCallback` 进行简单优化,仔细观察整个函数,函数的渲染只和`renge.max`有关,所以只需要监听这个 range 依赖,当 `range` 变化时再重新渲染
+
+```tsx
+const render = React.useCallback(() => {
+  console.log("Render Function Action");
+  let list = [];
+  console.log(1);
+  for (let i = 0; i < range.max; i++) {
+    list.push(<li key={i}>{i}</li>);
+  }
+  return list;
+}, [range]);
+```
+
 ### useMemo
+
+`useMemo` 和 `useCallback` 都可以进行 `react` 组件优化,但不同的一点是 `useCallback` 是固定的是一个函数,而 useMemo 固定的是一个值
+以 `useCallback` 代码为例,我们使用 `useMemo` 替换 `useCallback`
+
+```tsx
+const render = React.useMemo(() => {
+  console.log("Render Function Action");
+  let list = [];
+  console.log(1);
+  for (let i = 0; i < range.max; i++) {
+    list.push(<li key={i}>{i}</li>);
+  }
+  return list;
+}, [range]);
+```
+
+函数已经经过替换,但是想要正常使用,仍需要修改 `render` 的使用方法,`useCallback` 包裹的函数在调用时仍是一个函数,我们需要加括号进行调用,而 `useMemo` 包裹的函数直接调用其值即可
+
+```tsx
+// useCallback
+<ul>{props.render()}</ul>
+```
+
+```tsx
+// useMemo
+<ul>{props.render}</ul>
+```
+
+`useMemo` 是性能优化的手段,传入 `useMemo` 的函数会在渲染期间执行,最好不要再函数内部执行与渲染无关的操作,诸如副作用的操作属于 `useEffect` 的范畴,而不是 `useMemo`.`useMemo` 只负责渲染
+
+`useCallback(fn,deps) ` 相当于 ` useMemo(()=>fn,deps)`
+
+### memo
+
+和 `useCallback` 与 `useMemo` 定义函数逻辑,优化函数处理不同,`memo` 是优化函数组件的一种方式,它可以让组件不重复渲染,不进行刷新
+
+```tsx
+// @flow
+import * as React from "react";
+const Foo = (props: any) => {
+  console.log("Foo render");
+  return (
+    <div>
+      <h2>{props.count}</h2>
+    </div>
+  );
+};
+
+export default (props: Props) => {
+  const [count, setCount] = React.useState(0);
+  console.log("APP render");
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <Foo count={1}></Foo>
+    </div>
+  );
+};
+```
+
+如上述代码所示,当我们点击+1 按钮时,count 发生变化此时页面会重新渲染,`Foo render`,`App render`均会打印,但是此时的`Foo`组件没有进行改变,和渲染前并无区别,所以没必要进行渲染,而`memo`所做的事就是当`Foo`的依赖如`count`发生变化时,`Foo`才会重新渲染
+
+```jsx
+const Foo = React.memo((props: any) => {
+  console.log("Foo render");
+  return (
+    <div>
+      <h2>{props.count}</h2>
+    </div>
+  );
+});
+```
+
+将上述`Foo`组件使用`memo`进行包裹此时再点击+1 按钮,只会打印`App render`,而`Foo render`不会进行打印,这就起到了优化的作用

@@ -209,7 +209,7 @@ http
 
 让开发者以更加友好的方式拼接字符串，使项目代码更加清晰，更加易于维护
 
-![image-20210524095909317](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210524095909317.png)
+<!-- ![image-20210524095909317](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210524095909317.png) -->
 
 #### art-template
 
@@ -334,7 +334,7 @@ http
 
 使用模板继承可以将网站 HTML 抽离到单独的文件中，其他界面模板可以继承骨架文件
 
-![image-20210524203952891](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210524203952891.png)
+<!-- ![image-20210524203952891](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210524203952891.png) -->
 
 ##### 首页模板
 
@@ -517,7 +517,7 @@ app.post("/", (req, res) => {
 
 ​ 中间件就是一堆方法，可以接收客户端发来的请求，可以对请求做出响应，也可以将请求交给下一个中间件处理
 
-![image-20210603202623416](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210603202623416.png)
+<!-- ![image-20210603202623416](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210603202623416.png) -->
 
 中间件主要由两部分构成，中间件方法及请求处理函数
 
@@ -679,7 +679,7 @@ home.get("/index", () => {
 
 express 框架中使用 req.query 即可获得 GET 参数，框架内部会将 GET 参数转换为对象并返回，
 
-![image-20210604100936252](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210604100936252.png)
+<!-- ![image-20210604100936252](C:\Users\22584\AppData\Roaming\Typora\typora-user-images\image-20210604100936252.png) -->
 
 ```javascript
 const express = require("express");

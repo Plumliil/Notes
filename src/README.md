@@ -25,16 +25,19 @@ features:
   - title: React
     icon: react
     details: 一个自由及开放源代码的前端工具库,用于基于UI组件构建用户界面。
-  
+
   - title: Vue
     icon: vue
     details: 渐进式JavaScript框架易学易用,性能出色,适用场景丰富的Web前端框架。
+
+  - title: JavaScript
+    icon: javascript
+    details: JavaScript 编程语言允许你在 Web 页面上实现复杂的功能。
 
   # - title: Less
   #   icon: css
   #   details: 一门CSS预处理语,它扩展了CSS语言.增加了变量、Mixin、函数等特性。
   #   link: https://theme-hope.vuejs.press/guide/feature/page-info.html
-
 
 copyright: false
 # footer: Theme by <a href="https://theme-hope.vuejs.press/" target="_blank">VuePress Theme Hope</a> | MIT Licensed, Copyright © 2019-present Mr.Hope
