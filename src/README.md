@@ -30,9 +30,9 @@ features:
     icon: vue
     details: 渐进式JavaScript框架易学易用,性能出色,适用场景丰富的Web前端框架。
 
-  - title: JavaScript
-    icon: javascript
-    details: JavaScript 编程语言允许你在 Web 页面上实现复杂的功能。
+  - title: MySql
+    icon: mysql
+    details: 用于构建和管理各种类型的数据库应用程序。
 
   # - title: Less
   #   icon: css
