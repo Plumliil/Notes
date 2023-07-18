@@ -256,6 +256,225 @@ source c:\db0712_student_info.sql
 
 ## 高级 SQL 查询
 
+### 查询多条数据
+
+```sql
+-- 查询id为1,3的数据
+select * from `book_info` where B_ID in (1,3)
+-- 查询id不为1,3的数据
+select * from `book_info` where B_ID not in (1,3)
+```
+
+### 分组查询(group by 分类字段)
+
+分组查询中如果字段后加条件使用`having`关键字,而不是`where`关键字
+
+```sql
+-- 查询goods表中商品种类
+select goodCategory from goods group by goodCategory
+-- 查询goods表中商品是否有种类sports
+select goodCategory from goods group by goodCategory having goodCategory='sports'
+```
+
+### 分页查询
+
+```sql
+select * from goods limit (pageNo-1)*pageSize,pageSize
+```
+
+### 多表查询
+
+- 方式一:`select * from 表1,表2,...,表n where 条件`
+- 方式二:通过链接关键字
+  - 内连接: `select * from 表1 inner join 表2 on 条件(多表间有关联的条件)`
+  - 外连接
+    - 左外连接: `select * from 表1 left join 表2 on 条件(多表间有关联的条件)`
+      - 当条件不满足时以左边表为主
+    - 右外连接: `select * from 表1 right join 表2 on 条件(多表间有关联的条件)`
+      - 当条件不满足时以右边表为主
+
+加入现在有两张表,部门表和员工表
+
+部门表
+
+```sql
+-- amydb.dept definition
+CREATE TABLE `dept` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `deptName` varchar(20) NOT NULL COMMENT '部门名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+员工表
+
+```sql
+-- amydb.emp definition
+CREATE TABLE `emp` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '员工编号',
+  `empName` varchar(20) NOT NULL COMMENT '员工名',
+  `salary` int NOT NULL COMMENT '薪资',
+  `deptID` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+#### 方式一
+
+```sql
+-- select * from 表1,表2,...,表n where 条件
+-- 查询g表内的goodName和temp表内的maxQuantity 且 g.count=temp.maxQuantity
+select g.goodName,temp.maxQuantity
+from goods g,(select min(count) as maxQuantity from goods) temp --
+where g.count=temp.maxQuantity
+```
+
+1.查询部门编号为 1 的部门下所有的员工
+
+```sql
+select * from emp where deptId = 1
+
+```
+
+2.查询所有部门中的所有员工
+
+```sql
+select * from dept d,emp e where e.deptID = d.id
+```
+
+3.找出开发部中所有员工名以及薪资和部门名
+
+```sql
+select d.deptName ,e.empName,e.salary  from dept d ,emp e where d.id =e.deptID and d.deptName ='测试部'
+```
+
+4.找出开发部,测试部中所有员工名以及薪资和部门名
+
+```sql
+-- 方式一
+select d.deptName ,e.empName,e.salary
+from dept d ,emp e
+where d.id =e.deptID and d.deptName in ('开发部','测试部')
+-- 方式二
+select d.deptName ,e.empName,e.salary
+from dept d ,emp e
+where d.id =e.deptID and (d.deptName='开发部' or d.deptName= '测试部')
+-- 方式三 使用union进行合并 合并前提上下两个sql语句查询结果表结构相同
+-- union 自动去重
+-- union all 不会自动去重
+select d.deptName ,e.empName,e.salary
+from dept d ,emp e
+where d.id =e.deptID and d.deptName='开发部'
+union
+select d.deptName ,e.empName,e.salary
+from dept d ,emp e
+where d.id =e.deptID and d.deptName= '测试部'
+```
+
+#### 方式二
+
+##### 内连接
+
+1.查询所有部门中所有员工的名字,部门名,薪资
+
+```sql
+select d.deptName ,e.empName ,e.salary
+from dept d
+inner join emp e
+on d.id =e.deptID
+```
+
+2.找出开发部中所有员工名以及薪资和部门名
+
+```sql
+select d.deptName ,e.empName ,e.salary
+from dept d
+inner join emp e
+on d.id =e.deptID where d.deptName ='开发部'
+```
+
+##### 左外连接
+
+```sql
+-- 若此时没有员工属于销售部 则查到的empName 和 salary为null
+-- 但是此时左边表中存在d.deptName='销售部' 所以此时查询到的数据只有部门名称有值 其他字段为bull
+select d.deptName ,e.empName ,e.salary
+from dept d
+left join emp e
+on d.id =e.deptID where d.deptName ='销售部'
+```
+
+##### 右外连接
+
+```sql
+select d.deptName ,e.empName ,e.salary
+from emp e
+right join dept d
+on d.id =e.deptID where d.deptName ='销售部'
+```
+
+### 表设计以及三表查询
+
+#### 示例一
+
+```sql
+-- 问题不确定
+-- 老师人数不确定
+-- 打分学生人数不确定
+
+create table question(
+	questionId bigint(20) auto_increment primary key comment '问题主键',
+	content varchar(200) not null comment '问题内容'
+)
+
+create table teacher(
+	teacherId bigint(20) auto_increment primary key comment '老师主键',
+	name varchar(40) not null comment '老师名称'
+)
+
+-- 中间表
+create table teacher_question(
+	id bigint(20) auto_increment primary key comment '主键',
+	teacherId bigint(20) not null comment '老师主键',
+	questionId bigint(20) not null comment '问题主键',
+	score int(20) not null comment '分数'
+)
+
+```
+
+求出 teacherId=4 的老师的平均分
+
+```sql
+-- 得到总分数
+-- select sum(score) from teacher_question tq where tq .teacherId =4
+-- 得到问题数 通过查询提交teacherId=1的questionId=1的人数
+-- select count(*) as num  from teacher_question tq2 where tq2.questionId =1 and tq2 .teacherId =1
+
+select floor(temp1.total/temp2.num) as 平均分 from
+(select sum(score) as total from teacher_question tq where tq .teacherId =4) temp1,
+(select count(*) as num  from teacher_question tq2 where tq2.questionId =1 and tq2 .teacherId =1) temp2
+```
+
+#### 实例二
+
+```sql
+-- 购物车
+--
+-- 物品表:goods
+-- id,goodsName,price
+-- 1 xxx衣服 100
+-- 2 xxx鞋子 300
+-- 客户表:customer
+-- id,customerName,phone,address
+-- 1,zs,13811112222,zz
+-- 中间表
+-- id,goodsId,customerId,
+```
+
+查询张三具体买了哪些商品(商品名,价格,客户名,客户手机号)
+
+## 联合查询
+
 ## 连接查询
 
 ## 存储过程与函数
@@ -270,6 +489,9 @@ source c:\db0712_student_info.sql
   ```sql
   SELECT MAX(grade) AS 最高分 FROM students
   ```
+
+````
+
 - 找出最小值:MIN(字段名)
   ```sql
   SELECT MIN(grade) AS 最低分 FROM students
@@ -291,11 +513,17 @@ source c:\db0712_student_info.sql
 
 #### 常用函数
 
+#### 修改时间函数
+
+```sql
+-- DATA_FORMAT(data,format)
+select date_format(birthday,'%Y年%m月%d日') from students
+```
+
 ##### 时间函数
 
 ```sql
   SELECT 时间函数()
-
 ```
 
 - 获取当前时间:NOW()
@@ -321,3 +549,4 @@ source c:\db0712_student_info.sql
 ## 视图
 
 ## 高级特性之事务
+````
