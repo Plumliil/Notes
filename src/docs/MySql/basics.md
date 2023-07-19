@@ -473,10 +473,6 @@ select floor(temp1.total/temp2.num) as 平均分 from
 
 查询张三具体买了哪些商品(商品名,价格,客户名,客户手机号)
 
-## 联合查询
-
-## 连接查询
-
 ## 存储过程与函数
 
 ### 聚合函数与常见函数
@@ -486,11 +482,10 @@ select floor(temp1.total/temp2.num) as 平均分 from
 在函数中,函数使用 SELECT 关键字调用 SELECT 函数名(字段) [FROM 表名]
 
 - 找出最大值:MAX(字段名)
+
   ```sql
   SELECT MAX(grade) AS 最高分 FROM students
   ```
-
-````
 
 - 找出最小值:MIN(字段名)
   ```sql
@@ -548,5 +543,66 @@ select date_format(birthday,'%Y年%m月%d日') from students
 
 ## 视图
 
-## 高级特性之事务
-````
+视图是在真实表上面构建的一张虚表,这个虚表由真是表的某些字段构成,操作视图方法和操作表方法相同,但是增删改视图后原表也会发生改变
+
+### 创建视图
+
+```sql
+-- create view 视图名 as 查询语句
+create view view_all
+as select e.id as empId, e.empName ,e.salary ,e.phone ,d.deptName
+from emp e inner join dept d on e.deptID =d.id
+```
+
+### 查询某一视图中数据
+
+```sql
+select * from view_all va where empId =1
+```
+
+### 删除视图中某一条数据
+
+```sql
+delete * from view_emp  where id =1
+```
+
+### 删除视图
+
+```sql
+delete from view_emp
+```
+
+### 向视图中插入一条数据
+
+```sql
+insert into view_emp  values(5,'tom',8500,1,136656,2663515313)
+insert into view_emp set empName='田七'
+```
+
+### 修改视图数据
+
+```sql
+update view_emp set empName='李四四' where id=2
+```
+
+### 应用场景
+
+- 金融行业
+- 保险行业
+- 财务行业
+
+## 数据库建模(powerDesigner)
+
+## 事务
+
+什么是事务
+
+### 事务四大特性
+
+- 原子性 Automic
+- 一致性 Consistent
+- 隔离性 Isolation
+  - 脏读
+  - 虚读和幻读
+  - 不可重复读
+- 持久性 Durable
