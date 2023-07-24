@@ -595,14 +595,137 @@ update view_emp set empName='李四四' where id=2
 
 ## 事务
 
-什么是事务
+### 什么是事务
+
+多组操作要么全部成功,要么全部失败
 
 ### 事务四大特性
 
-- 原子性 Automic
-- 一致性 Consistent
-- 隔离性 Isolation
-  - 脏读
-  - 虚读和幻读
-  - 不可重复读
-- 持久性 Durable
+- 原子性 Automic: 同一个事务中多组操作不能分割,必须为一个整体
+- 一致性 Consistent: 事务操作前与实务操作后总量保持一致
+- 隔离性 Isolation: 多个事务之间互不干扰,转账为例
+
+  - 脏读: 一个事务可以读取另一个事物未提交的数据,如张三开启事务进行汇款给李四,李四发货后张三进行事务回滚再提交,张三白嫖货物
+  - 虚读(幻读): 指一个线程中的事务读取到了另外一个线程中提交的 insert 的数据。
+  - 不可重复读: 在同一个事务中,不同时间进行查询多次读取到的结果不一致(开启事务后进行查询,不管查询多少次需以开启事务前为基础)
+  - 在 mysql 中事务有四种隔离级别: read uncommitted, read committed(读取提交), repeatable read, Serializable
+
+    - 查看 mysql 的隔离级别
+      - ```sql
+          -- 5.0+
+          -- 查看当前会话隔离级别
+          select @@tx_isolation;
+          -- 查看当前系统隔离级别
+          select @@global tx_isolation;
+          -- 8.0+
+          -- 查看当前会话隔离级别
+          select @@transaction_isolation;
+          -- 查看当前系统隔离级别
+          select @@global.transaction_isolation;
+        ```
+    - 改变隔离级别
+      - ```sql
+          set global transaction isolation level 隔离级别;
+        ```
+    - 不同的隔离级别会引发不同的问题
+      - 当 mysql 事务的隔离级别为 read uncommitted 时会引起脏读,解决脏读,改变隔离级别为`read committed`.脏读:一个事务可以读取另一个事物未提交的数据,
+      - 当 mysql 事务的隔离级别为`read committed` 时会引起不可重复读:另一个事务进行数据修改并且提交后,该事务读取到的数据是最新数据,和更改前同一事务读取到的结果不一致,解决不可重复读:将隔离级别改为`repeatable read`
+      - 当 mysql 事务的隔离级别为`repeatable read`时会引起虚读(幻读),解决(幻读),改变隔离级别为`Serializable`
+
+- 持久性 Durable: 数据一旦进入到库中,表中,就永久存在
+
+### 事务过程
+
+- 开启事务: `start transaction`
+- 提交事务: `commit`
+- 回滚: `rollback` 回滚只能在开启和提交事务之间进行回滚,不能在提交事务之后进行
+  回滚
+
+```sql
+start transaction
+update accounts set money=money -200 where bankNo =111
+update accounts set money=money +200 where bankNo =122
+commit
+```
+
+## 存储过程
+
+MySQL 存储过程是一组预先编写好的 SQL 语句集合，它们被命名并存储在数据库中，可以在需要的时候调用执行。存储过程通常用于封装一系列常用的 SQL 操作，提高数据库的性能和安全性。
+
+### 语法
+
+#### 创建存储过程：
+
+```sql
+-- create procedure 存储过程名 (参数名1 参数类型1,参数名2 参数类型2)
+-- begin
+-- 	代码块;
+-- end
+DELIMITER //
+create procedure addSalary (money FLOAT,idd BIGINT)
+begin
+  update emp set salary=salary+money where id=idd
+end //
+DELIMITER ;
+```
+
+#### 执行存储过程
+
+```sql
+call addSalary(-1000,9);
+```
+
+MySQL 存储过程的优点包括减少网络流量、提高性能和安全性、封装复杂的业务逻辑等。存储过程还支持参数传递、条件判断、循环和异常处理等高级功能，可以根据具体的需求进行编写和使用。类似于函数的调用
+
+#### 带返回值的储存过程
+
+```sql
+DELIMITER //
+CREATE PROCEDURE test1(IN i FLOAT, IN j FLOAT, OUT num FLOAT)
+BEGIN
+    SET num = i + j;
+END //
+DELIMITER ;
+-- call `test1`(10,20,@result)
+```
+
+#### 删除存储过程
+
+```sql
+drop procedure [if existe] 存储过程名;
+drop procedure if existe test1
+```
+
+#### 带 if 语句的存储过程
+
+```sql
+DELIMITER //
+CREATE PROCEDURE myProcedure(IN num INT, OUT result VARCHAR(50))
+BEGIN
+    -- 定义变量
+    DECLARE message VARCHAR(50);
+    -- 使用IF语句进行条件判断
+    IF num > 0 THEN
+        SET message = 'Number greater than 0';
+    ELSEIF num < 0 THEN
+        SET message = 'Number less than 0';
+    ELSE
+        SET message = 'Number equals 0';
+    END IF;
+
+    -- 将结果赋值给OUT参数
+    SET result = message;
+END//
+DELIMITER ;
+```
+
+```sql
+DECLARE @returnValue VARCHAR(50);
+CALL myProcedure(5, @returnValue);
+SELECT @returnValue;
+```
+
+
+### 存储过程之Case
+### 存储过程之While
+### 存储过程之Loop
