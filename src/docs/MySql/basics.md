@@ -725,7 +725,118 @@ CALL myProcedure(5, @returnValue);
 SELECT @returnValue;
 ```
 
+### 存储过程之 Case
 
-### 存储过程之Case
-### 存储过程之While
-### 存储过程之Loop
+MySQL 存储过程中可以使用 CASE 语句控制流程和逻辑。CASE 语句用于在满足一定条件时执行相应的操作。
+
+```sql
+DELIMITER //
+
+CREATE PROCEDURE my_procedure()
+BEGIN
+    DECLARE var1 INT;
+    DECLARE var2 VARCHAR(50);
+
+    -- 设置var1的值
+    SET var1 = 3;
+
+    -- 使用CASE语句根据var1的值进行不同的操作
+    CASE var1
+        WHEN 1 THEN
+            SET var2 = 'One';
+        WHEN 2 THEN
+            SET var2 = 'Two';
+        WHEN 3 THEN
+            SET var2 = 'Three';
+        ELSE
+            SET var2 = 'Other';
+    END CASE;
+
+    -- 输出结果
+    SELECT var2;
+END //
+
+DELIMITER ;
+```
+
+在上面的示例中，首先使用 CREATE PROCEDURE 语句创建了一个名为 my_procedure 的存储过程。在存储过程中声明了两个变量 var1 和 var2。然后，通过 SET 语句给 var1 赋值为 3。
+
+接下来使用 CASE 语句根据 var1 的值进行不同的操作。当 var1 为 1 时，将 var2 设为’One’；当 var1 为 2 时，将 var2 设为’Two’；当 var1 为 3 时，将 var2 设为’Three’；否则将 var2 设为’Other’。
+
+最后，使用 SELECT 语句输出 var2 的值。你可以调用该存储过程来执行，并查看结果。
+
+### 存储过程之 While
+
+MySQL 存储过程中可以使用 WHILE 循环来实现迭代操作。WHILE 循环用于在满足一定条件时重复执行一段代码块。
+
+```sql
+DELIMITER //
+
+CREATE PROCEDURE my_procedure()
+BEGIN
+    DECLARE counter INT;
+    DECLARE result INT;
+
+    -- 初始化计数器
+    SET counter = 1;
+    SET result = 0;
+
+    -- 使用WHILE循环计算1到10的累加和
+    WHILE counter <= 10 DO
+        SET result = result + counter;
+        SET counter = counter + 1;
+    END WHILE;
+
+    -- 输出结果
+    SELECT result;
+END //
+
+DELIMITER ;
+```
+
+在上面的示例中，首先使用 CREATE PROCEDURE 语句创建了一个名为 my_procedure 的存储过程。在存储过程中声明了两个变量 counter 和 result，分别用于计数和存储累加和的结果。
+
+然后，在 WHILE 循环中，当 counter 小于等于 10 时，重复执行循环体内的代码块。循环体内的代码实现了将 counter 的值累加到 result 中，并将 counter 递增 1 的操作。
+
+最后，使用 SELECT 语句输出最终的累加结果 result。你可以调用该存储过程来执行，并查看输出结果。
+
+### 存储过程之 Loop
+
+在 MySQL 存储过程中，可以使用 LOOP 循环来实现循环执行一段代码块，直到遇到退出条件为止。
+
+```sql
+DELIMITER //
+
+CREATE PROCEDURE my_procedure()
+BEGIN
+    DECLARE counter INT;
+    DECLARE result INT;
+
+    -- 初始化计数器
+    SET counter = 1;
+    SET result = 0;
+
+    -- 使用LOOP循环计算1到10的累加和，直到counter等于11时退出循环
+    LOOP
+        SET result = result + counter;
+        SET counter = counter + 1;
+
+        IF counter > 10 THEN
+            LEAVE;
+        END IF;
+    END LOOP;
+
+    -- 输出结果
+    SELECT result;
+END //
+
+DELIMITER ;
+```
+
+在上面的示例中，首先使用 CREATE PROCEDURE 语句创建一个名为 my_procedure 的存储过程。在存储过程中声明了两个变量 counter 和 result，用于计数和存储累加和的结果。
+
+然后，在 LOOP 循环中，重复执行循环体内的代码块。循环体内的代码实现将 counter 的值累加到 result 中，并将 counter 递增 1。
+
+在每次迭代后，使用 IF 语句检查退出条件。当 counter 大于 10 时，使用 LEAVE 语句退出循环。
+
+最后，使用 SELECT 语句将最终的累加结果 result 输出。你可以调用该存储过程来执行，并查看输出结果。
