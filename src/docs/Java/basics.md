@@ -331,3 +331,233 @@ if(判断条件1){
     判断条件一,三均不成立
 }
 ```
+
+#### switch case
+
+switch case 只能完成等值判断,switch 支持的数据类型包括 int,short,,byte,char,枚举,String,不支持 boolean
+
+```java
+switch (变量){
+    case 值1:
+        代码1;
+        break;
+    case 值2:
+        代码2;
+        break;
+    case 值3:
+        代码3;
+        break;
+    ...
+    default:
+        代码n
+
+}
+```
+
+#### while
+
+循环四要素:
+
+- 初始化循环变量
+- 循环条件
+- 循环条件
+- 更新循环变量
+
+```java
+while(循环条件){
+    // 循环体
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        int num = 10;
+        while (num > 1) {
+            System.out.println("hello world");
+            num--;
+        }
+    }
+}
+
+```
+
+#### do while
+
+while 先判断再执行,do while 先执行一次循环体再进行判断循环条件
+
+```java
+do{
+    // 循环体
+}while(循环条件)
+```
+
+#### for 循环
+
+```java
+for(初始化循环变量;循环条件;更新循环变量){
+    循环体
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
+    }
+}
+// 0
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 9
+
+```
+
+#### 双重循环
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        for (int i = 0; i < 3; i++) {
+            // 打印空格
+            for (int k = 0; k < 2-i; k++) {
+                System.out.print(" ");
+            }
+            // 打印*号
+            for (int j = 0; j < 6; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+//   ******
+//  ******
+// ******
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        for (int i = 0; i < 4; i++) {
+            // 打印空格
+            for (int j = 0; j < 3 - i; j++) {
+                System.out.print(" ");
+            }
+            // 打印*号
+            for (int j = 0; j < 2 * i + 1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < 3; i++) {
+            // 打印空格
+            for (int j = 0; j < i + 1; j++) {
+                System.out.print(" ");
+            }
+            // 打印*号
+            for (int j = 0; j < 5 - 2 * i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+//    *
+//   ***
+//  *****
+// *******
+//  *****
+//   ***
+//    *
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 9; i++) {
+            // 打印空格
+            for (int j = 0; j <= i; j++) {
+                System.out.print(i + "*" + j + "=" + i * j + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
+// 1*0=0	1*1=1
+// 2*0=0	2*1=2	2*2=4
+// 3*0=0	3*1=3	3*2=6	3*3=9
+// 4*0=0	4*1=4	4*2=8	4*3=12	4*4=16
+// 5*0=0	5*1=5	5*2=10	5*3=15	5*4=20	5*5=25
+// 6*0=0	6*1=6	6*2=12	6*3=18	6*4=24	6*5=30	6*6=36
+// 7*0=0	7*1=7	7*2=14	7*3=21	7*4=28	7*5=35	7*6=42	7*7=49
+// 8*0=0	8*1=8	8*2=16	8*3=24	8*4=32	8*5=40	8*6=48	8*7=56	8*8=64
+// 9*0=0	9*1=9	9*2=18	9*3=27	9*4=36	9*5=45	9*6=54	9*7=63	9*8=72	9*9=81
+```
+
+#### 终止循环
+
+- break: 跳出整个循环体
+- continue: 跳出本次循环,进入下次循环
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        int sum = 0;
+        for (int i = 1; i <= 100; i++) {
+            sum += i;
+//            if (sum > 50) continue; // 5050
+//            if (sum > 50) break; // 55
+        }
+        System.out.println(sum);
+    }
+}
+```
+
+### 数组
+
+#### 基本概念
+
+在 java 中数组是一种可以存储大量数据类型相同的变量的数据结构,具有相同数据类型的数据集合
+
+> 数组的基本要素
+
+一个数组由四个基本元素构成:
+
+- 数组名称
+- 数组元素
+- 元素下标
+- 数据类型
+
+#### 简单使用
+
+- 声明数组: 数据类型 数组名[] / 数据类型[] 数组名 `int[] array / int array[]`
+- 分配内存空间: 指定数组长度,数组一旦创建,长度不能修改
+- 给数组赋值: 通过下表找到数组中位置进行赋值
+- 使用数组: 通过下标取出数组中的具体数值
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        int[] array = new int[4];
+        array[0] = 90;
+        array[1] = 86;
+        array[2] = 79;
+        array[3] = 93;
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+            System.out.println("平均分是:" + sum / array.length);
+        }
+    }
+}
+
+```
