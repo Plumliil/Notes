@@ -26,7 +26,7 @@ java 源文件编译成字节码文件`.class`16 进制 计算机读取字节码
 - JRE: Java Runtime Environment java 运行环境
 - JDK: Java Development Kit java 开发包
 
-## 上手
+## java 基础
 
 ### 简单的 java 程序
 
@@ -561,3 +561,413 @@ public class Test {
 }
 
 ```
+
+边声明边赋值
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        int[] array1 = {10, 20, 30};
+        int[] array2 = new int[]{40, 50, 60};
+    }
+}
+```
+
+基本数据类型的变量和值都保存在栈内存中
+
+数组属于引用类型的存储,变量保存在栈内存中,变量的值保存在堆内存中,通过地址的引用进行关联
+
+引用类型: 只要通过 new 关键字创建的变量都是引用类型
+
+数组使用常见错误:
+
+- 数据类型不匹配: 定义 int 声明 String
+
+- 边声明边赋值必须写在同一行
+
+- 数组下标越界
+
+#### 实际运用
+
+学员成绩为{96,93,87,80,73,62},增加一个 83 分的成绩,并进行降序排列
+
+```java
+import java.util.Arrays;
+
+public class Test {
+    public static void main(String[] args) {
+        int[] array = {96, 93, 87, 80, 73, 62};
+        int source = 83;
+        int[] array2 = new int[array.length + 1];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < source) {
+                index = i;
+                break;
+            }
+        }
+        for (int i = 0; i < array2.length; i++) {
+            if (i < index) {
+                array2[i] = array[i];
+            } else if (i == index) {
+                array2[i] = source;
+            } else {
+                array2[i] = array[i-1];
+            }
+        }
+        System.out.println(Arrays.toString(array2));
+    }
+}
+```
+
+#### 二维数组
+
+```java
+// 声明二维数组
+int[][] array;
+// 开辟内存空间 第二个不强制定义数组长度
+array = new int[3][3];
+array[0][0] = 1;
+array[0][1] = 2;
+array[0][2] = 3;
+array[1][0] = 4;
+array[1][1] = 5;
+array[1][2] = 6;
+array[2][0] = 7;
+array[2][1] = 8;
+array[2][2] = 9;
+```
+
+二维数组也支持边声明边赋值的方式
+
+```java
+int[][] array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+int[][] array2 = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        // 声明二维数组
+        int[][] array = new int[3][6];
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("-----第" + (i + 1) + "层-----");
+            for (int j = 0; j < array[i].length; j++) {
+                int num = (i + 1) * (j + 1);
+                System.out.println("第" + (j + 1) + "个格挡的货品个数:" + num);
+                sum += sum;
+            }
+        }
+    }
+}
+```
+
+## java 面向对象
+
+### 什么是面向对象
+
+面向过程,面向功能划分的软件设计结构,自上而下,将一个大问题分解成多个小问题
+面向过程局限性:过程中每一步都需要进行记录,同时制约了程序的拓展性和维护性
+
+面向对象是一种编程思想,将程序中所有参与角色全部抽象成对象,通过对象之间的相互调用来实现业务功能
+
+面向过程注重的是每一个步骤,面向对象注重整个需求的模块化结构
+面向对象的核心思想就是重用性以及扩展性和灵活性
+
+### 类和对象
+
+每个对象都有各自的特征
+
+- 属性: 对象的静态特征
+- 方法: 对象的动态特征
+
+对象就是用来描述客观存在的一个实体,该实体有一组属性和方法组成
+
+类就是产生对象的模板,所有对象都是通过类来创建的,对象的抽象,旺财和狗的关系
+
+类和对象的关系:类是对象的抽象化描述
+
+一个类可以创建出很多个对象,一个对象归属于一个类
+
+类是抽象的概念,是一种描述,仅仅是模板,对象是实实在在具体的存在
+
+学生类 ,班级类, 课程类
+
+张三 去 一班 上 数学课
+
+张三 去 二班 上 语文课
+
+### 定义类
+
+基本语法
+
+```java
+public class 类名{
+    // 定义属性
+    public 数据类型 属性名;
+    // 定义方法
+    public 返回值类型 方法名(参数列表){
+        // 方法体
+    }
+}
+```
+
+方法的定义有两个重点:
+
+- 返回值类型
+- 参数列表
+
+有返回值的方法需要在定义时指定返回值的数据类型,在方法体中使用 return 将结果进行返回
+
+```java
+public int add(int num1,int num2) {
+    return num1 + num2;
+}
+```
+
+无返回值方法不需要对结果进行返回
+
+```java
+public void test() {
+    System.out.println("无返回值");
+}
+```
+
+定义一个 user 类
+
+```java
+public class User {
+    // 定义属性
+    public int id;
+    public String name;
+    public char gender;
+    public String password;
+
+    // 定义方法
+    public void show() {
+        System.out.println("展示用户信息");
+    }
+}
+
+```
+
+### 构造函数
+
+构造函数,构造方法,构造器
+
+java 通过类的构造函数来创建对象,构造函数是一种特殊的方法,方法名必须和类名保持一致,不需要进行返回值类型的定义,基本语法如下:
+
+```java
+public 构造函数名(参数列表){
+
+}
+```
+
+构造函数包括有参构造和无参构造,区别在于是否有参数
+
+无参构造
+
+```java
+public User() {
+
+}
+```
+
+有参构造
+
+```java
+public User(int id, String name, char gender, String password) {
+    this.id = id;
+    this.name = name;
+    this.gender = gender;
+    this.password = password;
+}
+```
+
+每个类都有一个默认的无参构造函数,我们在定义类的时候无需声明无参构造函数,但如果手动定义了一个有参构造,此时默认的无参构造会被覆盖需要手动定义
+
+User.java
+
+```java
+public class User {
+    // 定义属性
+    public int id;
+    public String name;
+    public char gender;
+    public String password;
+
+    // 定义方法
+    public void show() {
+        System.out.println("展示用户信息");
+        System.out.println("id; " + this.id);
+        System.out.println("name: " + this.name);
+        System.out.println("gender: " + this.gender);
+        System.out.println("password: " + this.password);
+    }
+
+
+    public User() {
+
+    }
+
+    public User(int id, String name, char gender, String password) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.password = password;
+    }
+}
+
+```
+
+Test.java
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        new User();
+        new User(1, "zs", '男', "password");
+    }
+}
+
+```
+
+### 创建对象
+
+创建对象只需要调用类的构造函数即可,区别是调用无参构造创建对象只会创建对象,不会对对象赋值
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        User user = new User();
+        user.show();
+    }
+}
+// 展示用户信息
+// id: 0
+// name: null
+// gender:
+// password: null
+```
+
+无参构造 手动赋值
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        User user = new User();
+        user.id='1';
+        user.name="zs";
+        user.gender="男";
+        user.password="password";
+        user.show();
+    }
+}
+// 展示用户信息
+// id: 1
+// name: zs
+// gender: 男
+// password: password
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        User user = new User(1, "zs", '男', "password");
+        user.show();
+    }
+}
+// 展示用户信息
+// id: 1
+// name: zs
+// gender: 男
+// password: password
+```
+
+### this 关键字
+
+在 java 中,this 用户来指代当前类的实例化对象,通过 this 可以调用当前类的属性和方法,比如构造器中,可以通过 this 来完成对属性信息的赋值
+
+```java
+public User(int id, String name, char gender, String password) {
+    this.id = id;
+    this.name = name;
+    this.gender = gender;
+    this.password = password;
+}
+```
+
+this 除了可以在类中访问属性也可以在类中调用方法,方法:构造函数和普通方法调用构造函数:this(参数列表)
+
+```java
+public User() {
+    this(1, "zs", '男', "password");
+}
+```
+
+```java
+public User(int id, String name, char gender, String password) {
+    this();
+    this.id = id;
+    this.name = name;
+    this.gender = gender;
+    this.password = password;
+}
+```
+
+调用普通方法: this.fn()
+
+### 方法重载
+
+构成重载的条件
+
+- 两个方法在同一个类中
+- 方法名相同
+- 参数列表不同(参数个数或者类型不同)
+- 与返回值和访问权限修饰符无关
+
+```java
+public class Test {
+    public static void main(String[] args) {
+
+    }
+
+    public void method() {
+        System.out.println("无参数");
+    }
+
+    public void method(int num) {
+        System.out.println("有参数: " + num);
+    }
+
+}
+```
+
+以下哪些情况不属于方法重载? 1,4 不属于
+
+```java
+// 两个方法相同,不属于重载
+public int test(){}
+public int test(){}
+```
+
+```java
+// 属于重载,方法参数不同
+public double test(double a,double b){}
+public double test(){}
+```
+
+```java
+// 属于方法重载,方法参数不同,与返回值类型无关
+public String test(){}
+public void test(int a){}
+```
+
+```java
+// 不属于方法重载,方法名不同,为两个不同的方法
+public void test(){}
+public void test2(){}
+```
+
+在业务多且相似的情况下使用方法重载如一个求和方法,在不同的类型下可以使用不同的重载方法,整型和整型,整型和浮点,浮点和浮点等
