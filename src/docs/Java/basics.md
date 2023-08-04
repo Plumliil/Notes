@@ -971,3 +971,178 @@ public void test2(){}
 ```
 
 在业务多且相似的情况下使用方法重载如一个求和方法,在不同的类型下可以使用不同的重载方法,整型和整型,整型和浮点,浮点和浮点等
+
+### 成员变量和局部变量
+
+变量的作用域范围是不同的
+
+作用域: 程序中可以通过变量名来访问该变量的范围
+
+变量声明时所在位置决定作用域
+
+- 成员变量: 如果一个变量是在方法中被声明,则这个变量为局部变量
+- 局部变量: 如果一个变量在方法外,类中声明,则他是成员变量
+
+```java
+public class Test {
+    // 成员变量
+    String name = "张三";
+
+    public void method() {
+        // 局部变量
+        int num = 10;
+    }
+
+}
+```
+
+成员变量的作用域在整个类中,类中的每个方法都可以访问该变量
+
+局部变量的作用域在定义该变量的方法中,出了这个方法就无法访问
+
+当成员变量和局部变量冲突时,局部变量优先级更高
+
+成员变量会有默认值,局部变量没有默认值定义后需赋值否则无法使用
+
+### 封装
+
+#### 什么是封装
+
+封装就是将类的信息全部隐藏到内部,外部不能直接进行赋值和访问,必须通过类中提供的方法来进行访问和赋值,我们可以在方法中添加逻辑处理实现过滤,屏蔽错误数据的赋值
+
+#### 封装步骤
+
+1. 修改属性的访问权限,使得外部不能直接访问
+2. 提供外部可以直接调用的方法
+3. 在方法中添加属性控制逻辑
+
+```java
+public class User {
+    // 定义属性
+    private int id;
+    private String name;
+    private char gender;
+    private String password;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public char getGender() {
+        return gender;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setId(int id) {
+        if (id < 0) {
+            System.out.println("id数据错误,已处理为默认值");
+            this.id = 0;
+        } else {
+            this.id = id;
+        }
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    // 定义方法
+    public void show() {
+        System.out.println("展示用户信息");
+        System.out.println("id: " + this.id);
+        System.out.println("name: " + this.name);
+        System.out.println("gender: " + this.gender);
+        System.out.println("password: " + this.password);
+    }
+
+}
+
+```
+
+#### static 关键字
+
+static 表示静态或者全局,可以用来修饰成员变量,成员方法,代码块
+
+用 static 修饰的成员变量和成员方法不需要再依赖于对象,可以直接通过类访问,也可以通过任意一个对象访问
+
+用 static 修饰的成员变量叫做静态变量
+
+用 static 修饰的成员方法叫做静态方法
+
+静态变量和静态方法多个对象公用的,内存中只有一份
+
+没有用 static 修饰的成员变量和成员方法,一个对象对应一个,内存中有多份,不是所有对象共享
+
+```java
+public class User {
+    public static String name;
+
+    public static void show() {
+        System.out.println("这是一个user对象");
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        User.name = "张三";
+        System.out.println(User.name);
+        User.show();
+    }
+}
+
+```
+
+```java
+public class Test {
+    private int id;
+
+    public static void main(String[] args) {
+        Test test = null;
+        for (int i = 0; i < 10; i++) {
+            test = new Test();
+            test.id++;
+        }
+        System.out.println(test.id); // 1 每一次操作的都是新的对象,每个新对象id都是从0开始,所以结果是1
+    }
+}
+
+```
+
+```java
+public class Test {
+    private static int id;
+
+    public static void main(String[] args) {
+        Test test = null;
+        for (int i = 0; i < 10; i++) {
+            test = new Test();
+            test.id++;
+        }
+        System.out.println(test.id); // 10 经过static修饰后id变成静态变量,变成类共有变量,每次循环id+1
+    }
+}
+
+```
+
+> 值得注意的是:static 修饰的成员方法为静态方法,静态方法中不能使用 this 关键字
+
+### 继承
+
+### 多态
