@@ -10,6 +10,8 @@
 - [x] MongoDB
 - [x] Linux
 - [x] Nodejs
+- [x] Java
+- [x] Mysql
 
 ## 未整理
 
@@ -20,4 +22,4 @@
 - [ ] [HTTP](https://github.com/Plumliil/notes/blob/master/HTTP/HTTP.MD)
 - [ ] [Webpack](https://github.com/Plumliil/notes/blob/master/webpack/webpack.md)
 
-**当所有笔记整理完毕,[`notes`](https://github.com/Plumliil/notes)仓库关闭,[`Plumliil-docs`](https://github.com/Plumliil/Plumliil-docs)仓库保持更新**
+**当所有笔记整理完毕,[`notes`](https://github.com/Plumliil/notes)仓库关闭,[`docs`](https://github.com/Plumliil/docs)仓库保持更新**

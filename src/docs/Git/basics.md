@@ -17,3 +17,20 @@ git reset --soft HEAD~1
 ```shell
 git reflog show 分支名
 ```
+
+### git show
+
+#### 查询当前文件加下提交代码作者
+
+```shell
+git show
+Author:xxx <youremail@email.com>
+```
+
+### git config --global user.email
+
+#### 全局修改提交代码邮箱
+
+```shell
+git config --global user.email "youremail@email.com"
+```

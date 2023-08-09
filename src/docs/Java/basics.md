@@ -1145,4 +1145,346 @@ public class Test {
 
 ### 继承
 
+#### 概念
+
+一个类继承另一个类的属性和方法,被继承的类叫做父类,继承的类叫做子类
+
+```java
+public class People {
+    private int id;
+    private String name;
+    private int age;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+```
+
+```java
+public class Teacher extends People {}
+```
+
+```java
+public class Teacher extends Student {}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Student student =new Student();
+        student.setName("张三");
+        System.out.println(student.getName());
+    }
+}
+```
+
+子类由两部分组成,一部分是父类的属性和方法,一部分是子类本身的属性和方法
+
+一个类只能由一个直接父类,但是父类的父类的属性方法子类也可以继承
+
+#### 子类访问父类
+
+实现了继承关系的父子类,在创建子类对象是,无论调用的是有参构造还是无参构造,都会默认先创建父类对象,并且是默认通过无参构造创建父类对象
+
+java 中每个类都有一个共同的父类 Object,所有 java 类都是由 Object 类派生出来的
+
+super 关键字: 用于子类访问父类属性和方法,也可以调用父类的有参构造
+
+```java
+public class People {
+    public People() {
+        System.out.println("无参构造创建父类 People 对象");
+    }
+
+    public People(String name) {
+        System.out.println("有参构造创建父类 People 对象");
+    }
+}
+```
+
+```java
+public class Student extends People {
+    public Student() {
+        super("李四");
+        System.out.println("无参构造创建 Student 对象");
+    }
+
+    public Student(char gender) {
+        System.out.println("有参构造创建 Student 对象");
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Student student =new Student();
+    }
+}
+// 有参构造创建父类 People 对象
+// 无参构造创建 Student 对象
+```
+
+##### super 使用
+
+super 只能访问父类的公有属性和方法
+
+- super.属性
+- super.方法
+
+#### 子类访问权限
+
+访问权限修饰符: 修饰类,属性,方法
+public , protected , 默认 , provide
+
+| 访问修饰符 | 同一个类 | 同一个包   | 不同包     | 子类       |
+| ---------- | -------- | ---------- | ---------- | ---------- |
+| 默认       | 可以访问 | 可以访问   | 不可以访问 | 不可以访问 |
+| public     | 可以访问 | 不可以访问 | 不可以访问 | 不可以访问 |
+| provide    | 可以访问 | 可以访问   | 可以访问   | 可以访问   |
+| protected  | 可以访问 | 可以访问   | 不可以访问 | 可以访问   |
+
+包 package :用来管理 java 类,类似于用不同文件夹存放不同文件
+
+```java
+package package1;
+
+public class User {}
+```
+
+包的作用
+
+1. 管理 java 类,便于查找文件
+2. 区分同名的类,防止命名冲突
+3. 实现访问权限控制
+
+包的命名规范:
+
+1. 包一般为小写字母开头,.不能放在开头结尾,数字不能放在开头,.用来分层
+
+```java
+public class People {
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public People() {
+        System.out.println("编号为 " + id);
+    }
+
+    public void show() {
+        System.out.println("编号为 " + id);
+    }
+}
+```
+
+```java
+public class Student extends People {
+
+    public Student(int id) {
+        super.setId(id);
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Student student =new Student(1);
+        student.show();
+    }
+}
+// 编号为 0
+// 编号为 1
+```
+
+#### 方法重写
+
+子类在继承父类方法基础上,对父类方法进行覆盖
+
+```java
+public class People {
+    public void show() {
+        System.out.println("People 类");
+    }
+}
+```
+
+```java
+public class Student extends People {
+    @Override
+    public void show(){
+        System.out.println("Student 类");
+    }
+}
+```
+
+```java
+public class Teacher extends People {
+    @Override
+    public void show(){
+        System.out.println("Teacher 类");
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Student student =new Student();
+        student.show();
+        Teacher teacher =new Teacher();
+        teacher.show();
+    }
+}
+// Student 类
+// Teacher 类
+```
+
+重写规则:
+
+1. 构造方法不能被重写
+2. 父子类方法名相同
+3. 父子类方法参数列表相同
+4. 子类方法返回值与父类方法返回值相同或是其子类 Number 的子类是 Double
+
+#### 方法重写和方法重载
+
+|          | 所在位置 | 方法名 | 参数列表 | 返回值                   | 访问权限     |
+| -------- | -------- | ------ | -------- | ------------------------ | ------------ |
+| 方法重写 | 子类     | 相同   | 相同     | 相同或者父类返回值的子类 | 不能小于父类 |
+| 方法重载 | 同一个类 | 相同   | 不同     | 没有要求                 | 们没有要求   |
+
 ### 多态
+
+#### 什么是多态
+
+一个事物有多个表现形态
+定义一个方法: 在具体的生成环境中根据不同需求呈现出不同的业务逻辑
+
+```java
+package book;
+// 多态写法 公共Member
+// 这是一个公共类，代表一个会员。它有一个名为 buyBook() 的方法，该方法在子类中将被重写，以实现不同类型的会员购书的特定行为。
+public class Member {
+    public void buyBook(){}
+}
+```
+
+```java
+package book;
+// 普通会员 继承Member
+// 这是一个继承自 Member 类的子类，代表普通会员。它重写了父类的 buyBook() 方法，以在控制台输出 "普通会员买书打 九 折"。
+public class OrdinaryMember extends Member {
+    public void buyBook(){
+        System.out.println("普通会员买书打 九 折");
+    }
+}
+```
+
+```java
+package book;
+// 超级会员 继承Member
+// 这是另一个继承自 Member 类的子类，代表超级会员。它也重写了父类的 buyBook() 方法，以在控制台输出 "超级会员买书打 六 折"。
+public class SuperMember extends Member {
+    public void buyBook(){
+        System.out.println("超级会员买书打 六 折");
+    }
+}
+
+```
+
+```java
+package book;
+// 这是一个收银员类，它包含了一个名为 member 的私有成员变量，以及 getMember() 和 setMember() 方法来获取和设置会员对象。它还有一个 settlement() 方法，用于调用会员的 buyBook() 方法。
+public class Cashier {
+    private Member member;
+    public Member getMember() {
+        return member;
+    }
+    public void setMember(Member member) {
+        this.member = member;
+    }
+    public void settlement(){
+        this.member.buyBook();
+    }
+}
+
+```
+
+```java
+package book;
+// 这是一个测试类，其中的 main 方法用于演示多态性。在 main 方法中，创建了一个普通会员对象 ordinaryMember、一个超级会员对象 superMember，以及一个 Cashier 对象 cashier。然后通过 cashier 对象的 setMember() 方法设置不同类型的会员对象，最终调用 cashier 对象的 settlement() 方法，触发会员的购书行为。
+public class Test {
+    public static void main(String[] args) {
+        OrdinaryMember ordinaryMember = new OrdinaryMember();
+        SuperMember superMember = new SuperMember();
+        Cashier cashier = new Cashier();
+//        cashier.setMember(superMember); // 超级会员买书打 六 折
+        cashier.setMember(ordinaryMember); // 超级会员买书打 九 折
+        cashier.settlement();
+    }
+}
+```
+
+根据上述代码，当执行 cashier.settlement() 时，会根据设置的会员类型（普通会员或超级会员）调用相应会员类的 buyBook() 方法，输出相应的购书折扣信息。这就是多态性的体现，因为 Cashier 类不需要知道具体是哪个会员类的实例，它只需要调用相应的方法，具体的行为由子类决定。
+
+#### 多态的使用
+
+1. 形参为父类,调用方法时传入的参数为子类对象
+  - ```java
+      --- Cashier
+      public void settlement(Member member) {
+          member.buyBook();
+      }
+      --- Test
+      public static void main(String[] args) {
+          OrdinaryMember ordinaryMember = new OrdinaryMember();
+          SuperMember superMember = new SuperMember();
+          Cashier cashier = new Cashier();
+          cashier.settlement(ordinaryMember); // 超级会员买书打 九 折
+          cashier.settlement(superMember); // 超级会员买书打 六 折
+      }
+    ```
+2. 定义方法时返回值类型为父类,调用方法时返回的为子类对象
+  - ```java
+      ---Cashier
+      public Member getMember(String name) {
+          if(name.equals("ordinaryMember")){
+              return new OrdinaryMember();
+          }else{
+              return new SuperMember();
+          }
+      }
+      ---Test
+      public static void main(String[] args) {
+          OrdinaryMember ordinaryMember = new OrdinaryMember();
+          SuperMember superMember = new SuperMember();
+          Cashier cashier = new Cashier();
+          System.out.println(cashier.getMember("ordinaryMember")); // book.  OrdinaryMember@404b9385
+          System.out.println(cashier.getMember("superMember")); // book.SuperMember@6d311334
+      }
+    ```
