@@ -1455,36 +1455,458 @@ public class Test {
 #### 多态的使用
 
 1. 形参为父类,调用方法时传入的参数为子类对象
-  - ```java
-      --- Cashier
-      public void settlement(Member member) {
-          member.buyBook();
-      }
-      --- Test
-      public static void main(String[] args) {
-          OrdinaryMember ordinaryMember = new OrdinaryMember();
-          SuperMember superMember = new SuperMember();
-          Cashier cashier = new Cashier();
-          cashier.settlement(ordinaryMember); // 超级会员买书打 九 折
-          cashier.settlement(superMember); // 超级会员买书打 六 折
-      }
-    ```
+
+- ```java
+    --- Cashier
+    public void settlement(Member member) {
+        member.buyBook();
+    }
+    --- Test
+    public static void main(String[] args) {
+        OrdinaryMember ordinaryMember = new OrdinaryMember();
+        SuperMember superMember = new SuperMember();
+        Cashier cashier = new Cashier();
+        cashier.settlement(ordinaryMember); // 超级会员买书打 九 折
+        cashier.settlement(superMember); // 超级会员买书打 六 折
+    }
+  ```
+
 2. 定义方法时返回值类型为父类,调用方法时返回的为子类对象
-  - ```java
-      ---Cashier
-      public Member getMember(String name) {
-          if(name.equals("ordinaryMember")){
-              return new OrdinaryMember();
-          }else{
-              return new SuperMember();
-          }
-      }
-      ---Test
-      public static void main(String[] args) {
-          OrdinaryMember ordinaryMember = new OrdinaryMember();
-          SuperMember superMember = new SuperMember();
-          Cashier cashier = new Cashier();
-          System.out.println(cashier.getMember("ordinaryMember")); // book.  OrdinaryMember@404b9385
-          System.out.println(cashier.getMember("superMember")); // book.SuperMember@6d311334
-      }
-    ```
+
+- ```java
+    ---Cashier
+    public Member getMember(String name) {
+        if(name.equals("ordinaryMember")){
+            return new OrdinaryMember();
+        }else{
+            return new SuperMember();
+        }
+    }
+    ---Test
+    public static void main(String[] args) {
+        OrdinaryMember ordinaryMember = new OrdinaryMember();
+        SuperMember superMember = new SuperMember();
+        Cashier cashier = new Cashier();
+        System.out.println(cashier.getMember("ordinaryMember")); // book.  OrdinaryMember@404b9385
+        System.out.println(cashier.getMember("superMember")); // book.SuperMember@6d311334
+    }
+  ```
+
+#### 抽象方法和抽象类
+
+子类重写父类方法实现多态,从而实现程序的拓展性,可维护性
+
+抽象方法: 只有方法声明,没有方法的定义,通过给方法添加 abstract 关键字来实现,一旦某个方法被定义为抽象方法,则该方法所在的类必须声明为抽象类
+
+```java
+package book;
+
+public abstract class Member {
+    public abstract void buyBook();
+}
+```
+
+抽象类和普通类的区别,抽象类不能被实例化,抽象方法和普通方法的区别是抽象方法没有方法体
+
+抽象类中可以没有抽象方法,但是普通类中不能定义抽象方法
+
+如果父类中包含抽象方法,则子类必须重写该方法,如果子类也是抽象类,则子类不用重写抽象方法
+
+## 面向对象进阶
+
+### Object 类
+
+Object 是 JDK 提供的类,位于 java.lang 包中,该类是 Java 中所有类的直接父类或者间接父类,java 中每一个类都是 Object 类的派生类,java 中定义的类都可以使用 Object 类中的方法
+
+```java
+package entity.pojo;
+
+public class Account {
+    public void test(){
+        hashCode();
+        toString();
+        getClass();
+        equals(null);
+        clone();
+        notify();
+        notifyAll();
+        wait();
+        wait(100L);
+        wait(100L,100);
+    }
+}
+```
+
+### 重写 Object 类的方法
+
+1. toString: 以字符串的形式来返回某个类的实例化对象信息
+2. equals: 判断两个对象是否相等
+3. hashCode: 返回对象的散列码
+
+> toString
+
+```java
+public String toString() {
+    return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}
+```
+
+```java
+package entity;
+
+public class User {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private int id;
+    private String name;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+```
+
+> equals
+
+```java
+public boolean equals(Object obj) {
+    return (this == obj);
+}
+```
+
+```java
+    public boolean equals(Object anObject) {
+        if (this == anObject) {
+            return true;
+        }
+        return (anObject instanceof String aString)
+                && (!COMPACT_STRINGS || this.coder == aString.coder)
+                && StringLatin1.equals(value, aString.value);
+    }
+```
+
+> hashCode
+
+```java
+public native int hashCode();
+```
+
+本地方法,java 无法访问操作系统底层,c++写的一套程序由 c++来调用,这种方式就是本地方法
+
+hashCode 方法作用是返回某个对象的散列值: 内存地址结合对象内部信息组成
+
+```java
+public int hashCode() {
+    return Objects.hash(id, name);
+}
+```
+
+### 包装类
+
+java 中数据类型基本上可以分为两类
+
+- 8 种基本数据类型
+- 引用数据类型
+
+通过构造器 new 出来的对象是引用类型,基本数据类型不是对象
+
+包装类是 java 提供的一组类,专门用来创建 8 种数据类型对应的对象
+
+| 基本数据类型 | 包装类    |
+| ------------ | --------- |
+| byte         | Byte      |
+| short        | Short     |
+| int          | Integer   |
+| long         | Long      |
+| float        | Float     |
+| double       | Double    |
+| char         | Character |
+| boolean      | Boolean   |
+
+![](https://img1.imgtp.com/2023/08/10/jACt692k.png)
+
+### 装箱和拆箱
+
+装箱: 将基本数据类型转换为对应的包装类对象
+拆箱: 将包装类对象转换为对应的基本数据类型
+
+> 装箱
+
+1. public Type(type value)
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        byte b = 1;
+        Byte byt = new Byte(b);
+        short s = 2;
+        Short shor = new Short(s);
+        int i = 3;
+        Integer integer = new Integer(i)
+        long l = 4;
+        Long lon = new Long(l);
+        float f = 5.5f;
+        float floa = new Float(f);
+        double d = 6.6;
+        Double doubl = new Double(d);
+        char c = 'C';
+        Character cha = new Character(c);
+        boolean bl = true;
+        Boolean boolea = new Boolean(bl);
+    }
+}
+```
+
+2. public Type (String value) / public Type(char value)
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Byte byt = new Byte("1");
+        Short shor = new Short("2");
+        Integer integer = new Integer("3")
+        Long lon = new Long("4");
+        float floa = new Float("5.5f");
+        Double doubl = new Double("6.6");
+        Character cha = new Character('c');
+        Boolean boolea = new Boolean("true");
+    }
+}
+```
+
+3. valueOf(type value)
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        byte b=1;
+        Byte byt = Byte.valueOf(b);
+    }
+}
+```
+
+4. valueOf(String value) / valueOf(char value)
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Byte byt = Byte.valueOf("1");
+        Character cha = Character.valueOf('c');
+    }
+}
+```
+
+> 拆箱
+
+1. \*Value
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Byte byt = Byte.valueOf("1");
+        byte b = byt.byteValue();
+        Character cha = Character.valueOf('c');
+        char c = cha.charValue();
+    }
+}
+
+```
+
+2. parse\*(String value)
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        byte b = Byte.parseByte("1");
+        // 没有char
+    }
+}
+```
+
+3. toString(value) 转字符串
+
+```java
+import entity.User;
+
+public class Test {
+    public static void main(String[] args) {
+        byte b = 1;
+        String bstr = Byte.toString(b);
+        System.out.println(bstr);
+    }
+}
+
+```
+
+### 接口
+
+#### 什么是接口
+
+接口是 java 程序开发中很重要的一种思想,实际应用种非常广泛
+
+接口是由抽象类衍生出的一种概念
+
+接口也是多态的一种实际应用
+
+#### 如何使用接口
+
+基本语法
+
+```java
+public interface 接口名{
+  public 返回值 方法名(参数列表)
+}
+```
+
+接口是一个极度抽象的抽象类,抽象类中允许存在非抽象方法,但是接口中不允许存在非抽象方法,必须全部是抽象方法
+
+不能实例化接口对象,只能实例化其对应的实现类的对象,实现类中全部是接口抽象方法的具体实现
+
+基本语法
+
+```java
+public class 实现类名 implements 接口名{
+  public 返回值 方法名(参数列表){
+
+  }
+}
+```
+
+通过 implements 来指定实现类具体要实现的接口在实现类的内部需要对接口的所有抽象方法进行实现
+
+```java
+public interface MyInterface {
+    public void test();
+}
+```
+
+```java
+public class MyImplements implements MyInterface{
+
+    @Override
+    public void test() {
+        System.out.println("实现了接口的抽象方法");
+    }
+}
+```
+
+同时实现多个接口的抽象方法
+
+```java
+public class MyImplements implements MyInterface,MyInterface2{
+    @Override
+    public void run() {
+        System.out.println("实现了 接口1的 run 方法");
+    }
+    @Override
+    public void fly() {
+        System.out.println("实现了 接口2的 fly 方法");
+    }
+}
+```
+
+#### 面向接口编程的实际应用
+
+产品 A-> 设备 A
+
+- Equipment 接口：
+
+这是一个接口，接口是一种抽象的类型，定义了一组方法签名（只有方法声明而没有方法体）。在这里，Equipment 接口定义了一个名为 work 的抽象方法，表示设备的工作操作。
+
+- EquipmentA 类和 EquipmentB 类：
+
+这两个类都实现了 Equipment 接口。它们分别代表不同的设备类型。每个类都必须提供 work 方法的具体实现，来描述设备的实际工作内容。
+
+- Factory 类：
+
+这是一个工厂类，拥有一个 Equipment 类型的私有成员变量 equipment，以及用于获取和设置该成员变量的方法。Factory 类还有一个名为 work 的方法，它会打印 "开始生产"，然后调用 equipment 的 work 方法。
+
+- Test 类：
+
+这个类包含了 main 方法，是程序的入口点。在 main 方法中，首先创建了一个 EquipmentA 对象和一个 EquipmentB 对象，然后创建了一个 Factory 对象，并将其成员变量 equipment 设置为 equipmentB。最后，调用了 factory 的 work 方法。
+
+```java
+package interfaces;
+
+public interface Equipment {
+    public void work();
+}
+```
+
+```java
+package interfaces;
+
+public class EquipmentA implements Equipment {
+    public void work(){
+        System.out.println("设备A运行,生成产品A");
+    }
+}
+```
+
+```java
+package interfaces;
+
+public class EquipmentB implements Equipment {
+    public void work(){
+        System.out.println("设备B运行,生成产品B");
+    }
+}
+```
+
+```java
+package interfaces;
+
+public class Factory {
+    private Equipment equipment;
+
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
+    }
+
+    public void work(){
+        System.out.println("开始生产");
+        this.equipment.work();
+    }
+}
+
+```
+
+```java
+package interfaces;
+
+public class Test {
+    public static void main(String[] args) {
+        EquipmentA equipmentA=new EquipmentA();
+        EquipmentB equipmentB=new EquipmentB();
+        Factory factory=new Factory();
+        factory.setEquipment(equipmentB);
+        factory.work();
+    }
+}
+// 开始生产
+// 设备B运行,生成产品B
+```
+
+在 Test 类的 main 方法中，首先创建了一个 EquipmentA 对象 equipmentA 和一个 EquipmentB 对象 equipmentB。接着，创建了一个 Factory 对象 factory。将 factory 的 equipment 成员变量设置为 equipmentB，即设备 B。调用 factory 的 work 方法，输出 "开始生产"，然后通过 equipmentB 调用其 work 方法，输出 "设备 B 运行,生成产品 B"。
