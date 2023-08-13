@@ -1910,3 +1910,525 @@ public class Test {
 ```
 
 在 Test 类的 main 方法中，首先创建了一个 EquipmentA 对象 equipmentA 和一个 EquipmentB 对象 equipmentB。接着，创建了一个 Factory 对象 factory。将 factory 的 equipment 成员变量设置为 equipmentB，即设备 B。调用 factory 的 work 方法，输出 "开始生产"，然后通过 equipmentB 调用其 work 方法，输出 "设备 B 运行,生成产品 B"。
+
+### 异常
+
+#### 什么是异常
+
+1. 编译时错误
+
+2. 运行时错误
+   java 中有一组类专门描述各种不同的运行时错误,叫做异常类,java 结合异常类提供了处理错误的机制,
+   一旦发生错误,会自动创建一个包含错误信息的异常对象,并将该对象提交给系统封,由系统转交给能够处理异常的代码进行处理.
+
+异常分为两类:Error 和 Exception
+
+#### 异常的使用
+
+try-catch
+
+try:监听可能会抛出异常的代码
+
+catch:处理异常
+
+用 try 来监听可能会抛出异常的代码,一旦捕获到异常,交给 catch 来处理
+
+```java
+try{
+  // 可能抛出异常的代码
+} catch{
+  // 处理异常
+}
+```
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+try-catch-finally
+
+finally 的作用:无论程序是否抛出异常,都会执行 finally 里代码
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("finally... ");
+        }
+    }
+}
+// finally...
+```
+
+#### 异常类
+
+<b>RuntimeException</b>
+
+- ArithmeticException: 表示数学运算异常
+- ClassNotFonundException: 表示类未定义
+- IllegalArgumentException: 表示参数格式错误
+- ArrayIndexOutOfBoundsException: 数组下标越界异常
+- NullPointerException: 表示空指针异常
+- NoSuchMethodException: 表示方法未定义异常
+- NumberFormatException: 表示其他数据类型转为数值类型的时候不匹配异常
+
+#### throw 和 throws
+
+- throw: 表示主动抛出一个异常
+  - ```java
+      public class Main {
+        public static void main(String[] args) {
+          throw new NullPointerException();
+        }
+      }
+    ```
+- throws: 修饰方法,表示该方法可能会抛出某个异常
+  - ```java
+      public class Main {
+      public static void main(String[] args) {
+          try {
+              test();
+          }catch (Exception e) {
+              System.out.println("抛出了异常: "+ e.getMessage());
+          }
+      }
+      public static void test() throws NumberFormatException {
+          String str = "java";
+          int num = Integer.parseInt(str);
+          System.out.println(num);
+        }
+      }
+    ```
+
+#### 自定义异常
+
+实际开发中除了可以使用 java 提供的异常外,也可以自定义异常类,只需要继承 Exception 即可
+
+```java
+package exception;
+
+public class MyNumberException extends Exception{
+    public MyNumberException(String error){
+        super(error);
+    }
+}
+
+```
+
+```java
+package exception;
+
+public class Test {
+    public static void main(String[] args) {
+        try {
+            Test test = new Test();
+            test.add("hello");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int add(Object object) throws MyNumberException {
+        if (!(object instanceof Integer)){
+            String str = "传入的参数不是整数类型!";
+            throw new MyNumberException(str);
+        }else{
+            int num=(double)object;
+            return num++;
+        }
+    }
+}
+// exception.MyNumberException: 传入的参数不是整数类型!
+```
+
+## 多线程
+
+### 线程和进程
+
+- 进程: 计算机正在运行的一个独立程序,是动态的,当关闭应用程序,该进程关闭
+- 线程: 是组成进程的基本单位
+
+一个进程由一个或多个线程组成
+
+进程是独享内存空间,线程是共享内存空间
+
+单独的线程无法执行,必须以来进程才能执行
+
+线程是用来执行任务的,所以每个线程对象都需要绑定一个任务
+
+- 多线程:在一个进程中,多个线程同时执行,每个线程交替执行,交替获取计算机资源
+
+### java 中线程使用
+
+在 java 中有两种方式来开启线程:
+
+1. 继承 Thread 类
+2. 实现 Runnable 接口
+
+#### 继承 Thread 类
+
+```java
+package test;
+
+public class MyThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("----MyThread----");
+        }
+    }
+}
+
+```
+
+```java
+package test;
+
+public class Test {
+    public static void main(String[] args) {
+        // 创建线程对象
+        MyThread myThread = new MyThread();
+        // 启动线程
+        myThread.start();
+        for (int i = 0; i < 100; i++) {
+            System.out.println("=====Main====");
+        }
+    }
+}
+```
+
+#### 实现 Runnable 接口
+
+实现 Runnable 接口是用来描述任务的,实现 run 方法来描述任务
+
+实现线程和任务的解耦合,单独定义一个类实现 Runnable 接口作为任务,创建 Thread 对象之后再把任务整合进去
+
+```java
+package test;
+
+public class MyRunnable implements Runnable{
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            System.out.println("------Runnable------");
+        }
+    }
+}
+
+```
+
+```java
+package test;
+
+public class Test {
+    public static void main(String[] args) {
+        // 创建任务
+        MyRunnable myRunnable = new MyRunnable();
+        // 创建线程
+        Thread thread =new Thread(myRunnable);
+        thread.start();
+        for (int i = 0; i < 100; i++) {
+            System.out.println("=====Main====");
+        }
+    }
+}
+
+```
+
+#### 线程状态
+
+- 创建状态
+- 就绪状态
+- 运行状态
+- 阻塞状态
+- 终止状态
+
+![](https://img1.imgtp.com/2023/08/13/TWSmV2OL.png)
+
+#### 线程调度
+
+##### 线程休眠
+
+让当前线程暂停执行,使线程从运行状态->阻塞状态,让出 CPU 资源,sleep(long millis)单位毫秒
+
+线程内部执行
+
+```java
+package test;
+
+public class MyThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 100; i++) {
+            if (i == 5) {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println("----MyThread----");
+        }
+    }
+}
+
+```
+
+外部休眠,休眠三秒后启动
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        try {
+            myThread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        myThread.start();
+        for (int i = 0; i < 100; i++) {
+            System.out.println("=====Main====");
+        }
+    }
+}
+```
+
+主线程进行休眠,休眠 1s 后启动主线程
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        myThread.start();
+        for (int i = 0; i < 100; i++) {
+            if(i==5){
+                try {
+                    Thread.currentThread().sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            System.out.println("=====Main====");
+        }
+    }
+```
+
+#### 线程合并
+
+将指定的某个线程加入到当前线程中,合并为一个线程.`join()`
+
+A 线程和 B 线程
+
+`B.join()` 表示当前开始 CPU 资源被 B 独占,A 进入阻塞状态,B 执行完毕,A 才能继续执行
+
+```java
+package test;
+
+public class JoinRunnable implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 20; i++) {
+            System.out.println((i + "-----JoinRunnable"));
+        }
+    }
+}
+
+```
+
+```java
+package test;
+
+public class Test {
+    public static void main(String[] args) {
+        JoinRunnable joinRunnable = new JoinRunnable();
+        Thread thread = new Thread(joinRunnable);
+        thread.start();
+        for (int i = 0; i < 100; i++) {
+            if (i == 10) {
+                try {
+                    thread.join();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            System.out.println(i + "=====Main====");
+        }
+    }
+}
+
+```
+
+JoinRunnable 类：
+这是一个实现了 Runnable 接口的类，它定义了一个 run() 方法。Runnable 接口用于表示一个能被多线程执行的任务。在 JoinRunnable 类中，run() 方法会循环打印从 0 到 19 的数字，每次都会附加 "-----JoinRunnable"。
+
+Test 类：
+这个类是程序的入口，其中包含 main 方法。在 main 方法中，首先创建了一个 JoinRunnable 的实例，然后将其作为参数创建了一个新的 Thread 对象。接着调用了 thread.start()，这会启动一个新的线程，使得 JoinRunnable 中的 run() 方法开始执行。
+
+同时，在 main 方法中也有一个循环，它会打印从 0 到 99 的数字，每次都会附加 "=====Main===="。在这个循环中，当 i 等于 10 时，程序会调用 thread.join()。join() 方法的作用是等待调用它的线程（在这里就是 thread）执行完成后，再继续执行调用 join() 的线程（在这里就是主线程）。也就是说，当 i 等于 10 时，主线程会等待新线程（即 thread）执行完成后才会继续往下执行。
+
+`join(long millis)` 在 millis 内 B 独占资源进行执行,当时间一到,无论 B 是否执行完毕都会释放 CPU 资源,和 A 继续交替执行
+
+#### 线程礼让
+
+在某个特定的时间点,让线程暂停抢占 CPU 资源的行为,运行状态->阻塞状态,只礼让一次
+
+- yield()
+
+```java
+// YieldThread1
+public class YieldThread1 extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                Thread.currentThread().yield();
+            }
+            System.out.println(Thread.currentThread().getName() + "'--------'" + i);
+        }
+    }
+}
+// YieldThread2
+public class YieldThread2 extends Thread {
+    @Override
+    public void run() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Thread.currentThread().getName() + "'--------'" + i);
+        }
+    }
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        YieldThread1 thread1 = new YieldThread1();
+        YieldThread2 thread2 = new YieldThread2();
+        thread1.setName("thread1");
+        thread2.setName("thread2");
+        thread1.start();
+        thread2.start();
+    }
+}
+
+// thread2'--------'0
+// thread2'--------'1
+// thread2'--------'2
+// thread1'--------'0
+// thread1'--------'1
+// thread2'--------'3
+// thread2'--------'4
+// thread2'--------'5
+// thread2'--------'6
+// thread1'--------'2
+// thread2'--------'7
+// thread2'--------'8
+// thread2'--------'9
+// thread1'--------'3
+// thread1'--------'4
+// thread1'--------'5
+// thread1'--------'6
+// thread1'--------'7
+// thread1'--------'8
+// thread1'--------'9
+```
+
+#### 线程同步
+
+多个线程同时访问某个资源时,不是同时对某资源进行访问修改,而是顺序执行
+
+多个线程同时访问共享资源是,可能会存在数据错误情况,如何解决?
+
+通过线程同步,多个线程不是同时访问数据,而是顺序访问.
+
+`synchronized` 修饰静态方法
+
+```java
+public class Account implements Runnable {
+    private static int num;
+
+    @Override
+    public synchronized void run() {
+        try {
+            Thread.currentThread().sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        num++;
+        System.out.println(Thread.currentThread().getName() + "是当前的第" + num + "位访客");
+    }
+}
+
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        Account account = new Account();
+        Thread t1 = new Thread(account, "线程A");
+        Thread t2 = new Thread(account, "线程B");
+        t1.start();
+        t2.start();
+    }
+}
+```
+
+这段代码的目的是通过两个线程同时执行 "Account" 类的实例，模拟多线程并发访问。然而，由于每个线程都在 "run" 方法中对访客计数加 1，同时还有一个很短的休眠时间，这可能导致计数出现错误。因为多个线程可能会在计数变化之前同时访问和修改 "num" 变量，从而产生竞态条件。
+
+要更准确地模拟多线程访问，可能需要更长的休眠时间或更复杂的操作，以避免竞态条件和计数错误。
+
+```java
+public class Test2 {
+    public static void main(String[] args) {
+        for (int i = 0; i < 5; i++) {
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Test2.test();
+                }
+            });
+            thread.start();
+        }
+    }
+    public static synchronized void test() {
+        System.out.println("start...");
+        try {
+            Thread.currentThread().sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("end...");
+    }
+}
+// start...
+// end...
+// start...
+// end...
+// start...
+// end...
+// start...
+// end...
+// start...
+// end...
+```
+
+这段 Java 代码定义了一个名为 "Test2" 的类，其中包含一个名为 "main" 的方法。在这个方法中，创建了 5 个线程，每个线程都会执行一个匿名内部类实现的 Runnable 接口，该接口的 run 方法调用了 "Test2" 类中的 "test" 方法。这样，多个线程将并发地调用 "test" 方法。以下是代码的解释：
+
+Thread thread = new Thread(new Runnable() { ... });: 创建一个新线程，其中传递了一个匿名内部类的实例作为 Runnable 接口的实现。这个匿名内部类的 run 方法实现了对 "Test2" 类的 "test" 方法的调用。
+
+public static synchronized void test() {: 这是一个静态的同步方法 "test"，使用了 synchronized 关键字，这意味着在同一时刻只有一个线程可以执行这个方法。这里之所以用静态方法，是因为在 main 方法中创建的匿名内部类不能直接访问非静态的实例方法。
+
+这段代码的主要目的是模拟多线程并发访问一个同步方法。由于 "test" 方法使用了 synchronized 关键字，每次只有一个线程可以进入该方法执行。然后，由于每个线程在执行期间都会休眠 1 秒钟，这导致每个线程的执行时间都会延长，从而在输出上形成间隔。
+
+请注意，虽然 "test" 方法是同步的，但由于创建了多个线程，它们仍然可以并行执行，只是在进入 "test" 方法内部时会按照线程的顺序排队等待。因此，你会看到 "start..." 和 "end..." 的输出在每个线程之间交替出现，并且有 1 秒的时间间隔。
