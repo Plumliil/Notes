@@ -2432,3 +2432,193 @@ public static synchronized void test() {: 这是一个静态的同步方法 "tes
 这段代码的主要目的是模拟多线程并发访问一个同步方法。由于 "test" 方法使用了 synchronized 关键字，每次只有一个线程可以进入该方法执行。然后，由于每个线程在执行期间都会休眠 1 秒钟，这导致每个线程的执行时间都会延长，从而在输出上形成间隔。
 
 请注意，虽然 "test" 方法是同步的，但由于创建了多个线程，它们仍然可以并行执行，只是在进入 "test" 方法内部时会按照线程的顺序排队等待。因此，你会看到 "start..." 和 "end..." 的输出在每个线程之间交替出现，并且有 1 秒的时间间隔。
+
+#### 重入锁
+
+ReentrantLock 是对 synchronized 的升级,synchronized 是通过 JVM 实现的,ReentrantLock 是通过 JDK 实现的,可以给同一个资源添加多个锁
+
+```java
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Account implements Runnable {
+    private static int num;
+    private ReentrantLock reentrantLock = new ReentrantLock();
+
+    @Override
+    public synchronized void run() {
+        reentrantLock.lock();
+        try {
+            Thread.currentThread().sleep(1);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        num++;
+        System.out.println(Thread.currentThread().getName() + "是当前的第" + num + "位访客");
+        reentrantLock.unlock();
+    }
+}
+
+```
+
+需要注意的是上几次锁就需要解几次锁,否则会卡住线程
+
+#### 限时获取锁
+
+ReentrantLock 具备限时性的特点:判断某个线程在特定时间内能够获取到锁
+
+tryLock(long timeout,TimeUnit unit):返回 boolean 类型,true 表示可获取,false 表示不可获取
+
+```java
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class TimeLock implements Runnable {
+    private ReentrantLock reentrantLock = new ReentrantLock();
+
+    public void run() {
+        try {
+            if (reentrantLock.tryLock(3, TimeUnit.SECONDS)) {
+                System.out.println(Thread.currentThread().getName() + "  get lock");
+                Thread.currentThread().sleep(5000);
+            } else {
+                System.out.println(Thread.currentThread().getName() + "  not get lock");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
+            reentrantLock.unlock();
+        }
+
+    }
+}
+
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        TimeLock timeLock = new TimeLock();
+        new Thread(timeLock, "线程A").start();
+        new Thread(timeLock, "线程B").start();
+    }
+}
+
+```
+
+代码开始执行,线程 A 和线程 B 开始抢占线程,当 A 抢占成功,进入 TimeLock,reentrantLock.tryLock(3, TimeUnit.SECONDS)此时为 true,三秒内能够上锁,此时线程 A 打印 get lock 并且将线程休眠 5 秒,此时线程 B 进入 TimeLock,但是此时进程已经休眠 5s 小于 3s,reentrantLock.tryLock(3, TimeUnit.SECONDS)三秒内无法上锁,reentrantLock.tryLock(3, TimeUnit.SECONDS)为 false,打印 not get lock 并抛出错误
+
+#### 生产者消费者模式
+
+生产者和消费者公用一块缓冲区,生产者负责添加数据,消费者负责取出数据
+
+```java
+public class Hamburger {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Hamburger(Integer id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Hamburger{" +
+                "id=" + id +
+                '}';
+    }
+}
+```
+
+```java
+package test;
+
+public class Container {
+    public Hamburger[] array = new Hamburger[6];
+    public Integer index = 0;
+
+    // 向容器中添加汉堡
+    public synchronized void push(Hamburger hamburger) {
+        while (index == array.length) {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        this.notify();
+        array[index] = hamburger;
+        index++;
+        System.out.println("生产了一个汉堡" + hamburger);
+    }
+
+    // 从容器总取出汉堡
+    public synchronized Hamburger pop() {
+        while (index == 0) {
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        this.notify();
+        index--;
+        System.out.println("消费了一个汉堡" + array[index]);
+        return array[index];
+    }
+}
+
+```
+
+```java
+package test;
+
+public class Consumer implements Runnable {
+    private Container container;
+
+    public Consumer(Container container) {
+        this.container = container;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i < 30; i++) {
+            this.container.pop();
+            try {
+                Thread.currentThread().sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
+```java
+package test;
+
+public class Test {
+    public static void main(String[] args) {
+        Container container = new Container();
+        Producer producer = new Producer(container);
+        Consumer consumer = new Consumer(container);
+        new Thread(producer).start();
+        new Thread(producer).start();
+        new Thread(consumer).start();
+        new Thread(consumer).start();
+        new Thread(consumer).start();
+    }
+}
+
+```
+
+### 集合框架
+
+#### 什么是集合
