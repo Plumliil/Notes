@@ -2622,3 +2622,292 @@ public class Test {
 ### 集合框架
 
 #### 什么是集合
+
+程序中需要有多个对象,如何保存?
+
+数组长度固定,数据类型固定
+
+此时集合可以解决这个问题,集合是一个长度可变,可以保存任意数据类型的动态数组
+
+集合框架: 不是一个类,而是由一组类和接口构成的一个框架体系
+
+> 集合接口
+> Collection,List,Set,Map,Iterator,ListIterator,Enumeration,SortedSet,SortedMap,Queue,Map.Entry
+
+#### Collection
+
+存储一组无序,不唯一的对象
+
+> 常用方法
+
+size,isEmpty,contains,iterator,toArray,add,remove,containsAll,addAll,removeAll,clear,equals,hashCode
+
+> 常用子接口
+
+List,Set
+
+##### List 接口实现类
+
+###### ArrayList
+
+ArrayList: 底层是基于数组的数据结构,查询快,添加/删除慢
+
+```java
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList list = new ArrayList();
+        list.add("hello");
+        list.add("java");
+        list.add("javascript");
+        list.add("typescript");
+        System.out.println(list.size());
+        System.out.println(list.get(0)); // hello
+        System.out.println(list.remove(0)); // hello
+        System.out.println(list.contains("hello")); // false
+        System.out.println(list.contains("world")); // false
+        System.out.println(list); // [java, javascript, typescript]
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+        // java
+        // typescript
+        // javascript
+        list.add(1,"react");
+        System.out.println(list); // [java, react, javascript, typescript]
+        list.set(0,"vue");
+        System.out.println(list); // [vue, react, javascript, typescript]
+        System.out.println(list.indexOf("typescript")); // 3
+    }
+}
+```
+
+###### LinkedList
+
+linkedList: 先进先出的队列,采用链表的形式来实现,元素之间通过储存彼此的位置信息实现连接,查找慢,添加/删除快,与 ArrayList 相反
+
+```java
+import java.util.LinkedList;
+
+public class Test {
+    public static void main(String[] args) {
+        LinkedList list=new LinkedList();
+        list.add("hello");
+        list.add("world");
+        list.add("Java");
+        System.out.println(list); // [hello, world, Java]
+        list.addFirst("A");
+        list.addLast("B");
+        System.out.println(list); // [A, hello, world, Java, B]
+        list.push("Push");
+        System.out.println(list); // [Push, A, hello, world, Java, B]
+        System.out.println(list.getFirst()); // Push
+        System.out.println(list.getLast()); // B
+        System.out.println(list.pop()); // Push
+        System.out.println(list); // [A, hello, world, Java, B]
+    }
+}
+
+```
+
+#### Set 接口实现类
+
+Set 中存储的数据没有顺序,并且唯一
+
+##### hashSet
+
+唯一且无序:元素存入和取出顺序不一致 不可 for 循环
+
+```java
+import java.util.HashSet;
+import java.util.Iterator;
+public class Test {
+    public static void main(String[] args) {
+        HashSet set = new HashSet();
+        set.add("hello");
+        set.add("hello");
+        set.add("hello");
+        set.add("world");
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next()); // world hello
+        }
+        System.out.println(set.size()); // 2
+    }
+}
+
+```
+
+#### LinkedHashSet
+
+唯一有序
+
+```java
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+
+public class Test {
+    public static void main(String[] args) {
+        LinkedHashSet set = new LinkedHashSet();
+        set.add("hello");
+        set.add("hello");
+        set.add("hello");
+        set.add("world");
+        Iterator iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next()); // hello world
+        }
+        System.out.println(set.size()); // 2
+        System.out.println(set); // [hello, world]
+    }
+}
+
+```
+
+重写 A 方法,判断 A 不相同
+
+```java
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Objects;
+
+public class Test {
+    public static void main(String[] args) {
+        LinkedHashSet set = new LinkedHashSet();
+        set.add(new A(1));
+        set.add(new A(1));
+        System.out.println(set); // [A{number=1}]
+    }
+}
+
+class A {
+    private int number;
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "A{" +
+                "number=" + number +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        A a = (A) obj;
+        return Objects.equals(number, a.number);
+    }
+
+    public A(int number) {
+        this.number = number;
+    }
+}
+```
+
+##### TreeSet
+
+唯一有序: 指的是集合内部自动给所有元素进行升序排列
+
+```java
+import java.util.Iterator;
+import java.util.TreeSet;
+
+public class Test {
+    public static void main(String[] args) {
+        TreeSet set=new TreeSet();
+        set.add(1);
+        set.add(1);
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(4);
+        System.out.println(set); // [1,2,3,4]
+        Iterator iterator=set.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next()); // 1 2 3 4
+        }
+    }
+}
+```
+
+实现 compareTo 接口对比对象数据
+
+```java
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.TreeSet;
+
+public class Test {
+    public static void main(String[] args) {
+        TreeSet set = new TreeSet();
+        set.add(new A(1));
+        set.add(new A(3));
+        set.add(new A(4));
+        set.add(new A(2));
+        System.out.println(set); // [A{number=1}, A{number=2}, A{number=3}, A{number=4}]
+    }
+}
+class A implements Comparable {
+    private int number;
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "A{" +
+                "number=" + number +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        A a = (A) obj;
+        return Objects.equals(number, a.number);
+    }
+
+    public A(int number) {
+        this.number = number;
+    }
+
+    public int compareTo(Object o) {
+        A a = (A) o;
+        if (this.number > a.number) {
+            return 1;
+        } else if (this.number < a.number) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+}
+
+```
