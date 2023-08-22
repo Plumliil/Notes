@@ -2911,3 +2911,273 @@ class A implements Comparable {
 }
 
 ```
+
+#### Map 接口实现
+
+Map 操作的是一对元素,元素以 key-value 的形式进行储存
+
+常用方法: size,isEmpty,containsKey,containsValue,get,put,remove,clear
+
+##### HashMap
+
+无序: key 不可重复,value 可重复
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        HashMap map = new HashMap();
+        map.put("f", "foo");
+        map.put("b", "bar");
+        map.put("h", "hel");
+        map.put("w", "wrd");
+        System.out.println(map); // {b=bar, f=foo, w=wrd, h=hel}
+        map.remove("f");
+        System.out.println(map); // {b=bar, w=wrd, h=hel}
+        Collection values =map.values();
+        Iterator it = values.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+//          wrd
+//          bar
+//          hel
+        }
+    }
+}
+```
+
+##### TreeMap
+
+有序:通过 key 对集合中的元素进行排序
+
+也可以类实现 Comparable 接口并进行重写 CompareTo 方法
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        TreeMap map = new TreeMap();
+        map.put(3, "foo");
+        map.put(4, "bar");
+        map.put(1, "hel");
+        map.put(2, "wrd");
+        System.out.println(map); // {1=hel, 2=wrd, 3=foo, 4=bar}
+        map.remove(2);
+        System.out.println(map); // {1=hel, 3=foo, 4=bar}
+        Collection values =map.values();
+        System.out.println(values); // [hel, foo, bar]
+        Iterator it = values.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+//          hel
+//          foo
+//          bar
+        }
+    }
+}
+```
+
+#### Collections 工具类
+
+Collections 是 JDK 专门针对集合操作提供的一个工具类
+
+```java
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        ArrayList list = new ArrayList();
+        list.add("hello");
+        list.add("world");
+        System.out.println(list); // [hello, world]
+        Collections.addAll(list,"java","javaScript","typeScript");
+        System.out.println(list); // [hello, world, java, javaScript, typeScript]
+        Collections.reverse(list);
+        System.out.println(list); // [typeScript, javaScript, java, world, hello]
+        Collections.swap(list,1,3);
+        System.out.println(list); // [typeScript, world, java, javaScript, hello]
+        System.out.println(Collections.max(list));
+        System.out.println(Collections.min(list));
+    }
+}
+
+```
+
+### 泛型
+
+#### 什么是泛型
+
+定义类是不指定类中信息的具体类型,而是用一个标识符来代替,当外部实例化对象时再来指定具体的数据类型
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<Number> list1 = new ArrayList<Number>();
+    }
+}
+```
+
+#### 泛型的应用
+
+让程序变得更加灵活
+
+```java
+package Test0823;
+
+public class Time<H,M,S> {
+    private H hour;
+    private M minute;
+    private S second;
+
+    public H getHour() {
+        return hour;
+    }
+
+    public void setHour(H hour) {
+        this.hour = hour;
+    }
+
+    public M getMinute() {
+        return minute;
+    }
+
+    public void setMinute(M minute) {
+        this.minute = minute;
+    }
+
+    public S getSecond() {
+        return second;
+    }
+
+    public void setSecond(S second) {
+        this.second = second;
+    }
+}
+
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+      Time<String,Integer,Float> time = new Time<>();
+      time.setHour("十点");
+      time.setMinute(10);
+      time.setSecond(10.0f);
+
+        System.out.println(time.getHour() + ":" + time.getMinute() + ":" + time.getSecond());
+    }
+}
+
+```
+
+#### 泛型通配符
+
+通过`?`来使用泛型通配符,也可以不写`<?>`
+
+```java
+import java.util.ArrayList;
+
+public class Test {
+    public static void main(String[] args) {
+      test(new ArrayList<String>());
+      test(new ArrayList<Integer>());
+    }
+    public static void test(ArrayList<?> list) {
+        System.out.println(list);
+    }
+}
+
+```
+
+#### 泛型的上限和下限
+
+泛型上限: 类名<泛型标识符 extends 上限类名>
+
+实例化的具体数据类型,可以是上限本身以及其子类
+
+```java
+public class Test {
+    public static void main(String[] args) {
+      test(new Time<Number>());
+      test(new Time<Integer>());
+    }
+    public static void test(Time<? extends Number> time) {
+        System.out.println(time);
+    }
+}
+```
+
+泛型下限: 类名<泛型标识符 super 下限类名>
+
+实例化的具体数据类型,可以是下线类型本身以及其父类
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        test(new Time<Number>());
+        test(new Time<Integer>());
+        test2(new Time<Object>());
+        test2(new Time<String>());
+    }
+
+    public static void test(Time<? extends Number> time) {
+        System.out.println(time);
+    }
+
+    public static void test2(Time<? super String> time) {
+        System.out.println(time);
+    }
+}
+```
+
+#### 泛型接口
+
+```java
+public interface MyInterface<T> {
+    public T getValue();
+}
+```
+实现泛型接口的两种方式:
+1. 实现类在定义是继续使用泛型标识
+2. 实现类在定义时直接给出具体的数据类型
+
+```java
+public class MyInterfaceImpl<T> implements MyInterface<T> {
+    @Override
+    public T getValue() {
+        return null;
+    }
+}
+```
+```java
+public class MyInterfaceImpl2 implements MyInterface<String> {
+    private String value;
+    @Override
+    public String getValue() {
+        return this.value;
+    }
+
+    public MyInterfaceImpl2(String t) {
+        this.value = t;
+    }
+}
+
+```
+```java
+public class Test {
+    public static void main(String[] args) {
+        MyInterfaceImpl2 stringMyInterface=new MyInterfaceImpl2("String 接口");
+        System.out.println(stringMyInterface);
+        MyInterfaceImpl<Integer> intMyInterface=new MyInterfaceImpl<Integer>();
+    }
+}
+```
+## 实用类
+
+### 枚举
+是一种类: 简洁,安全,方便,值被约束到一个特定的范围内,只能取这个范围内的值
+
+由一组常量组成,只能在指定的取值区间内取值
