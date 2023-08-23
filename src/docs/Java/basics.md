@@ -3140,7 +3140,9 @@ public interface MyInterface<T> {
     public T getValue();
 }
 ```
+
 实现泛型接口的两种方式:
+
 1. 实现类在定义是继续使用泛型标识
 2. 实现类在定义时直接给出具体的数据类型
 
@@ -3152,6 +3154,7 @@ public class MyInterfaceImpl<T> implements MyInterface<T> {
     }
 }
 ```
+
 ```java
 public class MyInterfaceImpl2 implements MyInterface<String> {
     private String value;
@@ -3166,6 +3169,7 @@ public class MyInterfaceImpl2 implements MyInterface<String> {
 }
 
 ```
+
 ```java
 public class Test {
     public static void main(String[] args) {
@@ -3175,9 +3179,237 @@ public class Test {
     }
 }
 ```
+
 ## 实用类
 
 ### 枚举
+
 是一种类: 简洁,安全,方便,值被约束到一个特定的范围内,只能取这个范围内的值
 
 由一组常量组成,只能在指定的取值区间内取值
+
+```java
+public enum Week {
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY
+}
+```
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Week.MONDAY); // MONDAY
+    }
+}
+```
+
+### Math
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Math.E); // 2.718281828459045
+        System.out.println(Math.PI); // 3.141592653589793
+        System.out.println(Math.sqrt(9)); // 3.0
+        System.out.println(Math.cbrt(8)); // 2.0
+        System.out.println(Math.abs(-10)); // 10
+        System.out.println(Math.ceil(10.001)); // 11.0
+        System.out.println(Math.floor(10.999)); // 10.0
+        // ...
+    }
+}
+```
+
+### String
+
+创建方式
+
+1. `String str = "java"`
+2. `String str = new String("java")`
+3. `char[] array = {'j','a','v','a'}`
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        String str = "string word";
+        System.out.println(str.length()); // 11
+        System.out.println(str.isEmpty()); // false
+        System.out.println(str.indexOf("wo")); // 7
+        System.out.println(str.equals("string word")); // true
+        System.out.println(str.equalsIgnoreCase("String Word")); // true
+        System.out.println(str.startsWith("w")); // false
+        System.out.println(str.substring(5)); // g word
+        // replaceAll 替换
+        // split 分割
+    }
+}
+
+```
+
+### StringBuffer
+
+底层使用数组来存储字符串内容,默认长度为 16,长度超过 16 会自动进行数组扩容
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        StringBuffer buffer = new StringBuffer();
+        System.out.println(buffer.length());
+        StringBuffer stringBuffer = new StringBuffer("hello world");
+        System.out.println(stringBuffer.length()); // 11
+        stringBuffer=stringBuffer.append(" Java");
+        System.out.println(stringBuffer); // hello world Java
+        stringBuffer=stringBuffer.delete(3,5);
+        System.out.println(stringBuffer); // hel world Java
+        // substring
+        // replace
+        // insert
+        // indexOf
+        // reverse
+        // toString
+    }
+}
+```
+
+### 日期类
+
+#### Data
+
+创建对象来表示当前的系统时间
+
+```java
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test {
+    public static void main(String[] args) {
+        Date date = new Date();
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd");
+        String dateString = format.format(date);
+        System.out.println(dateString);
+    }
+}
+```
+
+#### Calendar
+
+把日期数据赋给 Calender,再调用 Calender 的相关方法完成运算
+
+|         常量 | 描述 |
+| -----------: | :--- |
+|         YEAR | 年   |
+|        MONTH | 月   |
+| DAY_OF_MONTH | 天   |
+|  DAY_OF_YEAR | 天   |
+|  HOUR_OF_DAY | 小时 |
+|       MINUTE | 分钟 |
+|       SECOND | 秒   |
+|  MILLISECOND | 毫秒 |
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        // 计算 2020-07-12 所在的周是2021年的第几周
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2021);
+        cal.set(Calendar.MONTH, 7);
+        cal.set(Calendar.DAY_OF_MONTH, 12);
+        System.out.println(cal.get(Calendar.WEEK_OF_YEAR)); // 33
+        // 计算这天50天后的日期
+        int day1 = cal.get(Calendar.DAY_OF_YEAR);
+        System.out.println(day1); // 224
+        cal.set(Calendar.DAY_OF_YEAR, day1 + 50);
+        Date time =cal.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String day2 = sdf.format(time);
+        System.out.println(day2); // 2021-10-02
+    }
+}
+```
+
+## IO 流
+
+使用 java 程序完成输入输出功能
+
+input: 将文件以数据流的形式读取到程序中
+
+output: 将 java 程序中的数据写入到文件中
+
+### File 类
+
+专门用来创建文件对象
+
+```java
+import java.io.File;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        try {
+            File file = new File("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            if (file.exists()) {
+                System.out.println(file.getName()); // text.txt
+                System.out.println(file.length()); // 18
+                System.out.println(file.getParent()); // E:\A_Personal\JavaStudy\file
+                System.out.println(file.getParentFile()); // E:\A_Personal\JavaStudy\file
+                System.out.println(file.isDirectory()); // 是否是文件夹 false
+                System.out.println(file.isFile()); // 是否是文件 true
+                File newFile = new File("E:\\A_Personal\\JavaStudy\\file\\newText.txt");
+                boolean newFile1=newFile.createNewFile();
+                if (newFile1){
+                    System.out.println("文件创建成功");
+                }
+                File newFile2 = new File("E:\\A_Personal\\JavaStudy\\file\\newNameText.txt");
+                System.out.println(newFile.renameTo(newFile2)); // true
+                System.out.println(newFile2.delete()); // true
+            }else {
+                throw new Exception("File does not exist");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+
+```
+
+### 字节流
+
+java 中的数据流
+
+- 按照方向分: 可以分为输入流和输出流
+- 按照单位分: 可以分为字节流和字符流
+- 按照功能分: 可以分为节点流和处理流
+
+#### 输入字节流 InputStream
+
+```java
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        InputStream in = null;
+        try {
+            in = new FileInputStream("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            int temp = 0;
+            while ((temp = in.read()) != -1) {
+                System.out.println(temp);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        finally {
+            in.close();
+        }
+    }
+}
+```
+
+#### 输出字节流 OutputStream
