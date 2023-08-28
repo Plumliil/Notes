@@ -3413,3 +3413,313 @@ public class Test {
 ```
 
 #### 输出字节流 OutputStream
+
+将数据以字节的形式输出
+
+```java
+
+package Test0828;
+
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        OutputStream out = null;
+        try {
+            byte[] bytes = {105, 111, 109, 120};
+            out = new FileOutputStream("E:\\A_Personal\\JavaStudy\\file\\text1.txt");
+//            out.write(99);
+            out.write(bytes,1,1); // 截取字节
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
+    }
+}
+
+```
+
+### 字符流
+
+以字符为单位
+
+#### 输入字符流 Reader
+
+以你好为例,字符流输出两个数字,字节流输出 6 个数字
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+       Reader reader =null;
+        try {
+            reader = new FileReader("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            int temp=0;
+            while ((temp=reader.read()) != -1){
+                System.out.println(temp);
+            }
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            reader.close();
+        }
+    }
+}
+
+```
+
+char
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+       Reader reader =null;
+        try {
+            reader = new FileReader("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+//            char[] chars=new char[2];
+            char[] chars=new char[10];
+            int read=reader.read(chars,2,2);
+            for (char aChar : chars) {
+                System.out.println(aChar);
+            }
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            reader.close();
+        }
+    }
+}
+
+```
+
+#### 输出字符流 Writer
+
+从程序向外写数据
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        Writer writer = null;
+        try {
+            writer = new FileWriter("E:\\A_Personal\\JavaStudy\\file\\text1.txt");
+            char[] chars = {'你','好', '世', '界'};
+//            writer.write(20320);
+//            writer.write(22909);
+            writer.write(chars,2,2); // 写入世界
+            writer.write("我是字符串",1,3); // 写入世界
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
+### 缓冲流
+
+![缓冲流.png](https://s2.loli.net/2023/08/28/9XGuOvep6Bcqwbh.png)
+
+缓冲流是处理流,处理流不能直接关联文件进行操作,必须要基于节点流(字节流,字符流)进行操作
+
+文件->节点流->缓冲流
+
+#### 字节输入缓冲流 BufferedInputStream
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        InputStream inputStream = null;
+        BufferedInputStream bufferedInputStream = null;
+        try {
+            inputStream = new FileInputStream("E:\\A_Personal\\JavaStudy\\file\\text1.txt");
+            bufferedInputStream = new BufferedInputStream(inputStream);
+            byte[] bytes = new byte[10];
+            System.out.println(bufferedInputStream.read(bytes, 2, 2));
+            for (byte aByte : bytes) {
+                System.out.println(aByte);
+
+            }
+//            int temp = 0;
+//            while ((temp =bufferedInputStream.read())!=-1){
+//                System.out.println(temp);
+//            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                inputStream.close();
+                bufferedInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+```
+
+#### 字节输入缓冲流 BufferedOutputStream
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        OutputStream out = null;
+        BufferedOutputStream bfOut = null;
+        try {
+            out = new FileOutputStream("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            bfOut = new BufferedOutputStream(out);
+//            byte[] bytes = {105, 111, 99};
+//            bfOut.write(bytes);
+            String str="Java是一种通用的高级编程语言，由Sun Microsystems于1995年首次发布。它是一门面向对象的语言，设计初衷是具有平台独立性，可一次编写，到处运行的特性。\n";
+            byte[] bytes=str.getBytes();
+            bfOut.write(bytes);
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            bfOut.flush();
+            out.close();
+            bfOut.close();
+        }
+    }
+}
+```
+
+#### 字符输入缓冲流 BufferedReader
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        Reader reader = null;
+        BufferedReader bfReader = null;
+        try {
+            reader = new FileReader("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            bfReader = new BufferedReader(reader);
+            String s=null;
+            while ((s = bfReader.readLine()) != null) {
+                System.out.println(s);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            reader.close();
+            bfReader.close();
+        }
+    }
+}
+
+```
+
+#### 字符输入缓冲流 BufferedWriter
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        Writer writer = null;
+        BufferedWriter bfWriter = null;
+        try {
+            writer = new FileWriter("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            bfWriter = new BufferedWriter(writer);
+            String str = "Java是一种通用的高级编程语言，由Sun Microsystems于1995年首次发布。它是一门面向对象的语言，设计初衷是具有平台独立性，可一次编写，到处运行的特性。\n";
+            bfWriter.write(str,2,3);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            bfWriter.flush();
+            writer.close();
+            bfWriter.close();
+        }
+    }
+}
+
+```
+
+### 序列化和反序列换
+
+序列化是指将内存中对象输入到文件中
+
+反序列化是指从文件中读取数据还原成内存中对象
+
+#### 序列化
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        User user = new User();
+        user.setName("zs");
+        user.setAge(18);
+        user.setId(1);
+        ObjectOutputStream objectOutputStream = null;
+        OutputStream outputStream = null;
+        try {
+            outputStream = new FileOutputStream("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            objectOutputStream.flush();
+            outputStream.close();
+            objectOutputStream.close();
+        }
+    }
+}
+```
+
+#### 反序列化
+
+```java
+import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception {
+        ObjectInputStream objectInputStream = null;
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream("E:\\A_Personal\\JavaStudy\\file\\text.txt");
+            objectInputStream = new ObjectInputStream(inputStream);
+            User user = (User) objectInputStream.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            inputStream.close();
+            objectInputStream.close();
+        }
+}
+
+```
+
+## 反射
+
+### 什么是反射
+
+反射是 java 动态语言的关键,大部分类库,企业级的框架底层都会用到反射
+
+反转执行,通过一个实例化对象映射到类,程序运行期间获取到类的信息
+
+常规情况下通过类创建对象,反射就是将这一过程反转,从对象映射到类
