@@ -3723,3 +3723,204 @@ public class Test {
 反转执行,通过一个实例化对象映射到类,程序运行期间获取到类的信息
 
 常规情况下通过类创建对象,反射就是将这一过程反转,从对象映射到类
+
+### class 类
+
+class 类是反射的基础,类的结构需要抽象成对象,Class 类就是用来描述其他类的结构
+
+Class 的每一个对象对应的都是其他类的结构特征
+
+创建 Class 实例化对象的方式有三种
+
+- 调用静态方法 forName(目标类)
+- 目标类.class 类字面量
+- 对象.getClass
+
+```java
+public class Test {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<?> class1 = Class.forName("User");
+        System.out.println(class1); // class User
+        Class<User> class2 = User.class;
+        System.out.println(class2);
+        User user = new User(); // class User
+        Class class3 = user.getClass();
+        System.out.println(class3); // class User
+    }
+}
+
+```
+
+### 获取类结构
+
+获取类结构作用是拿到类的信息
+
+> Class 类的常用方法
+> isInterface isArray isAnnotation getName getClassLoader getSuperclass getPackage getPackageName getInterfaces getModifiers getFileds getMethods getConstructor
+
+目标类 User
+
+```java
+import java.io.Serializable;
+public class User implements Serializable,Comparable {
+    private String name;
+    private Integer password;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPassword() {
+        return password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", password=" + password +
+                '}';
+    }
+
+    public void setPassword(Integer password) {
+        this.password = password;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+}
+```
+
+#### 获取类的接口
+
+```java
+public class Test {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<?> class1 = Class.forName("User");
+        // 获取接口
+        Class[] interfaces = class1.getInterfaces();
+        for (Class anInterface : interfaces) {
+            System.out.println(anInterface);
+            // interface java.io.Serializable
+            // interface java.lang.Comparable
+        }
+    }
+}
+```
+
+#### 获取父类
+
+```java
+public class Test {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class<User> class1 = User.class;
+        Class superclass = class1.getSuperclass();
+        System.out.println(superclass); // class java.lang.Object
+    }
+}
+```
+
+#### 获取构造函数
+
+```java
+import java.lang.reflect.Constructor;
+
+public class Test {
+    public static void main(String[] args) {
+        User user = new User();
+        Class class1 = user.getClass();
+        Constructor[] constructors = class1.getConstructors();
+        for (Constructor constructor : constructors) {
+            System.out.println(constructor);
+            // public User()
+            // public User(java.lang.String,java.lang.Integer)
+        }
+    }
+}
+
+```
+
+#### 获取方法
+
+```java
+import java.lang.reflect.Method;
+
+public class Test {
+    public static void main(String[] args) throws NoSuchMethodException {
+        User user = new User();
+        Class class1 = user.getClass();
+        // 获取User类中所有方法,包括父类方法
+        Method[] methods = class1.getMethods();
+        for (Method method : methods) {
+            System.out.println(method);
+            // public java.lang.String User.getName()
+            // public java.lang.String User.toString()
+            // public int User.compareTo(java.lang.Object)
+            // public void User.setName(java.lang.String)
+            // public void User.setPassword(java.lang.Integer)
+            // public java.lang.Integer User.getPassword()
+            // public final void java.lang.Object.wait(long,int) throws java.lang.InterruptedException
+            // public final void java.lang.Object.wait() throws java.lang.InterruptedException
+            // public final native void java.lang.Object.wait(long) throws java.lang.InterruptedException
+            // public boolean java.lang.Object.equals(java.lang.Object)
+            // public native int java.lang.Object.hashCode()
+            // public final native java.lang.Class java.lang.Object.getClass()
+            // public final native void java.lang.Object.notifyAll()
+            // public final native void java.lang.Object.notify()
+        }
+        System.out.println("----------------------------------------------------");
+        // 获取User类中独有的public方法(不包括父类)
+        Method[] declarations=class1.getDeclaredMethods();
+        for (Method declaration : declarations) {
+            System.out.println(declaration);
+            // public java.lang.String User.getName()
+            // public java.lang.String User.toString()
+            // public int User.compareTo(java.lang.Object)
+            // public void User.setName(java.lang.String)
+            // public java.lang.Integer User.getPassword()
+            // public void User.setPassword(java.lang.Integer)
+        }
+        Method setName = class1.getDeclaredMethod("setName", String.class);
+        System.out.println("----------------------------------------------------");
+        System.out.println(setName);
+
+    }
+}
+```
+
+#### 获取成员变量
+
+getField: 获取目标类和从父类继承过来的方法,但必须要是 public
+getDeclaredField: 获取目标类自身的方法,不包含父类 但是没有 public 的限制
+ 
+```java
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+public class Test {
+    public String test;
+
+    public static void main(String[] args) throws NoSuchMethodException {
+        User user = new User();
+        Class class1 = user.getClass();
+        // 获取全部成员变量 包括父类
+        Field[] fields = class1.getFields();
+        for (Field field : fields) {
+            System.out.println(field);
+        }
+        System.out.println("--------------------------------");
+        // 获取目标类独有的成员变量
+        Field[] declaredFields = class1.getDeclaredFields();
+        for (Field declaredField : declaredFields) {
+            System.out.println(declaredField);
+        }
+    }
+}
+
+```
