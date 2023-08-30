@@ -3898,7 +3898,7 @@ public class Test {
 
 getField: 获取目标类和从父类继承过来的方法,但必须要是 public
 getDeclaredField: 获取目标类自身的方法,不包含父类 但是没有 public 的限制
- 
+
 ```java
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -3919,6 +3919,188 @@ public class Test {
         Field[] declaredFields = class1.getDeclaredFields();
         for (Field declaredField : declaredFields) {
             System.out.println(declaredField);
+        }
+    }
+}
+
+```
+
+## 网络编程
+
+Web 编程: 编写程序运行在同一个网络下的两个终端上,使得他们可以进行数据传输.
+
+IP: 互联网中的每一台终端设备都有一个唯一标识,网络中的请求可以根据这个标识找到具体的终端,这个唯一标识就是 IP 地址,本机 IP 是:127.0.0.1 或 localhost
+
+端口: 同一台终端设备上正在运行的每一个应用都有一个唯一的端口,请求通过端口可以区分不同的应用
+
+Tomcat: localhost:8080
+
+MySQL: localhost:3306
+
+### TCP 协议
+
+TCP 协议是面向连接额运输层协议,传输数据之前必须先建立稳定的连接.
+
+优点: 稳定可靠,不会出现数据丢失情况,数据是按照先后顺序依次到达
+
+缺点: 速度慢,效率低
+
+服务端: ServerSocket
+
+客户端: Socket
+
+```java
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+    public static void main(String[] args) {
+        ServerSocket serverSocket = null;
+        Socket socket = null;
+        OutputStream outputStream = null;
+        InputStream inputStream = null;
+        DataOutputStream dataOutputStream = null;
+        DataInputStream dataInputStream = null;
+        try {
+            serverSocket = new ServerSocket(8084);
+            System.out.println("--------服务端--------");
+            System.out.println("已启动,等待接收客户端请求");
+            boolean flag = true;
+            while (flag) {
+                socket = serverSocket.accept();
+                inputStream = socket.getInputStream();
+                dataInputStream = new DataInputStream(inputStream);
+                String request = dataInputStream.readUTF();
+                System.out.println("接收到客户端请求" + request);
+                outputStream = socket.getOutputStream();
+                dataOutputStream = new DataOutputStream(outputStream);
+                String response = "Hello World";
+                dataOutputStream.writeUTF(response);
+                System.out.println("给客户端做出相应:" + response);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
+
+```
+
+服务端:
+
+```java
+import java.io.*;
+import java.net.Socket;
+
+public class Clent {
+    public static void main(String[] args) {
+        Socket socket = null;
+        OutputStream output = null;
+        InputStream input = null;
+        DataOutputStream dataOutputStream = null;
+        DataInputStream dataInputStream = null;
+        try {
+            socket = new Socket("127.0.0.1", 8084);
+            System.out.println("---客户端---");
+            String request = "你好";
+            System.out.println("客户端说:" + request);
+            output = socket.getOutputStream();
+            dataOutputStream = new DataOutputStream(output);
+            dataOutputStream.writeUTF(request);
+            input = socket.getInputStream();
+            dataInputStream = new DataInputStream(input);
+            String response = dataInputStream.readUTF(dataInputStream);
+            System.out.println("服务端响应为:" + response);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                output.close();
+                input.close();
+                dataInputStream.close();
+                dataInputStream.close();
+                socket.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+    }
+}
+
+```
+
+### UDP 协议
+
+UDP 协议的连接都是不可靠的,不需要先建立连接,直接发送数据即可
+
+优点: 速度快,效率高
+
+缺点: 不安全,可能出现数据丢失
+
+DatagramSocket
+
+DatagramPacket
+
+```java
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketAddress;
+import java.net.SocketException;
+
+public class TerminalA {
+    public static void main(String[] args) {
+        byte[] bytes = new byte[1024];
+        DatagramSocket socket = null;
+        DatagramPacket packet = null;
+        try {
+            packet = new DatagramPacket(bytes, bytes.length);
+            socket = new DatagramSocket(8181);
+            socket.receive(packet);
+            String message = new String(packet.getData(), 0, packet.getLength());
+            System.out.println("我是Terminal A,接收到了" + packet.getPort() + "传来的消息");
+            // 发送数据
+            String reply = "我是Termail A,来自 8181";
+            SocketAddress socketAddress = packet.getSocketAddress();
+            DatagramPacket packet1 = new DatagramPacket(reply.getBytes(), reply.getBytes().length, socketAddress);
+            socket.send(packet1);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            socket.close();
+        }
+    }
+}
+
+````
+```java
+import java.net.*;
+
+public class TerminalB {
+    public static void main(String[] args) {
+        String message = "我是Termial B,你好!";
+        DatagramSocket socket = null;
+        DatagramPacket packet = null;
+        DatagramPacket packet1 = null;
+        try {
+            // 发送数据
+            InetAddress inetAddress = InetAddress.getByName("localhost");
+            packet = new DatagramPacket(message.getBytes(), message.getBytes().length, inetAddress, 8181);
+            socket = new DatagramSocket(8282);
+            socket.send(packet);
+            socket.receive(packet);
+            // 接收数据
+            byte[] bytes = new byte[1024];
+            packet1 = new DatagramPacket(bytes, bytes.length);
+            socket.receive(packet1);
+            String reply = new String(packet1.getData(), 0, packet1.getLength());
+            System.out.println("我是Termail B,接收到了" + packet1.getPort() + "返回的数据" + reply);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            socket.close();
         }
     }
 }
