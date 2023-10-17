@@ -2,7 +2,7 @@
 
 ## 常用命令
 
-### git reset
+### git reset 
 
 #### 撤回上一次已 commit 但未 push 的代码
 
@@ -33,4 +33,12 @@ Author:xxx <youremail@email.com>
 
 ```shell
 git config --global user.email "youremail@email.com"
+```
+
+### git branch -d
+
+#### 删除本地分支
+
+```shell
+git branch -d branchname
 ```
