@@ -38,7 +38,16 @@ git config --global user.email "youremail@email.com"
 ### git branch -d
 
 #### 删除本地分支
-
+如果该分支包含未合并的修改和未推送的提交，-d 标志将不允许删除该本地分支
+此时应该使用 -D
 ```shell
 git branch -d branchname
+```
+
+### git push origin -d
+
+#### 删除远程分支
+
+```shell
+git push origin --delete branchname
 ```
