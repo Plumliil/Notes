@@ -11,18 +11,18 @@
 - sudo 以系统管理者的身份执行指令
 - apt 是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器 可以进行软件安装(需要 root 权限)
 
-## 快捷键
+## 常用
 
-- Tab 补充命令
-- Ctrl + Ins 复制
-- Shift + Ins 粘贴
-- Ctrl + C 中断当前执行的命令
-- Ctrl + D 关闭当前 Linux 终端
-- Ctrl + A 移动光标
-- Ctrl + E 移动光标到结尾
-- Ctrl + L 清除终端内容
-- Ctrl + F 向光标后移动一个字符
-- Ctrl + B 向光标前移动一个字符
-- Ctrl + K 剪切光标处到行尾字符
-- Ctrl + U 剪切光标处到行首的字符
-- Ctrl + Y 将剪切的字符进行粘贴
+### 复制文件到当前目录
+
+```shell
+cp my_file ./my_copy_file
+```
+- ./ 表示当前目录
+- 
+### 复制文件夹到当前目录并重命名
+
+```shell
+cp -r my_file_dir/ ./my_copy_file_dir/
+```
+- -r 表示递归，是对多个文件的操作
