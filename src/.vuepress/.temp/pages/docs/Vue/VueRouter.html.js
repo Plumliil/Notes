@@ -1,0 +1,14 @@
+export const data = JSON.parse("{\"key\":\"v-d9ccc224\",\"path\":\"/docs/Vue/VueRouter.html\",\"title\":\"Vue-Router\",\"lang\":\"en-US\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"什么是vue-router\",\"slug\":\"什么是vue-router\",\"link\":\"#什么是vue-router\",\"children\":[]},{\"level\":2,\"title\":\"vue-router的常见用法\",\"slug\":\"vue-router的常见用法\",\"link\":\"#vue-router的常见用法\",\"children\":[{\"level\":3,\"title\":\"安装vue-router包\",\"slug\":\"安装vue-router包\",\"link\":\"#安装vue-router包\",\"children\":[]},{\"level\":3,\"title\":\"创建路由模块\",\"slug\":\"创建路由模块\",\"link\":\"#创建路由模块\",\"children\":[]},{\"level\":3,\"title\":\"导入并挂载路由模块\",\"slug\":\"导入并挂载路由模块\",\"link\":\"#导入并挂载路由模块\",\"children\":[]},{\"level\":3,\"title\":\"声明路由链接和占位符\",\"slug\":\"声明路由链接和占位符\",\"link\":\"#声明路由链接和占位符\",\"children\":[]}]},{\"level\":2,\"title\":\"路由的基本用法\",\"slug\":\"路由的基本用法\",\"link\":\"#路由的基本用法\",\"children\":[{\"level\":3,\"title\":\"使用redirect重定向\",\"slug\":\"使用redirect重定向\",\"link\":\"#使用redirect重定向\",\"children\":[]},{\"level\":3,\"title\":\"嵌套路由\",\"slug\":\"嵌套路由\",\"link\":\"#嵌套路由\",\"children\":[]},{\"level\":3,\"title\":\"通过children属性声明子路由规则\",\"slug\":\"通过children属性声明子路由规则\",\"link\":\"#通过children属性声明子路由规则\",\"children\":[]},{\"level\":3,\"title\":\"默认子路由\",\"slug\":\"默认子路由\",\"link\":\"#默认子路由\",\"children\":[]}]},{\"level\":2,\"title\":\"动态路由匹配\",\"slug\":\"动态路由匹配\",\"link\":\"#动态路由匹配\",\"children\":[{\"level\":3,\"title\":\"动态路由的概念\",\"slug\":\"动态路由的概念\",\"link\":\"#动态路由的概念\",\"children\":[]},{\"level\":3,\"title\":\"拓展query和fullpath\",\"slug\":\"拓展query和fullpath\",\"link\":\"#拓展query和fullpath\",\"children\":[]}]},{\"level\":2,\"title\":\"编程式导航跳转\",\"slug\":\"编程式导航跳转\",\"link\":\"#编程式导航跳转\",\"children\":[{\"level\":3,\"title\":\"vue-router中编程式导航API，其中最常用的导航API分别是：\",\"slug\":\"vue-router中编程式导航api-其中最常用的导航api分别是\",\"link\":\"#vue-router中编程式导航api-其中最常用的导航api分别是\",\"children\":[]},{\"level\":3,\"title\":\"$router.go的简化\",\"slug\":\"router-go的简化\",\"link\":\"#router-go的简化\",\"children\":[]}]},{\"level\":2,\"title\":\"路由导航守卫\",\"slug\":\"路由导航守卫\",\"link\":\"#路由导航守卫\",\"children\":[{\"level\":3,\"title\":\"全局前置守卫\",\"slug\":\"全局前置守卫\",\"link\":\"#全局前置守卫\",\"children\":[]},{\"level\":3,\"title\":\"守卫方法的三个形参\",\"slug\":\"守卫方法的三个形参\",\"link\":\"#守卫方法的三个形参\",\"children\":[]},{\"level\":3,\"title\":\"next函数的三种调用方式\",\"slug\":\"next函数的三种调用方式\",\"link\":\"#next函数的三种调用方式\",\"children\":[]},{\"level\":3,\"title\":\"前置守卫\",\"slug\":\"前置守卫\",\"link\":\"#前置守卫\",\"children\":[]}]}],\"git\":{\"updatedTime\":1681611366000,\"contributors\":[{\"name\":\"plumliil_li\",\"email\":\"plumliil.li@elitesland.com\",\"commits\":1}]},\"filePathRelative\":\"docs/Vue/VueRouter.md\"}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

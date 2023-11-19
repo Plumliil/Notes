@@ -1,0 +1,27 @@
+<template><div><h1 id="基础篇" tabindex="-1"><a class="header-anchor" href="#基础篇" aria-hidden="true">#</a> 基础篇</h1>
+<h2 id="基本命令" tabindex="-1"><a class="header-anchor" href="#基本命令" aria-hidden="true">#</a> 基本命令</h2>
+<ul>
+<li>cd 切换目录 ~ 家目录 . 当前目录 .. 上级目录 - 上次所在目录</li>
+<li>ls 显示当前目录下文件</li>
+<li>touch 创建文件</li>
+<li>mkdir 创建文件夹</li>
+<li>pwd 查看当前目录</li>
+<li>tree 查看系统目录结构,部分 Linux 终端需要安装此命令 <code v-pre>sudo apt install tree</code></li>
+<li>sudo 以系统管理者的身份执行指令</li>
+<li>apt 是一个在 Debian 和 Ubuntu 中的 Shell 前端软件包管理器 可以进行软件安装(需要 root 权限)</li>
+</ul>
+<h2 id="常用" tabindex="-1"><a class="header-anchor" href="#常用" aria-hidden="true">#</a> 常用</h2>
+<h3 id="复制文件到当前目录" tabindex="-1"><a class="header-anchor" href="#复制文件到当前目录" aria-hidden="true">#</a> 复制文件到当前目录</h3>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">cp</span> my_file ./my_copy_file
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li>./ 表示当前目录</li>
+<li></li>
+</ul>
+<h3 id="复制文件夹到当前目录并重命名" tabindex="-1"><a class="header-anchor" href="#复制文件夹到当前目录并重命名" aria-hidden="true">#</a> 复制文件夹到当前目录并重命名</h3>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">cp</span> <span class="token parameter variable">-r</span> my_file_dir/ ./my_copy_file_dir/
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<li>-r 表示递归，是对多个文件的操作</li>
+</ul>
+</div></template>
+
+
