@@ -390,6 +390,18 @@ public class UserServiceImpl implements UserService {
 
 ### Bean管理
 
+#### Bean注册
+
+| --注解--    | --说明---            | ---位置---                                   |
+| ----------- | -------------------- | -------------------------------------------- |
+| @Component  | 声明bean的基础注解   | 不属于以下三类时用此注解                     |
+| @Controller | @Component的衍生注解 | 标注在控制器类上                             |
+| @Service    | @Component的衍生注解 | 标注在业务类上                               |
+| @Repository | @Component的衍生注解 | 标注在数据访问类上(由于与mybatis整合,用的少) |
+
+如果要注册的bean对象来自第三方(不是自定义的),是无法使用@Component及其衍生注解声明bean的
+
+如果要注册第三方bean,建议在启动类中集中注册
 
 ### 自动配置
 

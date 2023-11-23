@@ -12,14 +12,14 @@
 </ul>
 <h2 id="常用" tabindex="-1"><a class="header-anchor" href="#常用" aria-hidden="true">#</a> 常用</h2>
 <h3 id="复制文件到当前目录" tabindex="-1"><a class="header-anchor" href="#复制文件到当前目录" aria-hidden="true">#</a> 复制文件到当前目录</h3>
-<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">cp</span> my_file ./my_copy_file
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">cp </span><span style="color: #98C379">my_file</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">./my_copy_file</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>./ 表示当前目录</li>
 <li></li>
 </ul>
 <h3 id="复制文件夹到当前目录并重命名" tabindex="-1"><a class="header-anchor" href="#复制文件夹到当前目录并重命名" aria-hidden="true">#</a> 复制文件夹到当前目录并重命名</h3>
-<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="language-bash"><code><span class="token function">cp</span> <span class="token parameter variable">-r</span> my_file_dir/ ./my_copy_file_dir/
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">cp </span><span style="color: #D19A66">-r</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">my_file_dir/</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">./my_copy_file_dir/</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>-r 表示递归，是对多个文件的操作</li>
 </ul>
 </div></template>

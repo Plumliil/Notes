@@ -12,7 +12,7 @@ next: false
 </ul>
 <h2 id="vue-特性" tabindex="-1"><a class="header-anchor" href="#vue-特性" aria-hidden="true">#</a> vue 特性</h2>
 <p>在 vue 页面中，vue 会监听数据变化，从而自动重新渲染页面结构</p>
-<p><img src="https://s2.loli.net/2023/03/29/mS67KG9XuJYvdCw.png" alt=""></p>
+<figure><img src="https://s2.loli.net/2023/03/29/mS67KG9XuJYvdCw.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <p>好处：数据变化时，页面重新渲染</p>
 <p>坏处：数据驱动视图时双向绑定</p>
 <h3 id="_1-提高开发效率-不再操作-dom-解放用户的双手" tabindex="-1"><a class="header-anchor" href="#_1-提高开发效率-不再操作-dom-解放用户的双手" aria-hidden="true">#</a> 1.提高开发效率，不再操作 dom，解放用户的双手</h3>
@@ -34,68 +34,68 @@ next: false
 <p>可以直接渲染 html 标签</p>
 <h4 id="v-pre" tabindex="-1"><a class="header-anchor" href="#v-pre" aria-hidden="true">#</a> v-pre</h4>
 <p>填充原始信息,显示原始信息,跳过编译过程</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-    <span class="token comment">&lt;!-- &lt;script src="./lib/vue.min.js">&lt;/script> --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-      <span class="token selector">[v-clock]</span> <span class="token punctuation">{</span>
-        <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">v-clock</span><span class="token punctuation">></span></span>{{msg}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h4</span> <span class="token attr-name">v-text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h4</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">v-html</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>msg2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-      <span class="token keyword">var</span> vue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-          <span class="token literal-property property">msg</span><span class="token operator">:</span> <span class="token string">"hello Vue!"</span><span class="token punctuation">,</span>
-          <span class="token literal-property property">msg2</span><span class="token operator">:</span> <span class="token string">"&lt;h3>v-html&lt;/h3>"</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="v-bind" tabindex="-1"><a class="header-anchor" href="#v-bind" aria-hidden="true">#</a> v-bind</h4>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;!</span><span style="color: #E06C75">DOCTYPE</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">html</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">html</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">lang</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;en&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">head</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">meta</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">charset</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;UTF-8&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">meta</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">http-equiv</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;X-UA-Compatible&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">content</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;IE=edge&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">meta</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">name</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;viewport&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">content</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">title</span><span style="color: #ABB2BF">&gt;Document&lt;/</span><span style="color: #E06C75">title</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">&lt;!-- &lt;script src=&quot;./lib/vue.min.js&quot;&gt;&lt;/script&gt; --&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">style</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">[</span><span style="color: #D19A66">v-clock</span><span style="color: #C678DD">]</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">        display: </span><span style="color: #D19A66">none</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      }</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">style</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">head</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">id</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;app&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      &lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-clock</span><span style="color: #ABB2BF">&gt;{{msg}}&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      &lt;</span><span style="color: #E06C75">h4</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-text</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;msg&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">h4</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      &lt;</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-html</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;msg2&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">var</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vue</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Vue</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E06C75">el</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;#app&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E06C75">data</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E06C75">msg</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;hello Vue!&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E06C75">msg2</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;&lt;h3&gt;v-html&lt;/h3&gt;&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        },</span></span>
+<span class="line"><span style="color: #ABB2BF">      });</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">html</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="v-bind" tabindex="-1"><a class="header-anchor" href="#v-bind" aria-hidden="true">#</a> v-bind</h4>
 <p>提供绑定属性的一个指令</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-bind:</span>title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mytitle<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>v-bind 属性可以简洁为一个：要绑定的属性，且 v-bind 中可以写合法的表达式</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mytitle +'123'' <span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>mytitle:'自定义 title'
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;button&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">name</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-bind:title</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;mytitle&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">value</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;button&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>v-bind 属性可以简洁为一个：要绑定的属性，且 v-bind 中可以写合法的表达式</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;button&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">name</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">:title</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;mytitle +&#39;123&#39;&#39; &quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">value</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;button&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>mytitle:'自定义 title'
 允许 v-bind 绑定属性值期间，如果绑定内容需要进行动态拼接，则字符串的外面应该包裹单引号如</p>
 <p><code v-pre>&lt;P :title=&quot;'box'+index&quot;&gt;BOX&lt;/P&gt;</code></p>
 <h4 id="v-on" tabindex="-1"><a class="header-anchor" href="#v-on" aria-hidden="true">#</a> v-on</h4>
 <p>提供绑定事件的一个指令 v-on:=@</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">:title</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mytitle<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Button<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">v-on:</span>click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>show<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-    <span class="token keyword">var</span> vue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token literal-property property">mytitle</span><span class="token operator">:</span> <span class="token string">"自定义title"</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token comment">// 在methods属性中定义了当前Vue实例所有可用的方法</span>
-        <span class="token function-variable function">show</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"show"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="条件渲染指令" tabindex="-1"><a class="header-anchor" href="#条件渲染指令" aria-hidden="true">#</a> 条件渲染指令</h3>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">id</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;app&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;button&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">:title</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;mytitle&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">value</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;Button&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-on:click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;show&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">var</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">vue</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Vue</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">el</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;#app&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">data</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E06C75">mytitle</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;自定义title&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      },</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">// 在methods属性中定义了当前Vue实例所有可用的方法</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #61AFEF">show</span><span style="color: #ABB2BF">: </span><span style="color: #C678DD">function</span><span style="color: #ABB2BF"> () {</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #61AFEF">alert</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;show&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">        },</span></span>
+<span class="line"><span style="color: #ABB2BF">      },</span></span>
+<span class="line"><span style="color: #ABB2BF">    });</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="条件渲染指令" tabindex="-1"><a class="header-anchor" href="#条件渲染指令" aria-hidden="true">#</a> 条件渲染指令</h3>
 <p>v-if：每次动态创建和移除元素创建删除节点,来实现（进入页面，某些元素默认不显示，后期可能也不显示才使用 v-if）
 v-show:动态为元素添加 display:none 样式来实现元素显示隐藏（频繁切换性能更好）
 在实际开发中绝大多数勤快，不用考虑性能，直接 v-if
@@ -103,7 +103,7 @@ v-else-if：必须配合 v-if 使用，实现多项判断
 v-else：v-if 的相反情况</p>
 <h3 id="列表渲染指令" tabindex="-1"><a class="header-anchor" href="#列表渲染指令" aria-hidden="true">#</a> 列表渲染指令</h3>
 <p>vue 提供了 v-for 列表渲染指令，用来辅助开发者继续一个数组来循环渲染列表结构。v-for 指令需要用 item in items 形式语法中
-key 属性绑定,官方建议只要用到 v-for 一定要绑定一个 key，key 值最好为 item.id（提升性能，防止列表状态紊乱）
+key 属性绑定,官方建议只要用到 v-for 一定要绑定一个 key，key 值最好为 <a href="http://item.id" target="_blank" rel="noopener noreferrer">item.id<ExternalLinkIcon/></a>（提升性能，防止列表状态紊乱）
 官方对 key 值的类型是有要求的，字符串或数字类型
 key 的值是千万不能重复的，否则终端会报错：Duplicate keys detected</p>
 <ul>
@@ -153,50 +153,50 @@ input,textarea,select</p>
 </tbody>
 </table>
 <h2 id="按键修饰符" tabindex="-1"><a class="header-anchor" href="#按键修饰符" aria-hidden="true">#</a> 按键修饰符</h2>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> @keyup<span class="token punctuation">.</span>esc<span class="token operator">=</span><span class="token string">"clearInput"</span> @keyup<span class="token punctuation">.</span>enter<span class="token operator">=</span><span class="token string">"commitAjax"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token string">'xxxxx'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token function">clearInput</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clearInput'</span><span class="token punctuation">)</span>
-                e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token operator">=</span><span class="token keyword">null</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token function">commitAjax</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'commitAjax'</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="过滤器" tabindex="-1"><a class="header-anchor" href="#过滤器" aria-hidden="true">#</a> 过滤器</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;app&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">@keyup.esc=&quot;clearInput&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">@keyup.enter=&quot;commitAjax&quot;&gt;</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;/div&gt;</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;script&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66; font-style: italic">const</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">app</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">new</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">Vue({</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">el:</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;#app&#39;</span><span style="color: #FFFFFF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">data:</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #E06C75">msg</span><span style="color: #ABB2BF">:</span><span style="color: #98C379">&#39;xxxxx&#39;</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #C678DD">}</span><span style="color: #FFFFFF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">methods:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #FFFFFF">clearInput(e){</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #FFFFFF">console.log(&#39;clearInput&#39;)</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #FFFFFF">e.target.value=null</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #FFFFFF">},</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #FFFFFF">commitAjax(){</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #FFFFFF">console.log(&#39;commitAjax&#39;)</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #FFFFFF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">})</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;/script&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="过滤器" tabindex="-1"><a class="header-anchor" href="#过滤器" aria-hidden="true">#</a> 过滤器</h2>
 <p>过滤器是 vue 开发者提供的功能，常用于文本的格式化，过滤器可以和 v-bind 绑定
 过滤器应该被添加在 javascript 表达式的尾部，由管道符进行调用，示例代码如下</p>
 <h3 id="私有过滤器和全局过滤器" tabindex="-1"><a class="header-anchor" href="#私有过滤器和全局过滤器" aria-hidden="true">#</a> 私有过滤器和全局过滤器</h3>
 <p>在 filters 节点下定义的过滤器，称为“私有过滤器”，因为它只能在当前 vm 示例所
 控制的 el 区域内使用，如果希望在多个 vue 实例之间共享过滤器，则可可以按照如下格式定义全局过滤器</p>
 <p><code v-pre>&lt;p&gt;message的值是：{{msg | capi}}&lt;/p&gt;</code></p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code> <span class="token literal-property property">filters</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token comment">// 过滤器形参中的val永远是管道符|前的值</span>
-            <span class="token function">capi</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token comment">// 字符串由charAt方法 这个方法接收一个索引值，表示从字符串中把索引对应的值</span>
-                <span class="token keyword">const</span> first<span class="token operator">=</span>val<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token keyword">const</span> other<span class="token operator">=</span>val<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-                <span class="token comment">//过滤器钟一定要有一个返回值</span>
-                <span class="token keyword">return</span> first <span class="token operator">+</span> other
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// Vue.filter 方法接收两个参数</span>
-<span class="token comment">// 第一个参数是全局过滤器的名字</span>
-<span class="token comment">// 第二个参数是全局过滤器的处理函数</span>
-Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">"capi"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"--"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="过滤器的注意点" tabindex="-1"><a class="header-anchor" href="#过滤器的注意点" aria-hidden="true">#</a> 过滤器的注意点</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF"> filters:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 过滤器形参中的val永远是管道符|前的值</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">capi</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 字符串由charAt方法 这个方法接收一个索引值，表示从字符串中把索引对应的值</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">first</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">val</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">charAt</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">toUpperCase</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">other</span><span style="color: #56B6C2">=</span><span style="color: #E5C07B">val</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">slice</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">//过滤器钟一定要有一个返回值</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">first</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">other</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// Vue.filter 方法接收两个参数</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 第一个参数是全局过滤器的名字</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 第二个参数是全局过滤器的处理函数</span></span>
+<span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">filter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;capi&quot;</span><span style="color: #ABB2BF">, (</span><span style="color: #E06C75; font-style: italic">str</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">str</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">charAt</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">toUpperCase</span><span style="color: #ABB2BF">() </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">str</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">slice</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">) </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;--&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="过滤器的注意点" tabindex="-1"><a class="header-anchor" href="#过滤器的注意点" aria-hidden="true">#</a> 过滤器的注意点</h3>
 <ul>
 <li>要定义到 filters 节点下，本质是一个函数</li>
 <li>在过滤器函数中，一定要有 return 值</li>
@@ -204,11 +204,11 @@ Vue<span class="token punctuation">.</span><span class="token function">filter</
 <li>如果全局过滤器和私有过滤器名字一致，此时就按照就近原则，调用私有过滤器</li>
 </ul>
 <h3 id="过滤器格式化时间" tabindex="-1"><a class="header-anchor" href="#过滤器格式化时间" aria-hidden="true">#</a> 过滤器格式化时间</h3>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">"dateFormat"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">time</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> dt <span class="token operator">=</span> <span class="token function">dayjs</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"YYYY-MM-DD HH-mm-ss"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> dt<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="串联的使用过滤器" tabindex="-1"><a class="header-anchor" href="#串联的使用过滤器" aria-hidden="true">#</a> 串联的使用过滤器</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">filter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;dateFormat&quot;</span><span style="color: #ABB2BF">, (</span><span style="color: #E06C75; font-style: italic">time</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">dt</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">dayjs</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">time</span><span style="color: #ABB2BF">).</span><span style="color: #61AFEF">format</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;YYYY-MM-DD HH-mm-ss&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">dt</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="串联的使用过滤器" tabindex="-1"><a class="header-anchor" href="#串联的使用过滤器" aria-hidden="true">#</a> 串联的使用过滤器</h3>
 <p>过滤器可以串联调用
 <code v-pre>&lt;P&gt;{message | filter1 | filter2 | filter3 }&lt;/p&gt;</code></p>
 <h3 id="调用过滤器还可以传参" tabindex="-1"><a class="header-anchor" href="#调用过滤器还可以传参" aria-hidden="true">#</a> 调用过滤器还可以传参</h3>
@@ -217,122 +217,122 @@ Vue<span class="token punctuation">.</span><span class="token function">filter</
 // 过滤器处理函数的形参列表中
 // 第一个参数永远是管道符前待处理的参数
 // 从第二个参数开始，才是调用过滤器时对传递过来的 arg1，arg2 参数</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>Vue<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token string">"filter"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">msg<span class="token punctuation">,</span> arg1<span class="token punctuation">,</span> arg2</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// 过滤器代码逻辑</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="过滤器的兼容性" tabindex="-1"><a class="header-anchor" href="#过滤器的兼容性" aria-hidden="true">#</a> 过滤器的兼容性</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">filter</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;filter&quot;</span><span style="color: #ABB2BF">, (</span><span style="color: #E06C75; font-style: italic">msg</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">arg1</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">arg2</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 过滤器代码逻辑</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="过滤器的兼容性" tabindex="-1"><a class="header-anchor" href="#过滤器的兼容性" aria-hidden="true">#</a> 过滤器的兼容性</h3>
 <p>vue3 不支持过滤器</p>
 <h2 id="监听器" tabindex="-1"><a class="header-anchor" href="#监听器" aria-hidden="true">#</a> 监听器</h2>
 <h4 id="什么是监听器" tabindex="-1"><a class="header-anchor" href="#什么是监听器" aria-hidden="true">#</a> 什么是监听器</h4>
 <p>监听器允许开发者监视数据的变化，从而针对数据变化做特定动作
 语法格式如下：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token comment">// 监听器本质上是一个函数，要监视哪个数据的变化，就把数据名做方法名即可</span>
-            <span class="token comment">// newVal 变化后的新值 oldVal 变化后的旧值</span>
-            <span class="token comment">// 新值在前 旧值在后</span>
-            <span class="token function">msg</span><span class="token punctuation">(</span><span class="token parameter">newVal<span class="token punctuation">,</span>oldVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>oldVal <span class="token operator">+</span> <span class="token string">'-----已更改为-----'</span> <span class="token operator">+</span> newVal<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>应用场景：查询用户名是否重复，当旧值更改时就通过接口查询</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">watch:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 监听器本质上是一个函数，要监视哪个数据的变化，就把数据名做方法名即可</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// newVal 变化后的新值 oldVal 变化后的旧值</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 新值在前 旧值在后</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #61AFEF">msg</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">oldVal</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">oldVal</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;-----已更改为-----&#39;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>应用场景：查询用户名是否重复，当旧值更改时就通过接口查询</p>
 <h3 id="对象格式的监听器" tabindex="-1"><a class="header-anchor" href="#对象格式的监听器" aria-hidden="true">#</a> 对象格式的监听器</h3>
 <p>// immediate 选项的默认值是 false
 // immediate 的作用是控制侦听器是否自动触发一次
 immediate:true</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token comment">// 对象格式的监听器</span>
-            <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token punctuation">{</span>
-                <span class="token comment">// 侦听器的处理函数</span>
-                <span class="token function">handle</span> <span class="token punctuation">(</span><span class="token parameter">newVal<span class="token punctuation">,</span>oldVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newVal<span class="token punctuation">,</span>oldVal<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span> <span class="token punctuation">,</span>
-                <span class="token comment">// immediate 选项的默认值是 false</span>
-                <span class="token comment">// immediate 的作用是控制侦听器是否自动触发一次</span>
-                <span class="token literal-property property">immediate</span><span class="token operator">:</span><span class="token boolean">true</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="深度侦听" tabindex="-1"><a class="header-anchor" href="#深度侦听" aria-hidden="true">#</a> 深度侦听</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">watch:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 对象格式的监听器</span></span>
+<span class="line"><span style="color: #ABB2BF">            msg:{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 侦听器的处理函数</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #61AFEF">handle</span><span style="color: #ABB2BF"> (</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">oldVal</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">oldVal</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">                } ,</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// immediate 选项的默认值是 false</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// immediate 的作用是控制侦听器是否自动触发一次</span></span>
+<span class="line"><span style="color: #ABB2BF">                immediate:</span><span style="color: #D19A66">true</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="深度侦听" tabindex="-1"><a class="header-anchor" href="#深度侦听" aria-hidden="true">#</a> 深度侦听</h3>
 <p>如果是对象属性发生变化无法触发监听器
 可以通过 deep 选项深度监听属性变化</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token comment">// 对象格式的监听器</span>
-            <span class="token literal-property property">info</span><span class="token operator">:</span><span class="token punctuation">{</span>
-                <span class="token function">handle</span><span class="token punctuation">(</span><span class="token parameter">newVal</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newVal<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span><span class="token punctuation">,</span>
-                <span class="token comment">// 开启深度监听，只要对象中任何一个属性变化，都会触发对象监听器</span>
-                <span class="token literal-property property">deep</span><span class="token operator">:</span><span class="token boolean">true</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span>
-            <span class="token comment">// 对象格式的监听器</span>
-            <span class="token string">'info.msg'</span><span class="token punctuation">(</span>newVal<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newVal<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="计算属性" tabindex="-1"><a class="header-anchor" href="#计算属性" aria-hidden="true">#</a> 计算属性</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">watch:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 对象格式的监听器</span></span>
+<span class="line"><span style="color: #ABB2BF">            info:{</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #61AFEF">handle</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">                    </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">                },</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #7F848E; font-style: italic">// 开启深度监听，只要对象中任何一个属性变化，都会触发对象监听器</span></span>
+<span class="line"><span style="color: #ABB2BF">                deep:</span><span style="color: #D19A66">true</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">watch:{</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #7F848E; font-style: italic">// 对象格式的监听器</span></span>
+<span class="line"><span style="color: #ABB2BF">            </span><span style="color: #98C379">&#39;info.msg&#39;</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">                </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">newVal</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">            }</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="计算属性" tabindex="-1"><a class="header-anchor" href="#计算属性" aria-hidden="true">#</a> 计算属性</h2>
 <p>指是通过一系列运算之后，最终得到的一个属性值
 这个动态计算出来的属性值可以被模板结构或 methods 方法使用，示例代码如下：</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/html<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/html<span class="token punctuation">"</span></span>
-<span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/html<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>../vue.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.bootcdn.net/ajax/libs/dayjs/1.4.1/dayjs.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
-    <span class="token selector">.box</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        r:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>r<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>br</span><span class="token punctuation">></span></span>
-        g:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>g<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>br</span><span class="token punctuation">></span></span>
-        b:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>br</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box<span class="token punctuation">"</span></span> <span class="token attr-name">:style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{backgroundColor:rgb}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        {{rgb}}
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>show<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-
-    <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token literal-property property">el</span><span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">r</span><span class="token operator">:</span><span class="token number">255</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">g</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">b</span><span class="token operator">:</span><span class="token number">0</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token function">show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>rgb<span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token comment">// 监听属性</span>
-    <span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token comment">// 计算属性</span>
-    <span class="token comment">// 所有的计算属性都要定义到computed节点下</span>
-    <span class="token comment">// 计算属性在定义的时候，要定义成方法格式</span>
-    <span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token comment">// rgb作为一个计算属性被定义为方法格式</span>
-    <span class="token comment">// 最终，在这个方法中，要返回一个生成好的rgb(x,x,x)</span>
-    <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">rgb(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>r<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>g<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">,</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>b<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)</span><span class="token template-punctuation string">`</span></span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="特点" tabindex="-1"><a class="header-anchor" href="#特点" aria-hidden="true">#</a> 特点</h3>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;!</span><span style="color: #E06C75">DOCTYPE</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">html</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">html</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">lang</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;en&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">xmlns</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://www.w3.org/1999/html&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">xmlns</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://www.w3.org/1999/html&quot;</span></span>
+<span class="line"><span style="color: #D19A66">xmlns</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;http://www.w3.org/1999/html&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">head</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">meta</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">charset</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;UTF-8&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">title</span><span style="color: #ABB2BF">&gt;Title&lt;/</span><span style="color: #E06C75">title</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">src</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;../vue.js&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">src</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;https://cdn.bootcdn.net/ajax/libs/dayjs/1.4.1/dayjs.min.js&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">style</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66">.box</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">    width: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    height: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">style</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">head</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">id</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;app&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        r:&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;text&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-model</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;r&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">br</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        g:&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;text&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-model</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;g&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">br</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        b:&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">type</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;text&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">v-model</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;b&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">br</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;box&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">:style</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;{backgroundColor:rgb}&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">        {{rgb}}</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;show&quot;</span><span style="color: #ABB2BF">&gt;按钮&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">app</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Vue</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">el</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&#39;#app&#39;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">data</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">r</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">255</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">g</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">b</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">show</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">rgb</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 监听属性</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">watch</span><span style="color: #ABB2BF">:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 计算属性</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 所有的计算属性都要定义到computed节点下</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 计算属性在定义的时候，要定义成方法格式</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">computed</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// rgb作为一个计算属性被定义为方法格式</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 最终，在这个方法中，要返回一个生成好的rgb(x,x,x)</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">rgb</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">`rgb(</span><span style="color: #C678DD">${</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">r</span><span style="color: #C678DD">}</span><span style="color: #98C379">,</span><span style="color: #C678DD">${</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">g</span><span style="color: #C678DD">}</span><span style="color: #98C379">,</span><span style="color: #C678DD">${</span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">b</span><span style="color: #C678DD">}</span><span style="color: #98C379">)`</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">app</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">html</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="特点" tabindex="-1"><a class="header-anchor" href="#特点" aria-hidden="true">#</a> 特点</h3>
 <ul>
 <li>定义的时候要被定义为方法</li>
 <li>在使用计算属性的时候，当普通的属性使用即可</li>
@@ -344,68 +344,68 @@ immediate:true</p>
 </ul>
 <h2 id="axios" tabindex="-1"><a class="header-anchor" href="#axios" aria-hidden="true">#</a> axios</h2>
 <h4 id="基础语法" tabindex="-1"><a class="header-anchor" href="#基础语法" aria-hidden="true">#</a> 基础语法</h4>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"请求类型"</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"请求地址"</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// .then用来指定请求成功后的回调函数</span>
-  <span class="token comment">// 形参中的 result 是请求成功后的结果</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>调用 axios 得到的返回值是一个 promise 对象
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #61AFEF">axios</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">method</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;请求类型&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">url</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;请求地址&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">}).</span><span style="color: #61AFEF">then</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// .then用来指定请求成功后的回调函数</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 形参中的 result 是请求成功后的结果</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>调用 axios 得到的返回值是一个 promise 对象
 axios 在请求到数据后，在真正的数据外套了一层壳</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token punctuation">{</span>
-    <span class="token literal-property property">config</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token string">'真实数据'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">headers</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">request</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">status</span><span class="token operator">:</span>xxx<span class="token punctuation">,</span>
-    <span class="token literal-property property">statusText</span><span class="token operator">:</span><span class="token string">''</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="基本使用" tabindex="-1"><a class="header-anchor" href="#基本使用" aria-hidden="true">#</a> 基本使用</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">    config:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    data:{</span><span style="color: #98C379">&#39;真实数据&#39;</span><span style="color: #ABB2BF">},</span></span>
+<span class="line"><span style="color: #ABB2BF">    headers:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    request:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    status:</span><span style="color: #E06C75">xxx</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    statusText:</span><span style="color: #98C379">&#39;&#39;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="基本使用" tabindex="-1"><a class="header-anchor" href="#基本使用" aria-hidden="true">#</a> 基本使用</h3>
 <ul>
 <li>发起 get 请求</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"请求地址"</span><span class="token punctuation">,</span>
-  <span class="token comment">// url中查询参数 (get)</span>
-  <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">id</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// .then用来指定请求成功后的回调函数</span>
-  <span class="token comment">// 形参中的 result 是请求成功后的结果</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #61AFEF">axios</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">method</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;GET&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">url</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;请求地址&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// url中查询参数 (get)</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">params</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">id</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">}).</span><span style="color: #61AFEF">then</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// .then用来指定请求成功后的回调函数</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 形参中的 result 是请求成功后的结果</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">result</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>发起 post 请求</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token function">axios</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">"POST"</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">"请求地址"</span><span class="token punctuation">,</span>
-  <span class="token comment">// url中查询参数 (get)</span>
-  <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"zhangsan"</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">age</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// .then用来指定请求成功后的回调函数</span>
-  <span class="token comment">// 形参中的 result 是请求成功后的结果</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="await-async" tabindex="-1"><a class="header-anchor" href="#await-async" aria-hidden="true">#</a> await async</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #61AFEF">axios</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">method</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;POST&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">url</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;请求地址&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// url中查询参数 (get)</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">data</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;zhangsan&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">age</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">20</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">}).</span><span style="color: #61AFEF">then</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">result</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// .then用来指定请求成功后的回调函数</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 形参中的 result 是请求成功后的结果</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">result</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">});</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="await-async" tabindex="-1"><a class="header-anchor" href="#await-async" aria-hidden="true">#</a> await async</h3>
 <p>通过 await 可以获取到返回值，而不是 promise
 对象，但必须用在 async 修饰的方法中</p>
 <h4 id="解构赋值" tabindex="-1"><a class="header-anchor" href="#解构赋值" aria-hidden="true">#</a> 解构赋值</h4>
-<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="language-vue"><code>async getData(){ const {data:res}=await axios({ method:'POST', url:'xxxxxxx', //
-请求体参数 (post) data:{} }) console.log(res) }
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="简化" tabindex="-1"><a class="header-anchor" href="#简化" aria-hidden="true">#</a> 简化</h3>
+<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">async getData(){ const {data:res}=await axios({ method:&#39;POST&#39;, url:&#39;xxxxxxx&#39;, //</span></span>
+<span class="line"><span style="color: #ABB2BF">请求体参数 (post) data:{} }) console.log(res) }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="简化" tabindex="-1"><a class="header-anchor" href="#简化" aria-hidden="true">#</a> 简化</h3>
 <p>访问方法</p>
-<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="language-vue"><code>async getData(){ const {data:resPost}=await
-axios.post('http://xxx.xxx.xxx',{name:'xxx'}) const {data:resGet}=await
-axios.get('http://xxx.xxx.xxx',{params:{name:'xxx'}}) console.log(resPost)
-console.log(resGet) }
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="vue-cli" tabindex="-1"><a class="header-anchor" href="#vue-cli" aria-hidden="true">#</a> vue-cli</h2>
+<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">async getData(){ const {data:resPost}=await</span></span>
+<span class="line"><span style="color: #ABB2BF">axios.post(&#39;http://xxx.xxx.xxx&#39;,{name:&#39;xxx&#39;}) const {data:resGet}=await</span></span>
+<span class="line"><span style="color: #ABB2BF">axios.get(&#39;http://xxx.xxx.xxx&#39;,{params:{name:&#39;xxx&#39;}}) console.log(resPost)</span></span>
+<span class="line"><span style="color: #ABB2BF">console.log(resGet) }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="vue-cli" tabindex="-1"><a class="header-anchor" href="#vue-cli" aria-hidden="true">#</a> vue-cli</h2>
 <p>单页面程序（Single Page Application），简称 SPA,顾名思义，指的是一个 Web 网站只有唯一一个 HTML 界面，
 所有的功能与交互都在这唯一的一个页面内完成。</p>
 <h3 id="什么是-vue-cli" tabindex="-1"><a class="header-anchor" href="#什么是-vue-cli" aria-hidden="true">#</a> 什么是 vue-cli</h3>
@@ -432,43 +432,43 @@ console.log(resGet) }
 <li>style 组件的 css 样式(默认 css 语法)加上 lang 可以改成其他语法</li>
 <li><code v-pre>&lt;style lang=&quot;less&quot;&gt;&lt;/style&gt;</code></li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
-    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"changeMsg"</span><span class="token operator">></span>按钮<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token comment">// 默认导出，固定语法</span>
-  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    <span class="token comment">// data 数据源</span>
-    <span class="token comment">// 注意：vue组件中的data不能像之前一样，不能指向对象</span>
-    <span class="token comment">// 注意：组件中的data必须是一个函数</span>
-    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span><span class="token punctuation">{</span>
-          <span class="token literal-property property">msg</span><span class="token operator">:</span><span class="token number">0</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{</span>
-      <span class="token function">changeMsg</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token operator">+=</span><span class="token number">1</span>
-        <span class="token comment">// 在组件中 this就表示当前组建的实例对象</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">watch</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">filters</span><span class="token operator">:</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>style<span class="token operator">></span>
-  #app<span class="token punctuation">{</span>
-    background<span class="token operator">-</span>color<span class="token operator">:</span> pink<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="组件之间的父子关系" tabindex="-1"><a class="header-anchor" href="#组件之间的父子关系" aria-hidden="true">#</a> 组件之间的父子关系</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;app&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">msg</span><span style="color: #ABB2BF">}</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">@click=&quot;changeMsg&quot;&gt;按钮&lt;/button&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #FFFFFF">&lt;/div&gt;</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;/template&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FFFFFF">&lt;script&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 默认导出，固定语法</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66; font-style: italic">export</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// data 数据源</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 注意：vue组件中的data不能像之前一样，不能指向对象</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 注意：组件中的data必须是一个函数</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">data</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">        return{</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E06C75">msg</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">        }</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">}</span><span style="color: #FFFFFF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">methods:{</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #FFFFFF">changeMsg(e){</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">this.msg+=1</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #7F848E; font-style: italic">// 在组件中 this就表示当前组建的实例对象</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #FFFFFF">console.log(this)</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #FFFFFF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">watch:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">computed:{},</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">filters:{}</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #FFFFFF">}</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;/script&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #FFFFFF">&lt;style&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #FFFFFF">#app{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #FFFFFF">background-color:</span><span style="color: #ABB2BF"> </span><span style="color: #FFFFFF">pink;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #FFFFFF">}</span></span>
+<span class="line"><span style="color: #FFFFFF">&lt;/style&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="组件之间的父子关系" tabindex="-1"><a class="header-anchor" href="#组件之间的父子关系" aria-hidden="true">#</a> 组件之间的父子关系</h3>
 <p>组件在封装好之后是相互独立的，不存在父子关系
 使用组建的三个步骤</p>
 <ul>
@@ -481,11 +481,11 @@ console.log(resGet) }
 则组件 F 只能用个在组件 A 中，不能用被用在组件 C 中
 缺点：多次复用时很麻烦
 实例代码如下:</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// main.js</span>
-<span class="token comment">// 导入需要被全局注册的组件</span>
-<span class="token keyword">import</span> Count <span class="token keyword">from</span> <span class="token string">"@/components/Count"</span><span class="token punctuation">;</span>
-Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"MyCount"</span><span class="token punctuation">,</span> Count<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="注册全局组件" tabindex="-1"><a class="header-anchor" href="#注册全局组件" aria-hidden="true">#</a> 注册全局组件</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// main.js</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 导入需要被全局注册的组件</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Count</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;@/components/Count&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">component</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;MyCount&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">Count</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="注册全局组件" tabindex="-1"><a class="header-anchor" href="#注册全局组件" aria-hidden="true">#</a> 注册全局组件</h3>
 <p>在 vue 项目的 main.js 文件中,通过 Vue.component()方法，可以注册全局组件，示例代码如下</p>
 <h3 id="结合-v-bind-使用自定义属性" tabindex="-1"><a class="header-anchor" href="#结合-v-bind-使用自定义属性" aria-hidden="true">#</a> 结合 v-bind 使用自定义属性</h3>
 <p>v-bind 内的值是 javascript 数字不加的话为普通字符串</p>
@@ -493,45 +493,45 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <p>props 是组件的自定义属性，在封装组件的时候，合理的使用 props 可以极大的提高组件的复用性
 自定义属性名字是封装这自定义的（'合法即可'）
 格式语法如下：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token comment">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span>
-  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"init"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的数据是只读的" tabindex="-1"><a class="header-anchor" href="#props-里的数据是只读的" aria-hidden="true">#</a> props 里的数据是只读的</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">props</span><span style="color: #ABB2BF">: [</span><span style="color: #98C379">&quot;init&quot;</span><span style="color: #ABB2BF">],</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #61AFEF">data</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {};</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的数据是只读的" tabindex="-1"><a class="header-anchor" href="#props-里的数据是只读的" aria-hidden="true">#</a> props 里的数据是只读的</h4>
 <p>程序员不能直接修改 props 里的值，负责终端会报错
 可以把 props 里的值转存到 data 中</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token comment">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span>
-  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"init"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Count"</span><span class="token punctuation">,</span>
-  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>init<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-默认值" tabindex="-1"><a class="header-anchor" href="#props-默认值" aria-hidden="true">#</a> props 默认值</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">props</span><span style="color: #ABB2BF">: [</span><span style="color: #98C379">&quot;init&quot;</span><span style="color: #ABB2BF">],</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Count&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #61AFEF">data</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">count</span><span style="color: #ABB2BF">: </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">init</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    };</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-默认值" tabindex="-1"><a class="header-anchor" href="#props-默认值" aria-hidden="true">#</a> props 默认值</h4>
 <p>定义对象里的 props
 实例代码如下：</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token comment">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span>
-  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">init</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Count"</span><span class="token punctuation">,</span>
-  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>init<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的-type-值类型" tabindex="-1"><a class="header-anchor" href="#props-里的-type-值类型" aria-hidden="true">#</a> props 里的 type 值类型</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">props</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">init</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">default</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Count&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #61AFEF">data</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">count</span><span style="color: #ABB2BF">: </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">init</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    };</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的-type-值类型" tabindex="-1"><a class="header-anchor" href="#props-里的-type-值类型" aria-hidden="true">#</a> props 里的 type 值类型</h4>
 <p>type:</p>
 <ul>
 <li>String</li>
@@ -541,28 +541,28 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
 <li>Object
 示例代码：</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token comment">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span>
-  <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">init</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-      <span class="token literal-property property">type</span><span class="token operator">:</span> Number<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Count"</span><span class="token punctuation">,</span>
-  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>init<span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的必填-required" tabindex="-1"><a class="header-anchor" href="#props-里的必填-required" aria-hidden="true">#</a> props 里的必填 required</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">props</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">init</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">default</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">type</span><span style="color: #ABB2BF">: </span><span style="color: #E06C75">Number</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Count&quot;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #61AFEF">data</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E06C75">count</span><span style="color: #ABB2BF">: </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">init</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    };</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="props-里的必填-required" tabindex="-1"><a class="header-anchor" href="#props-里的必填-required" aria-hidden="true">#</a> props 里的必填 required</h4>
 <p>当 required 为 true，如果不传值就会报错，有默认值也没用</p>
-<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="language-vue"><code>export default { //
-props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值 props: { init:
-{ default: 0, type:Number, required:true } }, name: "Count", data() { return {
-count: this.init } } }
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="组件之间的样式冲突问题" tabindex="-1"><a class="header-anchor" href="#组件之间的样式冲突问题" aria-hidden="true">#</a> 组件之间的样式冲突问题</h4>
+<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">export default { //</span></span>
+<span class="line"><span style="color: #ABB2BF">props是自定义属性，允许使用者通过自定义属性，为当前组件指定初始值 props: { init:</span></span>
+<span class="line"><span style="color: #ABB2BF">{ default: 0, type:Number, required:true } }, name: &quot;Count&quot;, data() { return {</span></span>
+<span class="line"><span style="color: #ABB2BF">count: this.init } } }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="组件之间的样式冲突问题" tabindex="-1"><a class="header-anchor" href="#组件之间的样式冲突问题" aria-hidden="true">#</a> 组件之间的样式冲突问题</h4>
 <p>默认情况下，写在.vue 组件中的样式会全局生效，因此会造成多个组件之间的样式冲突问题。
 导致组件之间样式冲突的根本原因是：
 ①：单页面应用程序中，所有组件的 DOM 结构，都是基于唯一的 index.html 页面呈现的
@@ -609,35 +609,35 @@ count: this.init } } }
 <ul>
 <li>父</li>
 </ul>
-<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Son</span> <span class="token attr-name">:msg</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>message<span class="token punctuation">"</span></span> <span class="token attr-name">:user</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>userInfo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Son</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
+<div class="language-vue line-numbers-mode" data-ext="vue"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">Son</span><span style="color: #ABB2BF"> :</span><span style="color: #D19A66">msg</span><span style="color: #ABB2BF">=</span><span style="color: #ABB2BF">&quot;</span><span style="color: #E06C75">message</span><span style="color: #ABB2BF">&quot;</span><span style="color: #ABB2BF"> :</span><span style="color: #D19A66">user</span><span style="color: #ABB2BF">=</span><span style="color: #ABB2BF">&quot;</span><span style="color: #E06C75">userInfo</span><span style="color: #ABB2BF">&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">Son</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>子</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"son"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>h1<span class="token operator">></span>Son 组件<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-    <span class="token operator">&lt;</span>p<span class="token operator">></span>父组件传递过来的 msg 值为：<span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
-    <span class="token operator">&lt;</span>p<span class="token operator">></span>父组件传递过来的 user 值为：<span class="token punctuation">{</span><span class="token punctuation">{</span>user<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">'msg'</span><span class="token punctuation">,</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Son"</span>
-<span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="子组件向父组件传值" tabindex="-1"><a class="header-anchor" href="#子组件向父组件传值" aria-hidden="true">#</a> 子组件向父组件传值</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;son&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF">&gt;Son 组件&lt;/</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;父组件传递过来的 msg 值为：</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">msg</span><span style="color: #ABB2BF">}</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;父组件传递过来的 user 值为：</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">{</span><span style="color: #E06C75">user</span><span style="color: #ABB2BF">}</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">export default </span><span style="color: #C678DD">{</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">props</span><span style="color: #ABB2BF">:[</span><span style="color: #98C379">&#39;msg&#39;</span><span style="color: #ABB2BF">,</span><span style="color: #98C379">&#39;user&#39;</span><span style="color: #ABB2BF">],</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Son&quot;</span></span>
+<span class="line"><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="子组件向父组件传值" tabindex="-1"><a class="header-anchor" href="#子组件向父组件传值" aria-hidden="true">#</a> 子组件向父组件传值</h3>
 <ul>
 <li>子
 <code v-pre>this.$emit('numChange',this.num)</code></li>
 <li>父
 <code v-pre>&lt;right @numChange=&quot;getNewNum&quot;&gt;&lt;/right&gt;</code></li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token function">getNewNum</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>numFromSon<span class="token operator">=</span>val
-    <span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="兄弟组件之间的传值" tabindex="-1"><a class="header-anchor" href="#兄弟组件之间的传值" aria-hidden="true">#</a> 兄弟组件之间的传值</h3>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #61AFEF">getNewNum</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">val</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">numFromSon</span><span style="color: #56B6C2">=</span><span style="color: #E06C75">val</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="兄弟组件之间的传值" tabindex="-1"><a class="header-anchor" href="#兄弟组件之间的传值" aria-hidden="true">#</a> 兄弟组件之间的传值</h3>
 <p>在 vue2.x 中，兄弟组件之间数据共享的方案是 EventBus
 EventBus 的使用步骤</p>
 <ul>

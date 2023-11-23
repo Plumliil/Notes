@@ -10,55 +10,55 @@
 <li>var( ) 定义变量</li>
 <li>calc ( ) 运算</li>
 </ul>
-<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="language-css"><code><span class="token selector">html</span> <span class="token punctuation">{</span>
-  <span class="token comment">/* css原生也支持设置变量 */</span>
-  <span class="token property">--color</span><span class="token punctuation">:</span> #bfa<span class="token punctuation">;</span>
-  <span class="token property">--length</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.box1</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100px * 2<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--color<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="less-优点" tabindex="-1"><a class="header-anchor" href="#less-优点" aria-hidden="true">#</a> less 优点</h3>
+<div class="language-css line-numbers-mode" data-ext="css"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E06C75">html</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">/* css原生也支持设置变量 */</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">--color</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">#bfa</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">--length</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #D19A66">.box1</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #56B6C2">calc</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">*</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">2</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #56B6C2">var</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">--length</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #56B6C2">var</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">--color</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="less-优点" tabindex="-1"><a class="header-anchor" href="#less-优点" aria-hidden="true">#</a> less 优点</h3>
 <ul>
 <li>在 less 中增加了许多新特性，如对变量的支持，对 mixin 的支持</li>
 <li>less 语法大体上和 css 语法一致，但是 less 中增添了许多 css 的扩展</li>
 <li>浏览器无法直接编译 less，需要间 less 转译成 css 才能在浏览器中编译</li>
 </ul>
 <h2 id="less-基本使用" tabindex="-1"><a class="header-anchor" href="#less-基本使用" aria-hidden="true">#</a> less 基本使用</h2>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token selector">body</span> <span class="token punctuation">{</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #fba<span class="token punctuation">;</span>
-  <span class="token selector">.box1</span> <span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> #bfa<span class="token punctuation">;</span>
-    <span class="token selector">.box2</span> <span class="token punctuation">{</span>
-      <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-      <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-      <span class="token property">background-color</span><span class="token punctuation">:</span> orange<span class="token punctuation">;</span>
-      <span class="token selector">.box4</span> <span class="token punctuation">{</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> 75px<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> 75px<span class="token punctuation">;</span>
-        <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token selector">.box3</span> <span class="token punctuation">{</span>
-      <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-      <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-      <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>box3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E06C75">body</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">#fba</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">.box1</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    width: </span><span style="color: #D19A66">300</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    height: </span><span style="color: #D19A66">300</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    background-color: </span><span style="color: #D19A66">#bfa</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66">.box2</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">      width: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      height: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      background-color: </span><span style="color: #D19A66">orange</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #D19A66">.box4</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">        width: </span><span style="color: #D19A66">75</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        height: </span><span style="color: #D19A66">75</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        background-color: </span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      }</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66">.box3</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">      width: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      height: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">      background-color: skyblue;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;box1&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;box2&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">      &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;box4&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;box3&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">body</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul>
 <li>// 单行注释</li>
 <li>/**/ 多行注释</li>
 </ul>
@@ -72,40 +72,40 @@
 <li>可以在变量声明前就使用变量</li>
 <li>可以通过$来引用相同数值 <code v-pre>width: 50px;height: $width;</code></li>
 </ul>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token variable">@a<span class="token punctuation">:</span></span>100px<span class="token punctuation">;</span>
-<span class="token variable">@b<span class="token punctuation">:</span></span>black<span class="token punctuation">;</span>
-<span class="token variable">@c<span class="token punctuation">:</span></span>box6<span class="token punctuation">;</span>
-<span class="token selector">.box</span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@a</span><span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@a</span><span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token variable">@b</span><span class="token punctuation">;</span>
-    <span class="token selector">.@{c}</span><span class="token punctuation">{</span>
-        <span class="token property">width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
-        <span class="token property">height</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-        <span class="token property">background-color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-        <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">'@{c}/1.png'</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="特殊符号" tabindex="-1"><a class="header-anchor" href="#特殊符号" aria-hidden="true">#</a> 特殊符号</h2>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E06C75">@a</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">@b</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">black</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #E06C75">@c</span><span style="color: #ABB2BF">:box6;</span></span>
+<span class="line"><span style="color: #D19A66">.box</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">    width: </span><span style="color: #E06C75">@a</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    height: </span><span style="color: #E06C75">@a</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    background-color: </span><span style="color: #E06C75">@b</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #D19A66">.</span><span style="color: #E06C75">@{c}</span><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">        width: </span><span style="color: #D19A66">50</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        height: $width;</span></span>
+<span class="line"><span style="color: #ABB2BF">        background-color: </span><span style="color: #D19A66">white</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">        background-image: </span><span style="color: #61AFEF">url(</span><span style="color: #98C379">&#39;</span><span style="color: #E06C75">@{c}</span><span style="color: #98C379">/1.png&#39;</span><span style="color: #61AFEF">)</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="特殊符号" tabindex="-1"><a class="header-anchor" href="#特殊符号" aria-hidden="true">#</a> 特殊符号</h2>
 <ul>
 <li>&amp; 为父元素设置 hover 等 &amp; &amp;表示父层元素</li>
 </ul>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token selector">.box</span> <span class="token punctuation">{</span>
-  <span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> paleturquoise<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token selector">div &amp;</span> <span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">.box:hover</span> <span class="token punctuation">{</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> paleturquoise<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">div .box</span> <span class="token punctuation">{</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时&amp;表示.box</p>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #D19A66">.box</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">&amp;</span><span style="color: #56B6C2">:hover</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    background-color: paleturquoise;</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">&amp;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    background-color: </span><span style="color: #D19A66">yellow</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #D19A66">.box</span><span style="color: #56B6C2">:hover</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: paleturquoise;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">.box</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">yellow</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>此时&amp;表示.box</p>
 <h2 id="扩展混合" tabindex="-1"><a class="header-anchor" href="#扩展混合" aria-hidden="true">#</a> 扩展混合</h2>
 <ul>
 <li>:extend(xx) 扩展 对当前选择器扩展指定的选择器样式</li>
@@ -113,122 +113,122 @@
 <li>使用类选择器时，可以在选择器后添加括号，此时实际上就创建了一个 mixin</li>
 <li>混合函数 在混合函数中可直接设置变量</li>
 </ul>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token comment">// :extend(xx) 扩展 对当前选择器扩展指定的选择器样式</span>
-<span class="token selector">.p1</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.p2:extend(.p1)</span> <span class="token punctuation">{</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">.p1,
-.p2</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.p2</span> <span class="token punctuation">{</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token comment">// mixin 混合</span>
-<span class="token comment">// .xx{ .yy() } 将yy的样式直接复制一遍给xx</span>
-<span class="token selector">.p3</span> <span class="token punctuation">{</span>
-  <span class="token mixin-usage function">.p1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token mixin-usage function">.p2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">.p3</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token comment">// 使用类选择器时，可以在选择器后添加括号，此时实际上就创建了一个mixin</span>
-<span class="token selector">.p4()</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.p5</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-  <span class="token mixin-usage function">.p4</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">.p5</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token comment">// 混合函数 在混合函数中可直接设置变量</span>
-<span class="token selector">.test(<span class="token variable">@w</span>:100px,<span class="token variable">@h</span>:200px,<span class="token variable">@bgc</span>:blue)</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token variable">@w</span><span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token variable">@h</span><span class="token punctuation">;</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid <span class="token variable">@bgc</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">div</span> <span class="token punctuation">{</span>
-  <span class="token comment">// 混合函数按顺序传递参数</span>
-  <span class="token comment">// .test(100px,200px,red);</span>
-  <span class="token comment">// 通过名称传值</span>
-  .<span class="token function">test</span><span class="token punctuation">(</span><span class="token variable">@bgc<span class="token punctuation">:</span></span>red<span class="token punctuation">,</span><span class="token variable">@w<span class="token punctuation">:</span></span>200px<span class="token punctuation">,</span><span class="token variable">@h<span class="token punctuation">:</span></span>100px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">div</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid red<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="颜色" tabindex="-1"><a class="header-anchor" href="#颜色" aria-hidden="true">#</a> 颜色</h2>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// :extend(xx) 扩展 对当前选择器扩展指定的选择器样式</span></span>
+<span class="line"><span style="color: #D19A66">.p1</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #D19A66">.p2</span><span style="color: #ABB2BF">:extend(</span><span style="color: #D19A66">.p1</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #D19A66">.p1</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #D19A66">.p2</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #D19A66">.p2</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// mixin 混合</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// .xx{ .yy() } 将yy的样式直接复制一遍给xx</span></span>
+<span class="line"><span style="color: #D19A66">.p3</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">.p1</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">.p2</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #D19A66">.p3</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 使用类选择器时，可以在选择器后添加括号，此时实际上就创建了一个mixin</span></span>
+<span class="line"><span style="color: #D19A66">.p4</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">white</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">black</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #D19A66">.p5</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  display: </span><span style="color: #D19A66">flex</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">.p4</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #D19A66">.p5</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  display: </span><span style="color: #D19A66">flex</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">150</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">white</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">black</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 混合函数 在混合函数中可直接设置变量</span></span>
+<span class="line"><span style="color: #D19A66">.test</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">@w</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">@h</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">@bgc</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">blue</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #E06C75">@w</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #E06C75">@h</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  border: </span><span style="color: #D19A66">1</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">solid</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">@bgc</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 混合函数按顺序传递参数</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// .test(100px,200px,red);</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 通过名称传值</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">.test</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">@bgc</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">@w</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">@h</span><span style="color: #ABB2BF">:</span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">200</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  border: </span><span style="color: #D19A66">1</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">solid</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="颜色" tabindex="-1"><a class="header-anchor" href="#颜色" aria-hidden="true">#</a> 颜色</h2>
 <ul>
 <li>average() 颜色平均值</li>
 <li>darken() 颜色加深</li>
 </ul>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token comment">// 取颜色平均值</span>
-<span class="token selector">span</span> <span class="token punctuation">{</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">average</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">span</span> <span class="token punctuation">{</span>
-  <span class="token property">color</span><span class="token punctuation">:</span> #ff8000<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token selector">body</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
-  <span class="token property">transition</span><span class="token punctuation">:</span> 1s<span class="token punctuation">;</span>
-  <span class="token selector">&amp;:hover</span> <span class="token punctuation">{</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">darken</span><span class="token punctuation">(</span>skyblue<span class="token punctuation">,</span> 10%<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">body</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
-  <span class="token property">transition</span><span class="token punctuation">:</span> 1s<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">body:hover</span> <span class="token punctuation">{</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #5bbce4<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="数值运算" tabindex="-1"><a class="header-anchor" href="#数值运算" aria-hidden="true">#</a> 数值运算</h2>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// 取颜色平均值</span></span>
+<span class="line"><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #61AFEF">average</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">red</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">yellow</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  color: </span><span style="color: #D19A66">#ff8000</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E06C75">body</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">%</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">%</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: pink;</span></span>
+<span class="line"><span style="color: #ABB2BF">  transition: </span><span style="color: #D19A66">1</span><span style="color: #E06C75">s</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #D19A66">&amp;</span><span style="color: #56B6C2">:hover</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    background-color: </span><span style="color: #D19A66">darken</span><span style="color: #ABB2BF">(skyblue, </span><span style="color: #D19A66">10</span><span style="color: #E06C75">%</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #E06C75">body</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">%</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">%</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: pink;</span></span>
+<span class="line"><span style="color: #ABB2BF">  transition: </span><span style="color: #D19A66">1</span><span style="color: #E06C75">s</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #E06C75">body</span><span style="color: #56B6C2">:hover</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">#5bbce4</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="数值运算" tabindex="-1"><a class="header-anchor" href="#数值运算" aria-hidden="true">#</a> 数值运算</h2>
 <p>在 less 中可对数值直接进行运算</p>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token selector">.box</span> <span class="token punctuation">{</span>
-  <span class="token comment">// 在less中直接进行运算</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 100px<span class="token operator">-</span>50px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>100px<span class="token operator">+</span>100px<span class="token punctuation">)</span> <span class="token operator">*</span> 1.5<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #bfa<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">// 编译后</span>
-<span class="token selector">body</span> <span class="token punctuation">{</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> pink<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">.box</span> <span class="token punctuation">{</span>
-  <span class="token property">width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
-  <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
-  <span class="token property">background-color</span><span class="token punctuation">:</span> #bfa<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="模块化开发" tabindex="-1"><a class="header-anchor" href="#模块化开发" aria-hidden="true">#</a> 模块化开发</h2>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #D19A66">.box</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 在less中直接进行运算</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #D19A66">-</span><span style="color: #ABB2BF">50px;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: (</span><span style="color: #D19A66">100</span><span style="color: #E06C75">px</span><span style="color: #D19A66">+100</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">) </span><span style="color: #D19A66">*</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1.5</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">#bfa</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// 编译后</span></span>
+<span class="line"><span style="color: #E06C75">body</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: pink;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #D19A66">.box</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  width: </span><span style="color: #D19A66">50</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  height: </span><span style="color: #D19A66">300</span><span style="color: #E06C75">px</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">  background-color: </span><span style="color: #D19A66">#bfa</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="模块化开发" tabindex="-1"><a class="header-anchor" href="#模块化开发" aria-hidden="true">#</a> 模块化开发</h2>
 <p>可以在一个 less 文件中引入其他 less 文件进行模块化开发</p>
 <ul>
 <li>将多个 less 文件进行合并 模块化处理</li>
@@ -237,7 +237,7 @@
 <li>定义动画</li>
 <li>模块化，方便维护</li>
 </ul>
-<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="language-less"><code><span class="token variable">@import</span> <span class="token string">"./syntax.less"</span><span class="token punctuation">;</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></div></template>
+<div class="language-less line-numbers-mode" data-ext="less"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">@import</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;./syntax.less&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div></div></template>
 
 

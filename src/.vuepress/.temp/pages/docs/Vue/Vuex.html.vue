@@ -56,48 +56,48 @@
 <h2 id="state" tabindex="-1"><a class="header-anchor" href="#state" aria-hidden="true">#</a> state</h2>
 <p>在store中定义数据,在组件中直接使用
 目录:store/index.js</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token comment">// store/index.js</span>
-<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
-
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">0</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">mutations</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">modules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Home.vue</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Home页面的数字:{{$store.state.num}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-<span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>或者写为</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>About页面的数字:{{num}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token function">num</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>相当于组件中的数据data,专门用来存放全局数据
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #7F848E; font-style: italic">// store/index.js</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Vue</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;vue&#39;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Vuex</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;vuex&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">use</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Vuex</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">modules</span><span style="color: #ABB2BF">: {}</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Home.vue</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;home&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;Home页面的数字:{{$store.state.num}}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>或者写为</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;about&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;About页面的数字:{{num}}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">computed</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">num</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">$store</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>相当于组件中的数据data,专门用来存放全局数据
 更改state中数据唯一办法是提交mutations</p>
 <h2 id="getters" tabindex="-1"><a class="header-anchor" href="#getters" aria-hidden="true">#</a> getters</h2>
 <ul>
@@ -107,69 +107,69 @@ getters相当于组件中的computed.区别是getters是全局的,computed是组
 将组件中统一使用的computed,放到getters中使用
 目录:store/index.js</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">0</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">getters</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">return</span> state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">mutations</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">modules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Home.vue</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>home<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Home页面的数字:{{ $store.getters.getNum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="mutations" tabindex="-1"><a class="header-anchor" href="#mutations" aria-hidden="true">#</a> mutations</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">getters</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">getNum</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">modules</span><span style="color: #ABB2BF">: {}</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Home.vue</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;home&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;Home页面的数字:{{ $store.getters.getNum }}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="mutations" tabindex="-1"><a class="header-anchor" href="#mutations" aria-hidden="true">#</a> mutations</h2>
 <p>更改store中state数据状态的唯一方法是提交mutation
 mutations相当于组件中的methods,但是不能使用异步方法(定时器,axios...)</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">0</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">getters</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">return</span> state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">mutations</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token comment">// state store中的state payload是一个形参,如果组件在commit时有传参,</span>
-    <span class="token comment">// 就存在,如果没有传参就为undefined</span>
-    <span class="token function">increase</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span>payload<span class="token operator">=</span><span class="token number">1</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      state<span class="token punctuation">.</span>num<span class="token operator">+=</span>payload<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">modules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Btn.vue</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点击+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-          <span class="token comment">// 提交mutation</span>
-          <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increase'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="actions" tabindex="-1"><a class="header-anchor" href="#actions" aria-hidden="true">#</a> actions</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">getters</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">getNum</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// state store中的state payload是一个形参,如果组件在commit时有传参,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 就存在,如果没有传参就为undefined</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">increase</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75; font-style: italic">payload</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #56B6C2">+=</span><span style="color: #E06C75">payload</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF">: {},</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">modules</span><span style="color: #ABB2BF">: {}</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Btn.vue</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;add&quot;</span><span style="color: #ABB2BF">&gt;点击+1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #7F848E; font-style: italic">// 提交mutation</span></span>
+<span class="line"><span style="color: #ABB2BF">          </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">$store</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">commit</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;increase&#39;</span><span style="color: #ABB2BF">,</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">      }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="actions" tabindex="-1"><a class="header-anchor" href="#actions" aria-hidden="true">#</a> actions</h2>
 <p>actions是store中专门处理异步的,实际修改状态值的还是mutations
 actions类似于mutation,不同在于:</p>
 <ul>
@@ -184,113 +184,113 @@ actions分发</li>
 <li>使用store中的dispatch进行分发
 目录:store/index.js</li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">num</span><span class="token operator">:</span> <span class="token number">0</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">getters</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token function">getNum</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">return</span> state<span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">mutations</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token comment">// state store中的state payload是一个形参,如果组件在commit时有传参,</span>
-    <span class="token comment">// 就存在,如果没有传参就为undefined</span>
-    <span class="token function">increase</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span>payload<span class="token operator">=</span><span class="token number">1</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      state<span class="token punctuation">.</span>num<span class="token operator">+=</span>payload<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      state<span class="token punctuation">.</span>num<span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token comment">// 专门处理异步,支持修改状态值的依然是mutations</span>
-  <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 点击 -1 按钮 1s 后执行</span>
-    <span class="token function">decreaseAsync</span><span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'decrease'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">modules</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Btn.vue</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$store.commit('increase', 3)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点击+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>decrease<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点击-1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">"decreaseAsync"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="map-辅助函数" tabindex="-1"><a class="header-anchor" href="#map-辅助函数" aria-hidden="true">#</a> map* 辅助函数</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">: </span><span style="color: #D19A66">0</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">getters</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">getNum</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// state store中的state payload是一个形参,如果组件在commit时有传参,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 就存在,如果没有传参就为undefined</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">increase</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75; font-style: italic">payload</span><span style="color: #56B6C2">=</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #56B6C2">+=</span><span style="color: #E06C75">payload</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">decrease</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #56B6C2">--</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #7F848E; font-style: italic">// 专门处理异步,支持修改状态值的依然是mutations</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 点击 -1 按钮 1s 后执行</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">decreaseAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75; font-style: italic">context</span><span style="color: #ABB2BF">){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">context</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">commit</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&#39;decrease&#39;</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">modules</span><span style="color: #ABB2BF">: {}</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:Btn.vue</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;$store.commit(&#39;increase&#39;, 3)&quot;</span><span style="color: #ABB2BF">&gt;点击+1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;decrease&quot;</span><span style="color: #ABB2BF">&gt;点击-1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">decrease</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #61AFEF">setTimeout</span><span style="color: #ABB2BF">(() </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">$store</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">dispatch</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;decreaseAsync&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">      }, </span><span style="color: #D19A66">1000</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="map-辅助函数" tabindex="-1"><a class="header-anchor" href="#map-辅助函数" aria-hidden="true">#</a> map* 辅助函数</h2>
 <p>mapState和mapGetters在组件中都是写在computed里</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>Home页面的数字:{{ num }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>About页面的数字:{{getNum}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> mapState<span class="token punctuation">,</span>mapGetters <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'getNum'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>mapMutations和mapActions在组件中都是写在methods里</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increase(3)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点击+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>decrease<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>点击-1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> mapMutations<span class="token punctuation">,</span>mapActions <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token function">decrease</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">decreaseAsync</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'increase'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'decreaseAsync'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="拆分写法" tabindex="-1"><a class="header-anchor" href="#拆分写法" aria-hidden="true">#</a> 拆分写法</h2>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;Home页面的数字:{{ num }}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;About页面的数字:{{getNum}}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> { </span><span style="color: #E06C75">mapState</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">mapGetters</span><span style="color: #ABB2BF"> } </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;vuex&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">computed</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapState</span><span style="color: #ABB2BF">([</span><span style="color: #98C379">&#39;num&#39;</span><span style="color: #ABB2BF">]),</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapGetters</span><span style="color: #ABB2BF">([</span><span style="color: #98C379">&#39;getNum&#39;</span><span style="color: #ABB2BF">])</span></span>
+<span class="line"><span style="color: #ABB2BF">  }</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>mapMutations和mapActions在组件中都是写在methods里</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;increase(3)&quot;</span><span style="color: #ABB2BF">&gt;点击+1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;decrease&quot;</span><span style="color: #ABB2BF">&gt;点击-1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> { </span><span style="color: #E06C75">mapMutations</span><span style="color: #ABB2BF">,</span><span style="color: #E06C75">mapActions</span><span style="color: #ABB2BF"> } </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;vuex&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">decrease</span><span style="color: #ABB2BF">() {</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #61AFEF">setTimeout</span><span style="color: #ABB2BF">(() </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">decreaseAsync</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">      }, </span><span style="color: #D19A66">1000</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapMutations</span><span style="color: #ABB2BF">([</span><span style="color: #98C379">&#39;increase&#39;</span><span style="color: #ABB2BF">]),</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapActions</span><span style="color: #ABB2BF">([</span><span style="color: #98C379">&#39;decreaseAsync&#39;</span><span style="color: #ABB2BF">]),</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="拆分写法" tabindex="-1"><a class="header-anchor" href="#拆分写法" aria-hidden="true">#</a> 拆分写法</h2>
 <p>store中的每个属性都可以差分成单独的文件
-<img src="https://s2.loli.net/2022/05/05/cdWlF12SPTmQx6G.png" alt=""></p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span>
-
-<span class="token keyword">import</span> state <span class="token keyword">from</span> <span class="token string">'./state'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> getters <span class="token keyword">from</span> <span class="token string">'./getters'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> mutations <span class="token keyword">from</span> <span class="token string">'./mutations'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> actions <span class="token keyword">from</span> <span class="token string">'./actions'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> modules <span class="token keyword">from</span> <span class="token string">'./modules'</span><span class="token punctuation">;</span>
-
-Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  state<span class="token punctuation">,</span>
-  getters<span class="token punctuation">,</span>
-  mutations<span class="token punctuation">,</span>
-  actions<span class="token punctuation">,</span>
-  modules
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="modules" tabindex="-1"><a class="header-anchor" href="#modules" aria-hidden="true">#</a> modules</h2>
-<p><img src="https://s2.loli.net/2022/05/05/spNQBKeX3F695zR.png" alt=""></p>
+<img src="https://s2.loli.net/2022/05/05/cdWlF12SPTmQx6G.png" alt="" loading="lazy"></p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Vue</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;vue&#39;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Vuex</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;vuex&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./state&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">getters</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./getters&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./mutations&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./actions&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">modules</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./modules&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E5C07B">Vue</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">use</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Vuex</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">state</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">getters</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">actions</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">modules</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="modules" tabindex="-1"><a class="header-anchor" href="#modules" aria-hidden="true">#</a> modules</h2>
+<figure><img src="https://s2.loli.net/2022/05/05/spNQBKeX3F695zR.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <ul>
 <li>什么是Module ?
 <ul>
@@ -305,81 +305,81 @@ users模块也可以分为state,getters,mutations和actions,所有的方法和�
 </ul>
 </li>
 </ul>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>users<span class="token punctuation">.</span>nickName
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>在组件中触发mutations的方法:</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        <span class="token string-property property">'changeNickName'</span><span class="token operator">:</span><span class="token string">'users/changeNickName'</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="mutations-type" tabindex="-1"><a class="header-anchor" href="#mutations-type" aria-hidden="true">#</a> MUTATIONS_TYPE</h2>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #E5C07B">$store</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">users</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">nickName</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>在组件中触发mutations的方法:</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">methods:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapMutations</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #98C379">&#39;changeNickName&#39;</span><span style="color: #ABB2BF">:</span><span style="color: #98C379">&#39;users/changeNickName&#39;</span></span>
+<span class="line"><span style="color: #ABB2BF">    })</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="mutations-type" tabindex="-1"><a class="header-anchor" href="#mutations-type" aria-hidden="true">#</a> MUTATIONS_TYPE</h2>
 <p>用来将mutations所有的方法归纳起来.
 目录:mutations_type.js</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">MUTATIONS_TYPE</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token constant">INCREASE</span><span class="token operator">:</span> <span class="token string">'increase'</span><span class="token punctuation">,</span>
-    <span class="token constant">DECREASE</span><span class="token operator">:</span> <span class="token string">'decrease'</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    <span class="token punctuation">[</span><span class="token constant">MUTATIONS_TYPE</span><span class="token punctuation">.</span><span class="token constant">INCREASE</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span> payload <span class="token operator">=</span> <span class="token number">1</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        state<span class="token punctuation">.</span>num <span class="token operator">+=</span> payload<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">[</span><span class="token constant">MUTATIONS_TYPE</span><span class="token punctuation">.</span><span class="token constant">DECREASE</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        state<span class="token punctuation">.</span>num<span class="token operator">--</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:store/index.js</p>
-<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code><span class="token operator">...</span>
-<span class="token keyword">import</span> mutations <span class="token keyword">from</span> <span class="token string">'./mutations_type'</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    <span class="token operator">...</span>
-    mutations<span class="token punctuation">,</span>
-    <span class="token operator">...</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>组件中</p>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>about<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>About页面的数字:{{$store.getters.getNum}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increase()<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>About按钮.点击+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> mapGetters<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
-<span class="token comment">// import { mapGetters,mapMutations } from "vuex";</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span><span class="token constant">MUTATIONS_TYPE</span><span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../store/mutations_type'</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">computed</span><span class="token operator">:</span><span class="token punctuation">{</span>
-    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'getNum'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token literal-property property">methods</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token comment">// 方法一:</span>
-    <span class="token comment">// ...mapMutations([MUTATIONS_TYPE.INCREASE]),</span>
-    <span class="token comment">// 方法二:</span>
-    <span class="token function">increase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token constant">MUTATIONS_TYPE</span><span class="token punctuation">.</span><span class="token constant">INCREASE</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="在vue3中使用简单使用vuex" tabindex="-1"><a class="header-anchor" href="#在vue3中使用简单使用vuex" aria-hidden="true">#</a> 在vue3中使用简单使用vuex</h2>
-<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>{{ store.state.num }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">></span></span>-1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> useStore<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vuex"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">"add"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">MUTATIONS_TYPE</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">INCREASE</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&#39;increase&#39;</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">DECREASE</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&#39;decrease&#39;</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">    [</span><span style="color: #E5C07B">MUTATIONS_TYPE</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">INCREASE</span><span style="color: #ABB2BF">](</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75; font-style: italic">payload</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">payload</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">    [</span><span style="color: #E5C07B">MUTATIONS_TYPE</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">DECREASE</span><span style="color: #ABB2BF">](</span><span style="color: #E06C75; font-style: italic">state</span><span style="color: #ABB2BF">) {</span></span>
+<span class="line"><span style="color: #ABB2BF">        </span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #56B6C2">--</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">    }</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>目录:store/index.js</p>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">...</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;./mutations_type&#39;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Vuex</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Store</span><span style="color: #ABB2BF">({</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #E06C75">mutations</span><span style="color: #ABB2BF">,</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span></span>
+<span class="line"><span style="color: #ABB2BF">})</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>组件中</p>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">class</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;about&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;About页面的数字:{{$store.getters.getNum}}&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;increase()&quot;</span><span style="color: #ABB2BF">&gt;About按钮.点击+1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> { </span><span style="color: #E06C75">mapGetters</span><span style="color: #ABB2BF">} </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;vuex&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// import { mapGetters,mapMutations } from &quot;vuex&quot;;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> {</span><span style="color: #E06C75">MUTATIONS_TYPE</span><span style="color: #ABB2BF">} </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;../store/mutations_type&#39;</span></span>
+<span class="line"><span style="color: #C678DD">export</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">default</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">computed</span><span style="color: #ABB2BF">:{</span></span>
+<span class="line"><span style="color: #ABB2BF">    ...</span><span style="color: #61AFEF">mapGetters</span><span style="color: #ABB2BF">([</span><span style="color: #98C379">&#39;getNum&#39;</span><span style="color: #ABB2BF">])</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E06C75">methods</span><span style="color: #ABB2BF">: {</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 方法一:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// ...mapMutations([MUTATIONS_TYPE.INCREASE]),</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #7F848E; font-style: italic">// 方法二:</span></span>
+<span class="line"><span style="color: #ABB2BF">    </span><span style="color: #61AFEF">increase</span><span style="color: #ABB2BF">(){</span></span>
+<span class="line"><span style="color: #ABB2BF">      </span><span style="color: #E5C07B">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">$store</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">commit</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">MUTATIONS_TYPE</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">INCREASE</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">    },</span></span>
+<span class="line"><span style="color: #ABB2BF">  },</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="在vue3中使用简单使用vuex" tabindex="-1"><a class="header-anchor" href="#在vue3中使用简单使用vuex" aria-hidden="true">#</a> 在vue3中使用简单使用vuex</h2>
+<div class="language-html line-numbers-mode" data-ext="html"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF">&gt;{{ store.state.num }}&lt;/</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">@click</span><span style="color: #ABB2BF">=</span><span style="color: #98C379">&quot;add&quot;</span><span style="color: #ABB2BF">&gt;+1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">    &lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;-1&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">  &lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">template</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66">setup</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #C678DD">import</span><span style="color: #ABB2BF"> { </span><span style="color: #E06C75">useStore</span><span style="color: #ABB2BF">} </span><span style="color: #C678DD">from</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;vuex&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">store</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">useStore</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #C678DD">const</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">add</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> () </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> {</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">store</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">commit</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;add&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">  </span><span style="color: #E5C07B">console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">store</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">state</span><span style="color: #ABB2BF">.</span><span style="color: #E06C75">num</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">script</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
 
 
