@@ -403,17 +403,18 @@ public class UserServiceImpl implements UserService {
 
 如果要注册第三方bean,建议在启动类中集中注册
 
-### 自动配置
+
+### 项目启动
 
 
-### 自定义stater
-<!-- 
-### SpringBoot 简单搭建本地接口
 
-Spring boot 简单步骤
+#### ThreadLocal
 
-1. 建立 entity 实体类，跟数据库表字段保持一致
-2. 建立 mapper 接口，定义要操作数据库的动作
-3. 建立 mapper 的 xml 文件，写具体的 sql 语句
-4. 建立 service 类，处理业务逻辑
-5. 在 controller 类中展示处理的结果 -->
+ThreadLocal是JDK提供的线程安全的变量，可以用来存取数据。
+
+示例场景:
+在用户登录后，需要将用户信息存入ThreadLocal中，以便后续的业务逻辑使用。
+
+- 用来存取数据
+- 使用ThreadLocal存取数据线程安全
+- 用完需调用remove方法进行释放
