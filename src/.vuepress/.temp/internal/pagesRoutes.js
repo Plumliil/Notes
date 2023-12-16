@@ -1,7 +1,6 @@
 export const pagesRoutes = [
   ["v-8daa1a0e","/",{"y":"h","t":"Plumliil Docs","i":"home"},["/index.html","/README.md"]],
   ["v-147825fb","/docs/",{"y":"a","t":"指引"},["/docs/index.html","/docs/README.md"]],
-  ["v-744d9dbd","/liilib/",{"y":"a","t":"常用函数库"},["/liilib/index.html","/liilib/README.md"]],
   ["v-499b4e40","/docs/ComputerNetworks/basics.html",{"y":"a","t":"基础篇"},["/docs/ComputerNetworks/basics","/docs/ComputerNetworks/basics.md"]],
   ["v-311d7334","/docs/ComputerNetworks/",{"y":"a","t":"介绍"},["/docs/ComputerNetworks/index.html","/docs/ComputerNetworks/README.md"]],
   ["v-330a032b","/docs/Docker/advance.html",{"y":"a","t":""},["/docs/Docker/advance","/docs/Docker/advance.md"]],
@@ -44,5 +43,8 @@ export const pagesRoutes = [
   ["v-1079af94","/docs/Webpack/advance.html",{"y":"a","t":"进阶篇"},["/docs/Webpack/advance","/docs/Webpack/advance.md"]],
   ["v-277e7f52","/docs/Webpack/basics.html",{"y":"a","t":"基础篇"},["/docs/Webpack/basics","/docs/Webpack/basics.md"]],
   ["v-398a697d","/docs/Webpack/",{"y":"a","t":"Hello TS"},["/docs/Webpack/index.html","/docs/Webpack/README.md"]],
+  ["v-134f9049","/tools/liilib/",{"y":"a","t":"常用函数库"},["/tools/liilib/index.html","/tools/liilib/README.md"]],
+  ["v-ee735d5c","/tools/simplifyDeploy/",{"y":"a","t":"simplify-deploy"},["/tools/simplifyDeploy/index.html","/tools/simplifyDeploy/README.md"]],
   ["v-3706649a","/404.html",{"y":"p","t":""},["/404"]],
+  ["v-d440f426","/tools/",{"y":"p","t":"Tools"},["/tools/index.html"]],
 ]

@@ -6,14 +6,35 @@ export const zhNavbar = navbar([
     link: "/",
   },
   {
-    text: "笔记文档",
+    text: "笔记",
     prefix: "/docs",
-    link:'/docs'
+    link: '/docs'
   },
   {
-    text: "函数库",
-    link: "/liilib",
-    prefix: "/liilib",
+    text: "轮子",
+    prefix: "/tools",
+    children: [
+      {
+        text: "前端部署工具",
+        children: [
+          {
+            text: "SimplifyDeploy",
+            prefix: "/simplifyDeploy",
+            link: '/simplifyDeploy'
+          },
+        ],
+      },
+      // {
+      //   text: "函数仓库",
+      //   children: [
+      //     {
+      //       text: "liilib",
+      //       prefix: "/liilib",
+      //       link: '/liilib'
+      //     },
+      //   ],
+      // },
+    ],
   },
   {
     text: "Blog",

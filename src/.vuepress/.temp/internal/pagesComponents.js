@@ -5,8 +5,6 @@ export const pagesComponents = {
   "v-8daa1a0e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8daa1a0e" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/index.html.vue")),
   // path: /docs/
   "v-147825fb": defineAsyncComponent(() => import(/* webpackChunkName: "v-147825fb" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/index.html.vue")),
-  // path: /liilib/
-  "v-744d9dbd": defineAsyncComponent(() => import(/* webpackChunkName: "v-744d9dbd" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/liilib/index.html.vue")),
   // path: /docs/ComputerNetworks/basics.html
   "v-499b4e40": defineAsyncComponent(() => import(/* webpackChunkName: "v-499b4e40" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/ComputerNetworks/basics.html.vue")),
   // path: /docs/ComputerNetworks/
@@ -91,6 +89,12 @@ export const pagesComponents = {
   "v-277e7f52": defineAsyncComponent(() => import(/* webpackChunkName: "v-277e7f52" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/Webpack/basics.html.vue")),
   // path: /docs/Webpack/
   "v-398a697d": defineAsyncComponent(() => import(/* webpackChunkName: "v-398a697d" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/Webpack/index.html.vue")),
+  // path: /tools/liilib/
+  "v-134f9049": defineAsyncComponent(() => import(/* webpackChunkName: "v-134f9049" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/liilib/index.html.vue")),
+  // path: /tools/simplifyDeploy/
+  "v-ee735d5c": defineAsyncComponent(() => import(/* webpackChunkName: "v-ee735d5c" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/simplifyDeploy/index.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/404.html.vue")),
+  // path: /tools/
+  "v-d440f426": defineAsyncComponent(() => import(/* webpackChunkName: "v-d440f426" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/index.html.vue")),
 }

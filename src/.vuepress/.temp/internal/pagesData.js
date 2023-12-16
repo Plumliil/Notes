@@ -3,8 +3,6 @@ export const pagesData = {
   "v-8daa1a0e": () => import(/* webpackChunkName: "v-8daa1a0e" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/index.html.js").then(({ data }) => data),
   // path: /docs/
   "v-147825fb": () => import(/* webpackChunkName: "v-147825fb" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/index.html.js").then(({ data }) => data),
-  // path: /liilib/
-  "v-744d9dbd": () => import(/* webpackChunkName: "v-744d9dbd" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/liilib/index.html.js").then(({ data }) => data),
   // path: /docs/ComputerNetworks/basics.html
   "v-499b4e40": () => import(/* webpackChunkName: "v-499b4e40" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/ComputerNetworks/basics.html.js").then(({ data }) => data),
   // path: /docs/ComputerNetworks/
@@ -89,6 +87,12 @@ export const pagesData = {
   "v-277e7f52": () => import(/* webpackChunkName: "v-277e7f52" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/Webpack/basics.html.js").then(({ data }) => data),
   // path: /docs/Webpack/
   "v-398a697d": () => import(/* webpackChunkName: "v-398a697d" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/docs/Webpack/index.html.js").then(({ data }) => data),
+  // path: /tools/liilib/
+  "v-134f9049": () => import(/* webpackChunkName: "v-134f9049" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/liilib/index.html.js").then(({ data }) => data),
+  // path: /tools/simplifyDeploy/
+  "v-ee735d5c": () => import(/* webpackChunkName: "v-ee735d5c" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/simplifyDeploy/index.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
+  // path: /tools/
+  "v-d440f426": () => import(/* webpackChunkName: "v-d440f426" */"E:/A_Personal/Plumliil-docs/src/.vuepress/.temp/pages/tools/index.html.js").then(({ data }) => data),
 }

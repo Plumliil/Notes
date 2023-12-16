@@ -366,18 +366,16 @@
 </table>
 <p>如果要注册的bean对象来自第三方(不是自定义的),是无法使用@Component及其衍生注解声明bean的</p>
 <p>如果要注册第三方bean,建议在启动类中集中注册</p>
-<h3 id="自动配置-1" tabindex="-1"><a class="header-anchor" href="#自动配置-1" aria-hidden="true">#</a> 自动配置</h3>
-<h3 id="自定义stater" tabindex="-1"><a class="header-anchor" href="#自定义stater" aria-hidden="true">#</a> 自定义stater</h3>
-<!-- 
-### SpringBoot 简单搭建本地接口
-
-Spring boot 简单步骤
-
-1. 建立 entity 实体类，跟数据库表字段保持一致
-2. 建立 mapper 接口，定义要操作数据库的动作
-3. 建立 mapper 的 xml 文件，写具体的 sql 语句
-4. 建立 service 类，处理业务逻辑
-5. 在 controller 类中展示处理的结果 -->
+<h3 id="项目启动" tabindex="-1"><a class="header-anchor" href="#项目启动" aria-hidden="true">#</a> 项目启动</h3>
+<h4 id="threadlocal" tabindex="-1"><a class="header-anchor" href="#threadlocal" aria-hidden="true">#</a> ThreadLocal</h4>
+<p>ThreadLocal是JDK提供的线程安全的变量，可以用来存取数据。</p>
+<p>示例场景:
+在用户登录后，需要将用户信息存入ThreadLocal中，以便后续的业务逻辑使用。</p>
+<ul>
+<li>用来存取数据</li>
+<li>使用ThreadLocal存取数据线程安全</li>
+<li>用完需调用remove方法进行释放</li>
+</ul>
 </div></template>
 
 

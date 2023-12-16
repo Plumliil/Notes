@@ -1,1 +1,0 @@
-import{_ as a,W as s,X as t,Z as e,$ as c}from"./framework-1dfc2d2d.js";const r={},o=e("h1",{id:"基础篇",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#基础篇","aria-hidden":"true"},"#"),c(" 基础篇")],-1),n=[o];function _(d,i){return s(),t("div",null,n)}const l=a(r,[["render",_],["__file","basics.html.vue"]]);export{l as default};
