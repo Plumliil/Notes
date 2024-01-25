@@ -286,3 +286,122 @@ body.addEventListener("click", (e) => {
   - `type Partial<T> = {[P in keyof T]?: T[P];};`
 - Required 将类型中所有选项变为必选，去除所有？
   - `type Required<T> = {[P in keyof T]-?: T[P];};`
+
+
+
+### 装饰器
+#### 类装饰器 ClassDecorator
+```ts
+const doc: ClassDecorator = (target: any) => {
+  console.log(target);
+  target.prototype.name = 'lee'
+}
+
+@doc
+class Plumlee {
+  constructor() {
+  }
+}
+
+
+const plum: any = new Plumlee()
+console.log('plum', plum.name);
+```
+
+修饰类 @doc等同于 doc(Plumlee)  我们可以通过装饰器来对类进行操作,修改属性等
+
+#### 属性装饰器 PropertyDecorator
+```ts
+const doc: PropertyDecorator = (target: any, key: string | symbol) => {
+  console.log(target, key); // {} name
+}
+
+class Plumlee {
+  @doc
+  public name: string
+  constructor() {
+    this.name = 'lee'
+  }
+ 
+}
+
+
+const plum: any = new Plumlee()
+
+```
+
+#### 方法装饰器 MethodDecorator
+```ts
+const doc: MethodDecorator = (target: any, key: string | symbol, descriptor: any) => {
+  console.log(target, key, descriptor);
+//   {} getName {
+//   value: [Function: getName],
+//   writable: true,
+//   enumerable: false,
+//   configurable: true
+// }
+}
+
+class Plumlee {
+  public name: string
+  constructor() {
+    this.name = 'lee'
+  }
+  @doc
+  getName() {}
+}
+
+
+const plum: any = new Plumlee()
+```
+
+实例:实现一个Get方法装饰器
+
+```ts
+import axios from 'axios'
+
+const Get = (url: string) => {
+  return (target: any, key: any, descriptor: PropertyDescriptor) => {
+    const fnc = descriptor.value;
+    axios.get(url).then(res => {
+      fnc(res, {
+        status: 200,
+        success: true
+      })
+    }).catch(e => {
+      fnc(e, {
+        status: 500,
+        success: false
+      })
+    })
+  }
+}
+
+class Controller {
+  constructor() { }
+  @Get('https://api.apiopen.top/api/getHaoKanVideo?page=0&size=10')
+  getList(res: any, status: any) {
+    console.log({ res:res.data.result.list, status });
+  }
+}
+```
+
+#### 参数装饰器
+```ts
+const doc: ParameterDecorator = (target: any, key: string | symbol | undefined, index: any) => {
+  console.log(target, key, index); // {} getName 1
+}
+
+class Plumlee {
+  public name: string
+  constructor() {
+    this.name = 'lee'
+  }
+
+  getName(name: string, @doc age: number) { }
+}
+
+
+const plum: any = new Plumlee()
+
+```
