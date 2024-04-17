@@ -26,3 +26,12 @@ cp my_file ./my_copy_file
 cp -r my_file_dir/ ./my_copy_file_dir/
 ```
 - -r 表示递归，是对多个文件的操作
+
+### 安装vi/vim
+
+```shell
+apt-get update
+apt-get install vim
+```
+- 更新软件源
+- 安装vim
