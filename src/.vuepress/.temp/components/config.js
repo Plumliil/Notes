@@ -1,13 +1,13 @@
 import { defineClientConfig } from "@vuepress/client";
-import { hasGlobalComponent } from "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/shared.js";
+import { hasGlobalComponent } from "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/shared.js";
 import { h } from "vue";
 
-import { useStyleTag } from "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/vueuse.js";
-import Badge from "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
-import FontIcon from "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
-import BackToTop from "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
+import { useStyleTag } from "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/vueuse.js";
+import Badge from "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/components/Badge.js";
+import FontIcon from "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/components/FontIcon.js";
+import BackToTop from "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/components/BackToTop.js";
 
-import "E:/A_Personal/Plumliil-docs/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
+import "E:/MySpace/docs/node_modules/vuepress-plugin-components/lib/client/styles/sr-only.scss";
 
 export default defineClientConfig({
   enhance: ({ app }) => {

@@ -1,1 +1,14 @@
-export const data = JSON.parse("{\"key\":\"v-33d14740\",\"path\":\"/docs/Nodejs/advance.html\",\"title\":\"进阶篇\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"暂无内容...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/docs/Nodejs/advance.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Plumliil-Docs\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"进阶篇\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"暂无内容...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"og:updated_time\",\"content\":\"2023-06-19T05:05:58.000Z\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Plumliil\"}],[\"meta\",{\"property\":\"article:modified_time\",\"content\":\"2023-06-19T05:05:58.000Z\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"进阶篇\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":\\\"2023-06-19T05:05:58.000Z\\\",\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Plumliil\\\",\\\"url\\\":\\\"https://plumliil.cn\\\"}]}\"]]},\"headers\":[],\"git\":{\"createdTime\":1687151158000,\"updatedTime\":1687151158000,\"contributors\":[{\"name\":\"plumliil_li\",\"email\":\"plumliil.li@elitesland.com\",\"commits\":1}]},\"readingTime\":{\"minutes\":0.03,\"words\":8},\"filePathRelative\":\"docs/Nodejs/advance.md\",\"localizedDate\":\"June 19, 2023\",\"autoDesc\":true}")
+export const data = JSON.parse("{\"key\":\"v-33d14740\",\"path\":\"/docs/Nodejs/advance.html\",\"title\":\"进阶篇\",\"lang\":\"en-US\",\"frontmatter\":{\"description\":\"暂无内容...\",\"head\":[[\"meta\",{\"property\":\"og:url\",\"content\":\"https://vuepress-theme-hope-docs-demo.netlify.app/docs/Nodejs/advance.html\"}],[\"meta\",{\"property\":\"og:site_name\",\"content\":\"Plumliil-Docs\"}],[\"meta\",{\"property\":\"og:title\",\"content\":\"进阶篇\"}],[\"meta\",{\"property\":\"og:description\",\"content\":\"暂无内容...\"}],[\"meta\",{\"property\":\"og:type\",\"content\":\"article\"}],[\"meta\",{\"property\":\"og:locale\",\"content\":\"en-US\"}],[\"meta\",{\"property\":\"article:author\",\"content\":\"Plumliil\"}],[\"script\",{\"type\":\"application/ld+json\"},\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@type\\\":\\\"Article\\\",\\\"headline\\\":\\\"进阶篇\\\",\\\"image\\\":[\\\"\\\"],\\\"dateModified\\\":null,\\\"author\\\":[{\\\"@type\\\":\\\"Person\\\",\\\"name\\\":\\\"Plumliil\\\",\\\"url\\\":\\\"https://plumliil.cn\\\"}]}\"]]},\"headers\":[],\"readingTime\":{\"minutes\":0.03,\"words\":8},\"filePathRelative\":\"docs/Nodejs/advance.md\",\"autoDesc\":true}")
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

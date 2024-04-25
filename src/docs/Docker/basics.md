@@ -45,31 +45,6 @@ COPY index.js /index.js
 CMD node /index.js
 ```
 
-``` shell
-# 构建镜像
-docker build -t hellodocker .
-```
-
-```shell
-# 查看构建的镜像
-docker images ls
-```
-
-```shell
-# 运行镜像
-docker run hello-docker
-```
-
-```shell
-# 登录docker hub
-docker login
-```
-
-```shell
-# 对镜像tag标记并容器转镜像 镜像id docker images查看
-docker tag {镜像ID号}{dockerhub用户名}/{仓库名}:{tag}
-```
-
 ```shell
 # 提交容器 docker ps -a 显示容器信息
 docker commit {容器ID号}{dockerhub用户名}/{仓库名}:{tag}
@@ -88,6 +63,32 @@ docker pull {dockerhub用户名}/{仓库名}:{tag}
 
 ## 常用命令
 
+### 构建镜像
+```bash
+docker build -t <image-name>:<tag> -f <Dockerfile-path> <context-path>
+```
+- `docker build`: 这是构建Docker镜像的命
+- `-t <image-name>:<tag>`: 指定构建后的镜像名称和标签。其中，`<image-name>`是您为镜像起的名称，`<tag>`是镜像的标签（如版本号），通常为latest或具体的版本号（如1.0.0）。如果省略标签，默认为latest。例如：-t my-app:latest。
+- `-f <Dockerfile-path>`: （可选）指定Dockerfile的路径。如果Dockerfile位于当前目录下且名为"Dockerfile"，则可以省略此选项。否则，请提供Dockerfile的完整路径，如-f `/path/to/Dockerfile`。
+- `<context-path>`: （可选）指定构建上下文的路径，即Docker将发送到守护进程进行构建的目录路径。守护进程会将该路径下的所有内容（包括子目录）打包成tar文件发送到服务器端。默认情况下，上下文路径是执行`docker build`命令时所在的目录。例如：.表示当前目录，`/path/to/context`表示指定的目录。
+
+### 对镜像tag标记并容器转镜像
+```shell
+docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
+- SOURCE_IMAGE[:TAG]：源镜像的名称和标签。如果不指定标签，默认为latest。
+- TARGET_IMAGE[:TAG]：目标镜像的名称和标签，可以是本地或远程仓库的镜像。
+
+示例：
+```shell
+docker tag myapp:latest myapp:v1.0
+```
+或
+```shell
+docker tag myapp:v1.0 registry.example.com/myapp:v1.0-production
+docker push registry.example.com/myapp:v1.0-production
+```
+
 ### 在运行的容器中执行命令 docker exec
 ```shell
 docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
@@ -101,3 +102,4 @@ OPTIONS说明：
 ```shell
 docker exec -it nginx /bin/bash # 进入容器的虚拟终端 /bin/sh
 ```
+##

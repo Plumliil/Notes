@@ -22,6 +22,13 @@
 <span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><ul>
 <li>-r 表示递归，是对多个文件的操作</li>
 </ul>
+<h3 id="安装vi-vim" tabindex="-1"><a class="header-anchor" href="#安装vi-vim" aria-hidden="true">#</a> 安装vi/vim</h3>
+<div class="language-bash line-numbers-mode" data-ext="sh"><pre v-pre class="shiki one-dark-pro" style="background-color: #282c34" tabindex="0"><code><span class="line"><span style="color: #ABB2BF">apt-get </span><span style="color: #98C379">update</span></span>
+<span class="line"><span style="color: #ABB2BF">apt-get </span><span style="color: #98C379">install</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">vim</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><ul>
+<li>更新软件源</li>
+<li>安装vim</li>
+</ul>
 </div></template>
 
 

@@ -28,6 +28,7 @@ export const pagesRoutes = [
   ["v-33d14740","/docs/Nodejs/advance.html",{"y":"a","t":"进阶篇"},["/docs/Nodejs/advance","/docs/Nodejs/advance.md"]],
   ["v-9dd76bea","/docs/Nodejs/basics.html",{"y":"a","t":"基础篇"},["/docs/Nodejs/basics","/docs/Nodejs/basics.md"]],
   ["v-89e82f6e","/docs/Nodejs/",{"y":"a","t":"介绍"},["/docs/Nodejs/index.html","/docs/Nodejs/README.md"]],
+  ["v-02c0c62a","/docs/Notes/0425-IntranetPenetration.html",{"y":"a","t":"服务器内网穿透"},["/docs/Notes/0425-IntranetPenetration","/docs/Notes/0425-IntranetPenetration.md"]],
   ["v-1945dcfc","/docs/React/advance.html",{"y":"a","t":"进阶篇"},["/docs/React/advance","/docs/React/advance.md"]],
   ["v-18db2eae","/docs/React/basics.html",{"y":"a","t":"基础篇"},["/docs/React/basics","/docs/React/basics.md"]],
   ["v-df227f2a","/docs/React/",{"y":"a","t":"介绍"},["/docs/React/index.html","/docs/React/README.md"]],
@@ -46,5 +47,6 @@ export const pagesRoutes = [
   ["v-134f9049","/tools/liilib/",{"y":"a","t":"常用函数库"},["/tools/liilib/index.html","/tools/liilib/README.md"]],
   ["v-ee735d5c","/tools/simplifyDeploy/",{"y":"a","t":"simplify-deploy"},["/tools/simplifyDeploy/index.html","/tools/simplifyDeploy/README.md"]],
   ["v-3706649a","/404.html",{"y":"p","t":""},["/404"]],
+  ["v-eb9e192e","/docs/Notes/",{"y":"p","t":"Notes"},["/docs/Notes/index.html"]],
   ["v-d440f426","/tools/",{"y":"p","t":"Tools"},["/tools/index.html"]],
 ]

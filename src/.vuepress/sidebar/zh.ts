@@ -86,5 +86,11 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: ["README.md", "basics.md"],
     },
+    {
+      text: "随笔",
+      prefix: "notes/",
+      collapsible: true,
+      children: ["0425-IntranetPenetration.md"],
+    },
   ],
 });
