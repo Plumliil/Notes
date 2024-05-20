@@ -71,3 +71,17 @@ git tag -d v1.0.0
 ```shell
 git push origin :refs/tags/v1.0.0
 ```
+
+### 分支重命名
+```shell
+git branch -m oldBranch newBranch
+```
+### 删除远程分支
+```shell
+git push --delete origin oldBranch
+```
+### 推送本地分支到远端
+
+```shell
+git push origin newBranch
+```
