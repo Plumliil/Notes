@@ -85,3 +85,13 @@ git push --delete origin oldBranch
 ```shell
 git push origin newBranch
 ```
+
+### 将本地仓库与远程仓库关联起来
+```shell
+git remote add origin xxxx
+```
+这里的origin是对远程仓库的命名，默认情况下，大部分Git项目都会把主远程仓库命名为origin。xxxx代表远程仓库的URL
+
+- 添加远程: 在你的本地Git仓库中添加一个远程仓库的引用。
+- 命名远程: 给这个远程仓库指定了一个名字，即origin，这个名字是后续推送（push）、拉取（pull）等操作时使用的默认名称。
+- 设置URL: 指定了远程仓库的URL，以便Git知道从哪里推送或拉取代码。
