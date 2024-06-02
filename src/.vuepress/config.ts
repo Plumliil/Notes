@@ -5,7 +5,7 @@ import { searchPlugin } from "@vuepress/plugin-search";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: "",
+  base: "/docs/",
   title: "Plumliil-Docs",
   description: "Learn together and make progress together",
   plugins: [
