@@ -1,7 +1,7 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export const zhSidebar = sidebar({
-  "/docs": [
+  "/notes": [
     {
       text: "Git",
       prefix: "git/",
@@ -45,12 +45,6 @@ export const zhSidebar = sidebar({
       children: ["README.md", "basics.md"],
     },
     {
-      text: "Nodejs",
-      prefix: "nodejs/",
-      collapsible: true,
-      children: ["README.md", "basics.md", "advance.md"],
-    },
-    {
       text: "MongoDB",
       prefix: "mongodb/",
       collapsible: true,
@@ -86,11 +80,11 @@ export const zhSidebar = sidebar({
       collapsible: true,
       children: ["README.md", "basics.md"],
     },
-    {
-      text: "随笔",
-      prefix: "notes/",
-      collapsible: true,
-      children: ["0425-IntranetPenetration.md"],
-    },
+    // {
+    //   text: "随笔",
+    //   prefix: "notes/",
+    //   collapsible: true,
+    //   children: ["0425-IntranetPenetration.md"],
+    // },
   ],
 });

@@ -7,8 +7,8 @@ export const zhNavbar = navbar([
   },
   {
     text: "笔记",
-    prefix: "/docs",
-    link: '/docs'
+    prefix: "/notes",
+    link: '/notes'
   },
   {
     text: "轮子",
