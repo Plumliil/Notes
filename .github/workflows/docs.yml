@@ -17,5 +17,6 @@ jobs:
       - name: 部署 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          cname: docs.plumliil.cn
           branch: gh-pages
           folder: src/.vuepress/dist
