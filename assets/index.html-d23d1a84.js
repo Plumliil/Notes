@@ -1,0 +1,1 @@
+import{_ as t,W as a,X as o,Z as e,$ as s}from"./framework-b3a1bbcf.js";const c={},n=e("h1",{id:"hello-ts",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#hello-ts","aria-hidden":"true"},"#"),s(" Hello TS")],-1),r=[n];function l(_,d){return a(),o("div",null,r)}const h=t(c,[["render",l],["__file","index.html.vue"]]);export{h as default};

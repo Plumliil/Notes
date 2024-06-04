@@ -1,0 +1,1 @@
+import{_ as a,W as t,X as c,Z as e,$ as n}from"./framework-b3a1bbcf.js";const s={},o=e("h1",{id:"进阶篇",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#进阶篇","aria-hidden":"true"},"#"),n(" 进阶篇")],-1),r=e("p",null,"暂无内容...",-1),_=[o,r];function d(i,l){return t(),c("div",null,_)}const f=a(s,[["render",d],["__file","advance.html.vue"]]);export{f as default};
