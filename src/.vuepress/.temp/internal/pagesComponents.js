@@ -91,10 +91,10 @@ export const pagesComponents = {
   "v-02d44c8e": defineAsyncComponent(() => import(/* webpackChunkName: "v-02d44c8e" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/note/Webpack/basics.html.vue")),
   // path: /note/Webpack/
   "v-11d459a6": defineAsyncComponent(() => import(/* webpackChunkName: "v-11d459a6" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/note/Webpack/index.html.vue")),
-  // path: /tool/simplifyDeploy/
-  "v-0422c0e1": defineAsyncComponent(() => import(/* webpackChunkName: "v-0422c0e1" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/simplifyDeploy/index.html.vue")),
   // path: /tool/liilib/
   "v-76800250": defineAsyncComponent(() => import(/* webpackChunkName: "v-76800250" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/liilib/index.html.vue")),
+  // path: /tool/simplifyDeploy/
+  "v-0422c0e1": defineAsyncComponent(() => import(/* webpackChunkName: "v-0422c0e1" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/simplifyDeploy/index.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/404.html.vue")),
   // path: /note/Notes/

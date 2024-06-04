@@ -89,10 +89,10 @@ export const pagesData = {
   "v-02d44c8e": () => import(/* webpackChunkName: "v-02d44c8e" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/note/Webpack/basics.html.js").then(({ data }) => data),
   // path: /note/Webpack/
   "v-11d459a6": () => import(/* webpackChunkName: "v-11d459a6" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/note/Webpack/index.html.js").then(({ data }) => data),
-  // path: /tool/simplifyDeploy/
-  "v-0422c0e1": () => import(/* webpackChunkName: "v-0422c0e1" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/simplifyDeploy/index.html.js").then(({ data }) => data),
   // path: /tool/liilib/
   "v-76800250": () => import(/* webpackChunkName: "v-76800250" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/liilib/index.html.js").then(({ data }) => data),
+  // path: /tool/simplifyDeploy/
+  "v-0422c0e1": () => import(/* webpackChunkName: "v-0422c0e1" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/tool/simplifyDeploy/index.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"E:/MySpace/Notes/src/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
   // path: /note/Notes/
