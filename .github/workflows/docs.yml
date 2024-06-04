@@ -14,9 +14,13 @@ jobs:
         run: |
           yarn install
           yarn docs:build
-      - name: 部署 🚀
+      - name: 部署 github page 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          cname: notes.plumliil.cn
           branch: gh-pages
+          folder: src/.vuepress/dist
+      - name: 部署 cloudflare page 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: cf-pages
           folder: src/.vuepress/dist
