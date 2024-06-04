@@ -5,8 +5,8 @@ import { searchPlugin } from "@vuepress/plugin-search";
 import theme from "./theme.js";
 
 export default defineUserConfig({
-  base: "/docs/",
-  title: "Plumliil-Docs",
+  base: "/notes/",
+  title: "Plumliil-Notes",
   description: "Learn together and make progress together",
   plugins: [
     shikiPlugin({

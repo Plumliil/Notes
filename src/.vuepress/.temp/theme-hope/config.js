@@ -1,10 +1,10 @@
 import { defineClientConfig } from "@vuepress/client";
 
-import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "E:/MySpace/docs/node_modules/vuepress-theme-hope/lib/bundle/export.js";
+import { HopeIcon, Layout, NotFound, useScrollPromise, injectDarkmode, setupDarkmode, setupSidebarItems } from "E:/MySpace/Notes/node_modules/vuepress-theme-hope/lib/bundle/export.js";
 
-import Slide from "E:/MySpace/docs/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
+import Slide from "E:/MySpace/Notes/node_modules/vuepress-plugin-md-enhance/lib/client/SlidePage.js";
 
-import "E:/MySpace/docs/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
+import "E:/MySpace/Notes/node_modules/vuepress-theme-hope/lib/bundle/styles/all.scss";
 
 export default defineClientConfig({
   enhance: ({ app, router }) => {

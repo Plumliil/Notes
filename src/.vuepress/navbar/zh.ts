@@ -7,12 +7,12 @@ export const zhNavbar = navbar([
   },
   {
     text: "笔记",
-    prefix: "/notes",
-    link: '/notes'
+    prefix: "/note",
+    link: '/note'
   },
   {
     text: "轮子",
-    prefix: "/tools",
+    prefix: "/tool",
     children: [
       {
         text: "前端部署工具",

@@ -1,20 +1,7 @@
-# 指引
-
-## 已整理待完善
-
-- [x] JavaScript
-- [x] TypeScript
-- [x] React
-- [x] Vue
-- [x] Less
-- [x] MongoDB
-- [x] Linux
-- [x] Nginx
-- [x] Java
-- [x] Mysql
-- [x] Git
-- [x] Docker
-<!-- - [x] Nodejs -->
+### 笔记
 
 
-**笔记整理完毕,[`notes`](https://github.com/Plumliil/notes)仓库关闭,[`docs`](https://github.com/Plumliil/docs)仓库保持更新**
+### 工具
+
+
+### 其他

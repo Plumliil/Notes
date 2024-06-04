@@ -1,9 +1,9 @@
 ---
 home: true
 icon: home
-title: Plumliil Docs
+title: Plumliil Notes
 heroImage: /logo.png
-heroText: Plumliil Docs
+heroText: Plumliil Notes
 # tagline: You can place the description of the project here.
 # actions:
 #   - text: How to Use 💡
@@ -17,32 +17,32 @@ features:
   - title: JavaScript
     icon: javascript
     details: JavaScript 编程语言允许你在 Web 页面上实现复杂的功能。
-    link: /notes/JavaScript/
+    link: /note/JavaScript/
 
   - title: TypeScript
     icon: typescript
     details: TypeScript 是 JavaScript 的一个超集，支持 ECMAScript 6 标准
-    link: /notes/TypeScript/
+    link: /note/TypeScript/
 
   - title: React
     icon: react
     details: 一个自由及开放源代码的前端工具库,用于基于UI组件构建用户界面。
-    link: /notes/React/
+    link: /note/React/
 
   - title: Vue
     icon: vue
     details: 渐进式JavaScript框架易学易用,性能出色,适用场景丰富的Web前端框架。
-    link: /notes/Vue/
+    link: /note/Vue/
 
   - title: MySql
     icon: mysql
     details: 用于构建和管理各种类型的数据库应用程序。
-    link: /notes/MySql
+    link: /note/MySql
 
   - title: Git
     icon: git
     details: 开发协作，代码管理
-    link: /notes/git/basics.html
+    link: /note/git/basics.html
 
 copyright: false
 # footer: Theme by <a href="https://theme-hope.vuejs.press/" target="_blank">VuePress Theme Hope</a> | MIT Licensed, Copyright © 2019-present Mr.Hope
