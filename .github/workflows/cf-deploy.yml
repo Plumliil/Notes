@@ -11,7 +11,8 @@ jobs:
       - name: 读取仓库内容 👀
         uses: actions/checkout@v4
       - name: 修改 base 配置为 /
-        run: sed -i 's|base: .*,|base: "/",|' src/.vuepress/config.js
+        run: |
+            sed -i 's|base: .*,|base: "/",|' src/.vuepress/config.ts
       - name: 安装依赖 + 构建文档 📚
         run: |
           yarn install
