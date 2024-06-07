@@ -74,26 +74,18 @@ Nginx的配置⽂件是由⼀系列的指令组成的，每个指令都是由⼀
 指令和参数之间使⽤空格来分隔，指令以分号 ; 结尾，参数可以使⽤单引号或者双引号来包
 裹
 
-```txt
+```yml
 # 全局配置
-
 worker_processes 1
-
 events {
   # events配置
 }
 http {
-  
   # http配置
-  
   server {
-  
    # server配置
-  
     location / {
-
       # location配置
-  
     }
   }
 }
@@ -106,7 +98,7 @@ http {
 器整体运⾏的配置指令，主要包括配置运⾏Nginx服务器的⽤户（组）、允许⽣成的worker
 process数、进程PID存放路径、⽇志存放路径和类型以及配置⽂件引⼊等
 
-```txt
+```yml
 # 指定运⾏Nginx服务器的⽤户，只能在全局块配置
 # 将user指令注释掉，或者配置成nobody的话所有⽤户都可以运⾏
 # user [user] [group]
@@ -121,7 +113,7 @@ pid /var/run/nginx.pid
 ```
 ### events配置
 
-```txt
+```yml
 events {
 # 指定使⽤哪种⽹络IO模型，只能在events块中进⾏配置
 # use epoll
@@ -134,7 +126,7 @@ events {
 
 http块是配置⽂件的主要部分，包括http全局块和server
 
-```txt
+```yml
 http {
 # nginx 可以使⽤include指令引⼊其他配置⽂件
  include /etc/nginx/mime.types;
@@ -185,7 +177,7 @@ erver {
 ### server配置
 server块是配置虚拟主机的，⼀个http块可以包含多个server块，每个server块就是⼀个虚拟主机
 
-```txt
+```yml
 server {
 # 监听IP和端⼝
 # listen的格式为：
@@ -198,8 +190,7 @@ server {
 # listen *:80; # 监听来⾃所有IP的80端⼝的请求，同上
 # listen 127.0.0.1; # 监听来⾃来⾃127.0.0.1的80端⼝，默认端⼝为80
  listen 80;
-# server_name ⽤来指定虚拟主机的域名，可以使⽤精确匹配、通配符匹配和正则匹配等
-⽅式
+# server_name ⽤来指定虚拟主机的域名，可以使⽤精确匹配、通配符匹配和正则匹配等⽅式
 # server_name example.org www.example.org; # 精确匹配
 # server_name *.example.org; # 通配符匹配
 # server_name ~^www\d+\.example\.net$; # 正则匹配
@@ -246,6 +237,117 @@ location块就是⼀个请求路由
 反向代理代理服务端
 客户端访问一个网站时访问域名,域名分发到不同服务器上
 
+### 反向代理
+反向代理服务器是一个位于客户端和后端服务器之间的服务器。客户端发送请求到反向代理服务器，然后反向代理服务器将请求转发到后端服务器并将响应返回给客户端。
+
+### 负载均衡
+负载均衡器分配传入的网络流量到多个后端服务器（也称为上游服务器），以确保不单个服务器过载并优化资源使用。
+
+配置示例
+
+```yml
+http {
+    upstream backend_servers_1 {
+        # 定义上游服务器池
+        server 192.168.1.101:8080;
+        server 192.168.1.102:8080;
+        server 192.168.1.103:8080;
+    }
+    
+    upstream backend_servers_2 {
+        # 定义上游服务器池
+        server 192.168.1.101:8080;
+        server 192.168.1.102:8080;
+        server 192.168.1.103:8080;
+    }
+
+    server {
+        listen 80;
+        server_name example.com;
+
+        location / {
+            proxy_pass http://backend_servers_1; # 将请求转发到上游服务器池
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+        location /api/ {
+            proxy_pass http://backend_servers_2; # 将请求转发到上游服务器池
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # 处理静态文件请求
+        location /static {
+            root /var/www/html;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            root /var/www/html;
+        }
+    }
+}
+```
+
+
+### 负载均衡策略
+Nginx支持多种负载均衡策略，可以通过在 upstream 块中配置来实现。
+
+#### 1. 轮询（Round Robin）
+默认策略，依次将请求分配给每个服务器。
+
+```yml
+upstream backend_servers {
+    server 192.168.1.101:8080;
+    server 192.168.1.102:8080;
+    server 192.168.1.103:8080;
+}
+```
+#### 2. 最少连接数（Least Connections）
+将请求分配给当前连接数最少的服务器。
+```yml
+upstream backend_servers {
+    least_conn;
+    server 192.168.1.101:8080;
+    server 192.168.1.102:8080;
+    server 192.168.1.103:8080;
+}
+```
+
+#### 3. IP哈希（IP Hash）
+基于客户端IP地址的哈希值分配请求，确保同一客户端的请求总是被分配到同一台服务器（用于会话保持）。
+
+```yml
+upstream backend_servers {
+    ip_hash;
+    server 192.168.1.101:8080;
+    server 192.168.1.102:8080;
+    server 192.168.1.103:8080;
+}
+```
+
+
+#### 4. 加权轮询（Weighted Round Robin）
+为每台服务器分配权重，根据权重比例分配请求。
+
+
+```yml
+upstream backend_servers {
+    server 192.168.1.101:8080 weight=3;
+    server 192.168.1.102:8080 weight=1;
+    server 192.168.1.103:8080 weight=2;
+}
+```
+
+#### 注释
+- proxy_set_header Host $host;: 设置 Host 头。
+- proxy_set_header X-Real-IP $remote_addr;: 设置 X-Real-IP 头，以便后端服务器可以获取客户端的真实IP地址。
+- proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;: 设置 X-Forwarded-For 头，用于记录客户端IP地址。
+- proxy_set_header X-Forwarded-Proto $scheme;: 设置 X-Forwarded-Proto 头，以便后端服务器知道请求的协议（http 或 https）。
 
 
 > Nginx官方文档
