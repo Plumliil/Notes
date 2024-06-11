@@ -1,5 +1,12 @@
 # 基础篇
 
+## 连接服务器
+```shell
+# 连接服务器
+ssh root@192.168.1.123
+
+```
+
 ## 基本命令
 
 - cd 切换目录 ~ 家目录 . 当前目录 .. 上级目录 - 上次所在目录
@@ -69,3 +76,5 @@ unzip mydir.zip mydir
 - unzip: 调用 unzip 程序，unzip 是一个用于解压 ZIP 文件的工具。
 - mydir.zip: 要解压的 ZIP 文件的名称。
 - mydir: 解压到目标目录
+
+

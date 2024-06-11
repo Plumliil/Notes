@@ -102,4 +102,25 @@ OPTIONS说明：
 ```shell
 docker exec -it nginx /bin/bash # 进入容器的虚拟终端 /bin/sh
 ```
-##
+## linux安装docker-compose
+### 1.去github下载docker-compose
+https://github.com/docker/compose/tags
+### 2.下载好的上传服务器
+```shell
+# 拷贝文件到/usr/local/bin，如果文件已经在/usr/local/bin目录，忽略此步骤
+# 假如二进制文件docker-compose-linux-x86_64上传的目录是：/opt/docker
+cp /opt/docker/docker-compose-linux-x86_64 /usr/local/bin
+
+
+# 更改二进制文件名字
+mv docker-compose-linux-x86_64 docker-compose
+
+```
+### 3.授予权限
+```shell
+sudo chmod +x /usr/local/bin/docker-compose
+```
+### 4.测试安装结果
+```shell
+docker-compose --version
+```
