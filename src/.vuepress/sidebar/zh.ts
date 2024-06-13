@@ -48,7 +48,7 @@ export const zhSidebar = sidebar({
       text: "MongoDB",
       prefix: "mongodb/",
       collapsible: true,
-      children: ["README.md", "basics.md", "advance.md"],
+      children: ["README.md", "basics.md"],
     },
     {
       text: "Nodejs",

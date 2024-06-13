@@ -1,5 +1,5 @@
 export const pagesRoutes = [
-  ["v-8daa1a0e","/",{"y":"h","t":"Plumliil Notes","i":"home"},["/index.html","/README.md"]],
+  ["v-8daa1a0e","/",{"y":"h","t":"Plumliil Docs","i":"home"},["/index.html","/README.md"]],
   ["v-15054f24","/note/",{"y":"a","t":"指引"},["/note/index.html","/note/README.md"]],
   ["v-e3e6e02e","/note/ComputerNetworks/basics.html",{"y":"a","t":"基础篇"},["/note/ComputerNetworks/basics","/note/ComputerNetworks/basics.md"]],
   ["v-d676bdaa","/note/ComputerNetworks/",{"y":"a","t":"介绍"},["/note/ComputerNetworks/index.html","/note/ComputerNetworks/README.md"]],

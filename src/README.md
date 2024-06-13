@@ -1,9 +1,9 @@
 ---
 home: true
 icon: home
-title: Plumliil Notes
+title: Plumliil Docs
 heroImage: /logo.png
-heroText: Plumliil Notes
+heroText: Plumliil Docs
 # tagline: You can place the description of the project here.
 # actions:
 #   - text: How to Use 💡
