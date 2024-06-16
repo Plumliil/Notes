@@ -1,6 +1,6 @@
 import { defineClientConfig } from "@vuepress/client";
-import { setupPWA } from "E:/MySpace/Notes/node_modules/.pnpm/vuepress-plugin-pwa2@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-pwa2/lib/client/composables/setup.js";
-import SWUpdatePopup from "E:/MySpace/Notes/node_modules/.pnpm/vuepress-plugin-pwa2@2.0.0-beta.203_vuepress@2.0.0-beta.61/node_modules/vuepress-plugin-pwa2/lib/client/components/SWUpdatePopup.js";
+import { setupPWA } from "E:/MySpace/docs/node_modules/vuepress-plugin-pwa2/lib/client/composables/setup.js";
+import SWUpdatePopup from "E:/MySpace/docs/node_modules/vuepress-plugin-pwa2/lib/client/components/SWUpdatePopup.js";
 
 
 export default defineClientConfig({

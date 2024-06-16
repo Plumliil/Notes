@@ -1,7 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import { zhNavbar } from "./navbar/index.js";
 import { zhSidebar } from "./sidebar/index.js";
-
+import { defineUserConfig } from "vuepress";
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
   navbarLayout: {
@@ -27,16 +27,21 @@ export default hopeTheme({
       footer: "Learn Together Progress Together",
       displayFooter: true,
       // page meta
-      metaLocales: {
-        editLink: "在 GitHub 上编辑此页",
-      },
+      // metaLocales: {
+      //   editLink: "在 GitHub 上编辑此页",
+      // },
     },
   },
   print: false,
   pure: true,
   plugins: {
     prismjs: false,
-
+    docsearch: {
+      // 你的选项
+      // appId, apiKey 和 indexName 是必填的
+      appId: "M8CSKJL945",
+      apiKey: "b32d4a2644652d08db25917560e04e92",
+    },
     // all features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,

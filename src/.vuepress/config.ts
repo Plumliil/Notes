@@ -1,6 +1,5 @@
 import { defineUserConfig } from "vuepress";
 import { shikiPlugin } from "@vuepress/plugin-shiki";
-import { searchPlugin } from "@vuepress/plugin-search";
 
 import theme from "./theme.js";
 

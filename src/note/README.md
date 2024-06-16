@@ -14,7 +14,7 @@
 - [x] Mysql
 - [x] Git
 - [x] Docker
-<!-- - [x] Nodejs -->
+- [x] Nodejs
 
 
-**笔记整理完毕,[`notes`](https://github.com/Plumliil/notes)仓库关闭,[`docs`](https://github.com/Plumliil/docs)仓库保持更新**
+**笔记整理完毕,[`docs`](https://github.com/Plumliil/docs)仓库保持更新**
