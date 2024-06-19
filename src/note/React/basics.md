@@ -269,16 +269,24 @@ function MyComp() {
 
 
 生命周期的运用在Class组件和函数组件中也有区别,先贴上一张流传比较广React的生命周期图示
-![React生命周期.png](https://s2.loli.net/2023/03/29/JPTiefqmlMRprbG.png)
+<!-- ![.png](https://s2.loli.net/2023/03/29/JPTiefqmlMRprbG.png) -->
+<img src="./images/lifecycle.png" alt="React生命周期" />
 
 React的生命周期可以分为
 - constructor:在组件挂载前被调用,并且如果必要的话需要在其他语句之前在此调用super(),通常在此生命周期中来初始化state数据以及为事件处理函数绑定实例
-- static getDerivedStateFromProps:语义化的意思是从props中湖区state,作用是将传入的props映射到state上,在render方法前调用,并且在每次渲染时都会调用,对于我来说,这个生命周期函数很少会用到
+
+- static getDerivedStateFromProps:语义化的意思是从props中获取state,作用是将传入的props映射到state上,在render方法前调用,并且在每次渲染时都会调用,这个生命周期函数很少会用到
+
 - render:该方法是class组件中唯一必须实现的方法，用于渲染dom, render()方法必须返回reactDOM
+
 - conponentDidMount:组件挂载后立即调用,最常用到的生命周期函数,通常在这里进行网络请求的发起以及事件监听方法的启用,并且可以在此直接调用setState()进行state修改
+
 - shouldComponentUpdate:组件更新前调用,可以控制组件是否更新,返回true时组件更新,false时组件不更新,值得注意的是在此调用setState会持续触发组件更新渲染,直到内存崩溃
+
 - getSnapshotBeforeUpdate:在最近一次的渲染输出被提交前调用,即render后componentDidMount前
+
 - componentDidUpdate:会在组件更新后立即调用,首次渲染组件时不执行该生命周期函数
+
 - componentWillUnmount:在组建即将被卸载或者销毁时进行调用,在此处可以移除监听事件或定时器,清理Dom元素等操作
 
 生命周期的执行顺序如下:
@@ -503,3 +511,8 @@ function Parent() {
 React 的状态提升就是用户对子组件操作，子组件不改变自己的状态，通过自己的`props`事件把这个操作改变的数据传递给父组件，改变父组件的状态，从而改变受父组件控制的所有子组件的状态，这也是**React单项数据流**的特性决定的。
 
 > 在 React 应用中，任何可变数据应当只有一个相对应的唯一“数据源”。通常，state 都是首先添加到需要渲染数据的组件中去。然后，如果其他组件也需要这个 state，那么你可以将它提升至这些组件的最近共同父组件中。你应当依靠自上而下的数据流，而不是尝试在不同组件间同步 state。[React 状态提升](https://react.docschina.org/docs/lifting-state-up.html)
+
+
+
+
+
